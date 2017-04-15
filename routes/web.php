@@ -19,5 +19,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/routine', 'RoutineController@index');
-/*Route::get('routine',['as'=>'classroutine','uses'=>'RoutineController@routine']);*/
+Route::get('/routine/{id}', 'RoutineController@index');
+Route::get('/resource/{id}', 'ResourceController@index');
