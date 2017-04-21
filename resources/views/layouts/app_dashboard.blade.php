@@ -84,30 +84,30 @@
                                     Resource <span class="caret"></span>
                                 </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">1/1(a)</a></li>
-                            <li><a href="#">1/1(b)</a></li>
-                            <li><a href="#">1/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1</a></li>
-                            <li><a class="dropdown-item" href="#">1/2</a></li>
-                            <li><a class="dropdown-item" href="#">2/1</a></li>
-                            <li><a class="dropdown-item" href="#">2/2</a></li>
-                            <li><a class="dropdown-item" href="#">3/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/11a')}}">1/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/11b')}}">1/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/12a')}}">1/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/12b')}}">1/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/21a')}}">2/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/21b')}}">2/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/22a')}}">2/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/22b')}}">2/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/31a')}}">3/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/31b')}}">3/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/32a')}}">3/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/32b')}}">3/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/41a')}}">4/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/41b')}}">4/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/42a')}}">4/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/42b')}}">4/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/11')}}">1/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/12')}}">1/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/21')}}">2/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/22')}}">2/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/31')}}">3/1</a></li>
                             <li><a class="dropdown-item" href="{{ url('/resource/32')}}">3/2</a></li>
-                            <li><a class="dropdown-item" href="#">4/1</a></li>
-                            <li><a class="dropdown-item" href="#">4/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/41')}}">4/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/resource/42')}}">4/2</a></li>
                             </ul>
                         
                     </li>
@@ -116,30 +116,30 @@
                                     Result <span class="caret"></span>
                                 </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">1/1(a)</a></li>
-                            <li><a href="#">1/1(b)</a></li>
-                            <li><a href="#">1/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1</a></li>
-                            <li><a class="dropdown-item" href="#">1/2</a></li>
-                            <li><a class="dropdown-item" href="#">2/1</a></li>
-                            <li><a class="dropdown-item" href="#">2/2</a></li>
-                            <li><a class="dropdown-item" href="#">3/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/11a')}}">1/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/11b')}}">1/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/12a')}}">1/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/12b')}}">1/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/21a')}}">2/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/21b')}}">2/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/22a')}}">2/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/22b')}}">2/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/31a')}}">3/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/31b')}}">3/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/32a')}}">3/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/32b')}}">3/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/41a')}}">4/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/41b')}}">4/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/42a')}}">4/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/42b')}}">4/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/11')}}">1/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/12')}}">1/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/21')}}">2/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/22')}}">2/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/31')}}">3/1</a></li>
                             <li><a class="dropdown-item" href="{{ url('/result/32')}}">3/2</a></li>
-                            <li><a class="dropdown-item" href="#">4/1</a></li>
-                            <li><a class="dropdown-item" href="#">4/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/41')}}">4/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/42')}}">4/2</a></li>
                             </ul>
                         
                     </li>

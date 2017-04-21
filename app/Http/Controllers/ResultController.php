@@ -11,13 +11,151 @@ class ResultController extends Controller
     public function index($request)
     {
         $data1=[];
-    	if($request=="32")
-    	{
-    		$data1=DB::table('results')->get();
-            return view('result', compact('data1'));
-    	}
-    	else $data1=DB::table('results')->get();
-        return view('result', compact('data1'));
+        if($request=="11a")
+        {
+            $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1'))->withSuccess('Result 1/1(a)');
+        }
+        else if($request=="11b")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="12a")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="12b")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="21a")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="21b")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="22a")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="22b")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="31a")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="31b")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="32a")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="32b")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="41a")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="41b")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="42a")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="42b")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="11")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="12")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+
+        else if($request=="21")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="22")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="31")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="32")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="41")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
+        else if($request=="42")
+        {
+           $data1=DB::table('results')->where('batch', '=', $request)
+                                     ->get();
+            return view('result', compact('data1')); 
+        }
     }
     public function save(Request $request)
     {
