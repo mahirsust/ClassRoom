@@ -4,24 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app_dashboard.name', 'Class Room Management') }}</title>
+    <title>Class Room Management</title>
 
+    <div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 1000; background: rgb(64, 64, 64); cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 6px; height: 138px; background-color: rgb(232, 64, 63); background-clip: padding-box; border-radius: 10px;"></div></div>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="shortcut icon" href="images/cse2.png">
-
     <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+            ]); ?>
+        </script>
 </head>
 <body>
     <div id="app">
@@ -49,48 +47,46 @@
                     <!-- <li class="active"><a href="#">Home</a></li> -->
 
                     <li><a href="{{ url('/home')}}">Dashboard</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Routine
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Routine <span class="caret"></span>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <ul>
-                            <li><a class="dropdown-item" href="#">1/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1</a></li>
-                            <li><a class="dropdown-item" href="#">1/2</a></li>
-                            <li><a class="dropdown-item" href="#">2/1</a></li>
-                            <li><a class="dropdown-item" href="#">2/2</a></li>
-                            <li><a class="dropdown-item" href="#">3/1</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/routine/32')}}">3/2</a></li>
-                            <li><a class="dropdown-item" href="#">4/1</a></li>
-                            <li><a class="dropdown-item" href="#">4/2</a></li>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a tabindex="-1" href="#">1/1(a)</a></li>
+                            <li><a tabindex="-1" href="#">1/1(b)</a></li>
+                            <li><a tabindex="-1" href="#">1/2(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">1/2(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">2/1(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">2/1(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">2/2(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">2/2(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">3/1(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">3/1(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">3/2(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">3/2(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">4/1(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">4/1(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">4/2(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">4/2(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">1/1</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">1/2</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">2/1</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">2/2</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">3/1</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/32')}}">3/2</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">4/1</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="#">4/2</a></li>
                             </ul>
-                        </div>
+                        
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Resource
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <ul>
-                            <li><a class="dropdown-item" href="#">1/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(a)</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Resource <span class="caret"></span>
+                                </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">1/1(a)</a></li>
+                            <li><a href="#">1/1(b)</a></li>
+                            <li><a href="#">1/2(a)</a></li>
                             <li><a class="dropdown-item" href="#">1/2(b)</a></li>
                             <li><a class="dropdown-item" href="#">2/1(a)</a></li>
                             <li><a class="dropdown-item" href="#">2/1(b)</a></li>
@@ -113,17 +109,48 @@
                             <li><a class="dropdown-item" href="#">4/1</a></li>
                             <li><a class="dropdown-item" href="#">4/2</a></li>
                             </ul>
-                        </div>
+                        
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Result
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <ul>
-                            <li><a class="dropdown-item" href="#">1/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(a)</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Result <span class="caret"></span>
+                                </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">1/1(a)</a></li>
+                            <li><a href="#">1/1(b)</a></li>
+                            <li><a href="#">1/2(a)</a></li>
+                            <li><a class="dropdown-item" href="#">1/2(b)</a></li>
+                            <li><a class="dropdown-item" href="#">2/1(a)</a></li>
+                            <li><a class="dropdown-item" href="#">2/1(b)</a></li>
+                            <li><a class="dropdown-item" href="#">2/2(a)</a></li>
+                            <li><a class="dropdown-item" href="#">2/2(b)</a></li>
+                            <li><a class="dropdown-item" href="#">3/1(a)</a></li>
+                            <li><a class="dropdown-item" href="#">3/1(b)</a></li>
+                            <li><a class="dropdown-item" href="#">3/2(a)</a></li>
+                            <li><a class="dropdown-item" href="#">3/2(b)</a></li>
+                            <li><a class="dropdown-item" href="#">4/1(a)</a></li>
+                            <li><a class="dropdown-item" href="#">4/1(b)</a></li>
+                            <li><a class="dropdown-item" href="#">4/2(a)</a></li>
+                            <li><a class="dropdown-item" href="#">4/2(b)</a></li>
+                            <li><a class="dropdown-item" href="#">1/1</a></li>
+                            <li><a class="dropdown-item" href="#">1/2</a></li>
+                            <li><a class="dropdown-item" href="#">2/1</a></li>
+                            <li><a class="dropdown-item" href="#">2/2</a></li>
+                            <li><a class="dropdown-item" href="#">3/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/result/32')}}">3/2</a></li>
+                            <li><a class="dropdown-item" href="#">4/1</a></li>
+                            <li><a class="dropdown-item" href="#">4/2</a></li>
+                            </ul>
+                        
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Notice <span class="caret"></span>
+                                </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">1/1(a)</a></li>
+                            <li><a href="#">1/1(b)</a></li>
+                            <li><a href="#">1/2(a)</a></li>
                             <li><a class="dropdown-item" href="#">1/2(b)</a></li>
                             <li><a class="dropdown-item" href="#">2/1(a)</a></li>
                             <li><a class="dropdown-item" href="#">2/1(b)</a></li>
@@ -146,53 +173,19 @@
                             <li><a class="dropdown-item" href="#">4/1</a></li>
                             <li><a class="dropdown-item" href="#">4/2</a></li>
                             </ul>
-                        </div>
+                        
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Notice
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <ul>
-                            <li><a class="dropdown-item" href="#">1/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1</a></li>
-                            <li><a class="dropdown-item" href="#">1/2</a></li>
-                            <li><a class="dropdown-item" href="#">2/1</a></li>
-                            <li><a class="dropdown-item" href="#">2/2</a></li>
-                            <li><a class="dropdown-item" href="#">3/1</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/routine/32')}}">3/2</a></li>
-                            <li><a class="dropdown-item" href="#">4/1</a></li>
-                            <li><a class="dropdown-item" href="#">4/2</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Info About IICT
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <ul>
-                                <li><a class="dropdown-item" href="#">Ground Floor</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Info About IICT <span class="caret"></span>
+                                </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="dropdown-item" href="#">Ground Floor</a></li>
                                 <li><a class="dropdown-item" href="#">1st Floor</a></li>
                                 <li><a class="dropdown-item" href="#">2nd Floor</a></li>
                                 <li><a class="dropdown-item" href="#">3rd Floor</a></li>
                             </ul>
-                        </div>
+                        
                     </li>
                 </ul>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

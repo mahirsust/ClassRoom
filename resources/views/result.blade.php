@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Resource Table</div>
+                <div class="panel-heading">Result Table</div>
 
                 <div class="panel-body">
                     <!-- {{ Auth::user()->name }}, You are logged in! -->
@@ -49,14 +49,14 @@
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">
-                                          Edit Course Resourse Link
+                                          Edit Course Result Link
                                         </h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                       </div>
                                       <div class="modal-body">
-                                        <form method="POST" action="\resource_updateit">
+                                        <form method="POST" action="\updateit">
                                           {{csrf_field()}}
                                           <div class="form-group">
                                             <label for="recipient-name" class="form-control-label"> 
@@ -73,7 +73,7 @@
                                           </div>
                                           <div class="form-group">
                                             <label for="recipient-name" class="form-control-label"> 
-                                              Resource Link:
+                                              Result Link:
                                             </label>
                                             <input required="" type="text" name="edit_link" class="form-control" 
                                             id="recipient-name">
@@ -103,21 +103,21 @@
             </div>
             <div>
               <button type="submit" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
-                Add Course Resourse Link
+                Add Course Result Link
               </button>
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="myModalLabel">
-                        Add Course Resourse Link
+                        Add Course Result Link
                       </h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form method="POST" action="\resource\32">
+                      <form method="POST" action="\result\32">
                       {{csrf_field()}}
                         <div class="form-group">
                           <label class="form-control-label"> 
@@ -133,9 +133,9 @@
                         </div>
                         <div class="form-group">
                           <label for="recipient-name" class="form-control-label"> 
-                            Resource Link:
+                            Result Link:
                           </label>
-                          <input required="" type="text" name="resource_link" class="form-control" id="recipient-name">
+                          <input required="" type="text" name="result_link" class="form-control" id="recipient-name">
                         </div>
                         <button type="submit" class="btn btn-primary">
                         Save
