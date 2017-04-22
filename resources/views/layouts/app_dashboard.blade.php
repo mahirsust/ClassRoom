@@ -48,34 +48,34 @@
 
                     <li><a href="{{ url('/home')}}">Dashboard</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     Routine <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a tabindex="-1" href="#">1/1(a)</a></li>
-                            <li><a tabindex="-1" href="#">1/1(b)</a></li>
-                            <li><a tabindex="-1" href="#">1/2(a)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">1/2(b)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">2/1(a)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">2/1(b)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">2/2(a)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">2/2(b)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">3/1(a)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">3/1(b)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">3/2(a)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">3/2(b)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">4/1(a)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">4/1(b)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">4/2(a)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">4/2(b)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">1/1</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">1/2</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">2/1</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">2/2</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">3/1</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/11a')}}">1/1(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/11b')}}">1/1(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/12a')}}">1/2(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/12b')}}">1/2(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/21a')}}">2/1(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/21b')}}">2/1(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/22a')}}">2/2(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/22b')}}">2/2(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/31a')}}">3/1(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/31b')}}">3/1(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/32a')}}">3/2(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/32b')}}">3/2(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/41a')}}">4/1(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/41b')}}">4/1(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/42a')}}">4/2(a)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/42b')}}">4/2(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/11')}}">1/1</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/12')}}">1/2</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/21')}}">2/1</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/22')}}">2/2</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/31')}}">3/1</a></li>
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/32')}}">3/2</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">4/1</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="#">4/2</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/41')}}">4/1</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/42')}}">4/2</a></li>
                             </ul>
                         
                     </li>

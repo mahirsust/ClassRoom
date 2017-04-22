@@ -3,25 +3,25 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-info">
                 <div class="panel-heading">Resource Table</div>
 
                 <div class="panel-body">
                     <!-- {{ Auth::user()->name }}, You are logged in! -->
 
-                    <table class="table">
+                    <table class="display table table-bordered table-stripe">
                         <thead>
                           <tr class="panel-default">
-                            <th>ID</th>
-                            <th>Course Name</th>
-                            <th>Link</th>
-                            <th>Manage</th>
+                            <th class="text-center" >ID</th>
+                            <th class="text-center" >Course Name</th>
+                            <th class="text-center" >Link</th>
+                            <th class="text-center" >Manage</th>
                           </tr>
                         </thead>
                         <tbody>
                           @foreach($data1 as $dat)
-                            <tr class="success">
+                            <tr class="default">
                               <td>
                                 <div style="height:100%;width:100%;font-size: 17px;">
                                   {{$dat->id}}.
@@ -39,9 +39,9 @@
                                 </div>
                               </a>
                               </td>
-                              <td>
+                              <td  class="text-center">
                                 <button type="submit" class="btn btn-warning btn-xs btn-edit" 
-                                data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="height:25%;width:30%">
+                                data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="height:20%;width:25%">
                                   Edit
                                 </button>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,33 +60,36 @@
                                           {{csrf_field()}}
                                           <div class="form-group">
                                             <label for="recipient-name" class="form-control-label"> 
+                                              ID
+                                            </label>
+                                            <input required="" type="text" name="edit_cname"
+                                             disabled="disabled" class="form-control" id="recipient-name">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label"> 
                                               Course Name:
                                             </label>
-                                            <input required="" type="text" name="edit_cname" class="form-control" id="recipient-name">
+                                            <input required="" type="text" name="edit_cname" 
+                                             class="form-control" id="recipient-name">
                                           </div>
                                           <div class="form-group">
                                             <label for="recipient-name" class="form-control-label"> 
                                               Title:
-                                            </label>
-                                            <input required="" type="text" name="edit_title" class="form-control"
-                                             id="recipient-name">
-                                          </div>
-                                          <div class="form-group">
-                                            <label for="recipient-name" class="form-control-label"> 
-                                              Resource Link:
-                                            </label>
-                                            <input required="" type="text" name="edit_link" class="form-control" 
-                                            id="recipient-name">
+                                              </label>
+                                              <input required="" type="text" name="edit_title" class="form-control"
+                                               id="recipient-name">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="recipient-name" class="form-control-label"> 
+                                                Resource Link:
+                                              </label>
+                                              <input required="" type="text" name="edit_link" class="form-control"
+                                              id="recipient-name">
                                           </div>
                                         <button type="submit" class="btn btn-primary">
-                                          Save
+                                          Update
                                         </button>
                                         </form>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                          Close
-                                        </button>
                                       </div>
                                     </div>
                                   </div>
@@ -102,7 +105,7 @@
                 </div>
             </div>
             <div>
-              <button type="submit" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
+              <button type="submit" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
                 Add Course Resourse Link
               </button>
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
@@ -137,15 +140,10 @@
                           </label>
                           <input required="" type="text" name="resource_link" class="form-control" id="recipient-name">
                         </div>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-success">
                         Save
                       </button>
                       </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Close
-                      </button>
                     </div>
                   </div>
                 </div>

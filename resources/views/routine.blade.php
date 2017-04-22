@@ -3,14 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Routine Table</div>
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="panel panel-info">
+                <div class="panel-heading"><h4>Routine Table</h4></div>
 
                 <div class="panel-body">
                     <!-- {{ Auth::user()->name }}, You are logged in! -->
 
-                    <table class="table">
+                    <table class="display table table-bordered table-stripe">
                         <thead>
                           <tr class="panel-default">
                             <th>Day</th>
@@ -25,8 +25,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr class="success">
-                            <td>SUN</td>
+                          <tr class="default">
+                            <th>SUN</th>
                             @foreach($data as $dat)
                               <td> {{$dat->eightnine}} </td>
                               <td> {{$dat->nineten}} </td>
@@ -39,8 +39,8 @@
 
                             @endforeach
                           </tr>
-                          <tr class="success">
-                            <td>MON</td>
+                          <tr class="default">
+                            <th>MON</th>
                             @foreach($data as $dat)
                               <td> {{$dat->eightnine}} </td>
                               <td> {{$dat->nineten}} </td>
@@ -53,8 +53,8 @@
 
                             @endforeach
                           </tr>
-                          <tr class="success">
-                            <td>TUE</td>
+                          <tr class="default">
+                            <th>TUE</th>
                             @foreach($data as $dat)
                               <td> {{$dat->eightnine}} </td>
                               <td> {{$dat->nineten}} </td>
@@ -67,8 +67,8 @@
 
                             @endforeach
                           </tr>
-                          <tr class="success">
-                            <td>WED</td>
+                          <tr class="default">
+                            <th>WED</th>
                             @foreach($data as $dat)
                               <td> {{$dat->eightnine}} </td>
                               <td> {{$dat->nineten}} </td>
@@ -81,8 +81,8 @@
 
                             @endforeach
                           </tr>
-                          <tr class="success">
-                            <td>THU</td>
+                          <tr class="default">
+                            <th>THU</th>
                             @foreach($data as $dat)
                               <td> {{$dat->eightnine}} </td>
                               <td> {{$dat->nineten}} </td>
@@ -99,11 +99,11 @@
                     </table>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">Tomorrow's Class</div>
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h4>Tomorrow's Class</h4></div>
 
                 <div class="panel-body">
-                    <table class="table">
+                    <table class="display table table-bordered table-stripe">
                         <thead>
                           <tr class="panel-default">
                             <th>Day</th>
@@ -118,8 +118,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr class="success">
-                            <td>SUN</td>
+                          <tr class="default">
+                            <th>SUN</th>
                             @foreach($data as $dat)
                               <td> {{$dat->eightnine}} </td>
                               <td> {{$dat->nineten}} </td>

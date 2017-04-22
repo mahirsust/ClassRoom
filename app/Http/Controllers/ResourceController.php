@@ -161,7 +161,7 @@ class ResourceController extends Controller
     {
         $data1 = [];
          $id = DB::table('resources')->insertGetId(
-            ['batch' => '32', 'course' => $request->cname, 
+            ['batch' => $request->resource_batch, 'course' => $request->cname, 
             'link' => $request->resource_link, 'title' => $request->title_1]
         );
     	$data1=DB::table('resources')->get();
