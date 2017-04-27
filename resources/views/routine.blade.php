@@ -18,83 +18,30 @@
                             <th class="text-center">9 AM</th>
                             <th class="text-center">10 AM</th>
                             <th class="text-center">11 AM</th>
-                            <th class="text-center">12 AM</th>
+                            <th class="text-center">12 PM</th>
+                            <th class="text-center">1 PM</th>
                             <th class="text-center">2 PM</th>
                             <th class="text-center">3 PM</th>
                             <th class="text-center">4 PM</th>
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach($data1 as $dat)
                           <tr class="default">
-                            <th>SUN</th>
-                            @foreach($data as $dat)
+
+                              <th tabindex="-1" class="text-center"> {{$dat->day}} </th>
                               <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
                               <td tabindex="-1" class="text-center"> {{$dat->nineten}} </td>
                               <td tabindex="-1" class="text-center"> {{$dat->teneleven}} </td>
                               <td tabindex="-1" class="text-center"> {{$dat->eleventwelve}} </td>
                               <td tabindex="-1" class="text-center"> {{$dat->twelveone}} </td>
+                              <td tabindex="-1" class="text-center"> {{$dat->onetwo}} </td>
                               <td tabindex="-1" class="text-center"> {{$dat->twothree}} </td>
                               <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
                               <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>         
-
-                            @endforeach
+                  
                           </tr>
-                          <tr class="default">
-                            <th>MON</th>
-                            @foreach($data as $dat)
-                              <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->nineten}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->teneleven}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->eleventwelve}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twelveone}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twothree}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>       
-
-                            @endforeach
-                          </tr>
-                          <tr class="default">
-                            <th>TUE</th>
-                            @foreach($data as $dat)
-                              <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->nineten}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->teneleven}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->eleventwelve}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twelveone}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twothree}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>      
-
-                            @endforeach
-                          </tr>
-                          <tr class="default">
-                            <th>WED</th>
-                            @foreach($data as $dat)
-                              <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->nineten}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->teneleven}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->eleventwelve}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twelveone}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twothree}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td> 
-
-                            @endforeach
-                          </tr>
-                          <tr class="default">
-                            <th>THU</th>
-                            @foreach($data as $dat)
-                              <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->nineten}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->teneleven}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->eleventwelve}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twelveone}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twothree}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>        
-
-                            @endforeach
-                          </tr>
+                        @endforeach
                         </tbody>
                     </table>
                   <a class="btn btn-success btn-edit" href="#">Edit Class Routine</a>
@@ -115,27 +62,41 @@
                             <th class="text-center">9 AM</th>
                             <th class="text-center">10 AM</th>
                             <th class="text-center">11 AM</th>
-                            <th class="text-center">12 AM</th>
+                            <th class="text-center">12 PM</th>
+                            <th class="text-center">1 PM</th>
                             <th class="text-center">2 PM</th>
                             <th class="text-center">3 PM</th>
                             <th class="text-center">4 PM</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr class="default">
-                            <th>SUN</th>
-                            @foreach($data as $dat)
-                              <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->nineten}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->teneleven}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->eleventwelve}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twelveone}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->twothree}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
-                              <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>       
+                        <?php 
+                          
+                            $today=date("l");
+                            $today=strtoupper($today);
+                            $today=substr($today, 0, 3);
+                            //echo $today;
 
-                            @endforeach
-                          </tr>
+                        ?>
+                        <tbody>
+                          @foreach($data1 as $dat)
+                            @if ($today == $dat->day) 
+                            
+                              <tr class="default">
+
+                                  <th tabindex="-1" class="text-center"> {{$dat->day}} </th>
+                                  <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
+                                  <td tabindex="-1" class="text-center"> {{$dat->nineten}} </td>
+                                  <td tabindex="-1" class="text-center"> {{$dat->teneleven}} </td>
+                                  <td tabindex="-1" class="text-center"> {{$dat->eleventwelve}} </td>
+                                  <td tabindex="-1" class="text-center"> {{$dat->twelveone}} </td>
+                                  <td tabindex="-1" class="text-center"> {{$dat->onetwo}} </td>
+                                  <td tabindex="-1" class="text-center"> {{$dat->twothree}} </td>
+                                  <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
+                                  <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>         
+                      
+                              </tr>
+                            @endif
+                          @endforeach
                         </tbody>
                     </table>
                     <a class="btn btn-success btn-edit" href="#">Edit Tomorrow's Class</a>
