@@ -5,8 +5,9 @@
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
             <div class="panel panel-info">
-                <div class="panel-heading"><h4>Routine Table</h4></div>
-
+                <div class="panel-heading">
+                  <h3><strong>Routine Table - {{substr($request, 0, 1)}}/{{substr($request, 1)}}</strong></h3>
+                </div>
                 <div class="panel-body">
                     <!-- {{ Auth::user()->name }}, You are logged in! -->
 
