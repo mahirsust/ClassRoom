@@ -11,183 +11,51 @@ class ResourceController extends Controller
     public function index($request)
     {
         $data1=[];
-    	if($request=="11a")
-    	{
-    		$data1=DB::table('resources')->where('batch', '=', $request)
+        $data1=DB::table('resources')->where('batch', '=', $request)
                                      ->get();
-            return view('resource', compact('data1'))->withSuccess('Resource 1/1(a)');
-    	}
-        else if($request=="11b")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="12a")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="12b")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="21a")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="21b")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="22a")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="22b")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="31a")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="31b")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="32a")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="32b")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="41a")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="41b")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="42a")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="42b")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="11")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="12")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-
-        else if($request=="21")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="22")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="31")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="32")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="41")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
-        else if($request=="42")
-        {
-           $data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-            return view('resource', compact('data1')); 
-        }
+        return view('resource', compact('data1', 'request')); 
     }
     public function save(Request $request)
     {
         $data1 = [];
          $id = DB::table('resources')->insertGetId(
-            ['batch' => $request->resource_batch, 'course' => $request->cname, 
+            ['batch' => $request->semester, 'course' => $request->cname, 
             'link' => $request->resource_link, 'title' => $request->title_1]
         );
-    	$data1=DB::table('resources')->get();
-        return view('resource', compact('data1'));
+         $request = $request->semester;
+    	$data1=DB::table('resources')->where('batch', '=', $request)
+                                     ->get();
+        // return $request;
+        return redirect()->action(
+                                 'ResourceController@index', ['id' => $request]
+                                );
+        // return view('resource', compact('data1' , 'request'));
     }
     public function delete(Request $request)
     {
         $data1 = [];
-        $id = DB::table('resources')->where('course', '=', $request->cname)
-                                ->where('link', '=', $request->resource_link)
-                                ->where('title', '=', $request->title_1)
+        $id = DB::table('resources')->where('id', '=', $request->rid)
                                 ->delete();
-        $data1=DB::table('resources')->get();
-        return view('resource', compact('data1'));
+        $request = $request->semester;
+        return redirect()->action(
+                                 'ResourceController@index', ['id' => $request]
+                                );
     }
     public function update(Request $request)
     {
         $data1 = [];
+        //return $request->rid;
         $id = DB::table('resources')
-            ->where('id', 3)
-            ->where('batch', '32')
+            ->where('id', $request->rid)
+            ->where('batch', $request->semester)
             ->update(['course' => $request->edit_cname,
                       'title' => $request->edit_title,
                       'link' => $request->edit_link 
                     ]);
-        $id1='32';
-        return redirect()->route('resource', [$id1])->with(['success'=>'Result updated']);
+        // $id1='32';
+        $request = $request->semester;
+        return redirect()->action(
+                                 'ResourceController@index', ['id' => $request]
+                                );
     }
 }

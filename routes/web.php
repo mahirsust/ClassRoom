@@ -27,11 +27,11 @@ Route::get('/routine/{id}', 'RoutineController@index');
 //Resource Controller
 Route::get('/resource/{id}', 'ResourceController@index');
 Route::POST('/resource/{id}', 'ResourceController@save');
-Route::POST('/deleteit', 'ResourceController@delete');
-Route::POST('/resource_updateit', 'ResourceController@update');
+Route::POST('/resource/delete/{id}', 'ResourceController@delete');
+Route::POST('/resource/edit/{id}', 'ResourceController@update');
 
 //Result Controller
 Route::get('/result/{id}', 'ResultController@index');
 Route::POST('/result/{id}', 'ResultController@save');
-Route::POST('/deleteit', 'ResultController@delete');
-Route::POST('/updateit', 'ResultController@update');
+Route::POST('/result/delete/{id}', 'ResultController@delete');
+Route::POST('/result/edit/{id}', 'ResultController@update');
