@@ -6,11 +6,15 @@
         <div class="col-sm-10 col-sm-offset-1">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                  <h3><strong>Routine Table - {{substr($request, 0, 1)}}/{{substr($request, 1)}}</strong></h3>
+                  <h3>
+                    <strong>
+                      Routine Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
+                      @if(strlen($request)>2)
+                        ({{substr($request, 2)}})
+                      @endif
+                      </strong></h3>
                 </div>
                 <div class="panel-body">
-                    <!-- {{ Auth::user()->name }}, You are logged in! -->
-
                     <table class="display table table-bordered table-stripe">
                         <thead>
                           <tr class="panel-default">
@@ -72,15 +76,14 @@
                         </thead>
                         <?php 
                           
-                            $today=date("l");
-                            $today=strtoupper($today);
-                            $today=substr($today, 0, 3);
-                            //echo $today;
+                          $day=date('Y-m-d');
+                          $next_day=date('Y-m-d', strtotime($day .' +1 day'));
+                          echo $next_day;
 
                         ?>
                         <tbody>
                           @foreach($data1 as $dat)
-                            @if ($today == $dat->day) 
+                            @if ($next_day == $dat->day) 
                             
                               <tr class="default">
 

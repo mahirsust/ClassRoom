@@ -6,12 +6,15 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                  <h3><strong>Resource Table - {{substr($request, 0, 1)}}/{{substr($request, 1)}}</strong></h3>
+                  <h3>
+                    <strong>
+                      Resource Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
+                      @if(strlen($request)>2)
+                        ({{substr($request, 2)}})
+                      @endif
+                      </strong></h3>
                 </div>
-
                 <div class="panel-body">
-                    <!-- {{ Auth::user()->name }}, You are logged in! -->
-
                     <table class="display table table-bordered table-stripe">
                         <thead>
                           <tr class="panel-default">
@@ -23,7 +26,6 @@
                         </thead>
                         <?php $inc=0;  ?>
                         <tbody>
-                          <!-- <var>id1=0</var>; -->
                           @foreach($data1 as $dat)
                             <tr class="default">
                               <td>
@@ -148,7 +150,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form method="POST" action="\resource\{{$request}}">
+                      <form method="POST" action="\resource\insert\{{$request}}">
                       {{csrf_field()}}
                         <div class="form-group">
                           <label class="form-control-label"> 

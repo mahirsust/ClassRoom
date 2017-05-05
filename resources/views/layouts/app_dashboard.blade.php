@@ -14,6 +14,7 @@
 
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"      rel="stylesheet">  -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-reset.css" rel="stylesheet"> 
   <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -25,6 +26,12 @@
   <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
   <link href="css/responsive.css" rel="stylesheet">
   
+  <!-- <style>
+  body {
+    background-color: powderblue;
+}
+  </style> -->
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="shortcut icon" href="images/cse2.png">
     <!-- Scripts -->
@@ -35,7 +42,7 @@
         </script>
 </head>
 <body>
-    <div id="app_dashboard">
+    <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -179,36 +186,36 @@
                                     Notice <span class="caret"></span>
                                 </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a class="dropdown-item" href="#">1/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">1/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">2/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">3/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">4/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">5/1(a)</a></li>
-                            <li><a class="dropdown-item" href="#">5/1(b)</a></li>
-                            <li><a class="dropdown-item" href="#">5/2(a)</a></li>
-                            <li><a class="dropdown-item" href="#">5/2(b)</a></li>
-                            <li><a class="dropdown-item" href="#">1/1</a></li>
-                            <li><a class="dropdown-item" href="#">1/2</a></li>
-                            <li><a class="dropdown-item" href="#">2/1</a></li>
-                            <li><a class="dropdown-item" href="#">2/2</a></li>
-                            <li><a class="dropdown-item" href="#">3/1</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/routine/32')}}">3/2</a></li>
-                            <li><a class="dropdown-item" href="#">4/1</a></li>
-                            <li><a class="dropdown-item" href="#">4/2</a></li>
-                            <li><a class="dropdown-item" href="#">5/1</a></li>
-                            <li><a class="dropdown-item" href="#">5/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/11a')}}">1/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/11b')}}">1/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/12a')}}">1/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/12b')}}">1/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/21a')}}">2/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/21b')}}">2/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/22a')}}">2/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/22b')}}">2/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/31a')}}">3/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/31b')}}">3/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/32a')}}">3/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/32b')}}">3/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/41a')}}">4/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/41b')}}">4/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/42a')}}">4/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/42b')}}">4/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/41a')}}">5/1(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/41b')}}">5/1(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/42a')}}">5/2(a)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/42b')}}">5/2(b)</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/11')}}">1/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/12')}}">1/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/21')}}">2/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/22')}}">2/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/31')}}">3/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/32')}}">3/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/41')}}">4/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/42')}}">4/2</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/41')}}">5/1</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/notice/42')}}">5/2</a></li>
                             </ul>
                         
                     </li>
@@ -265,8 +272,8 @@
             </div>
         </nav>
         <!-- <div class="optiscroll-v"><b class="optiscroll-vtrack" style="transition: height 0.2s ease 0s, width 0.2s ease 0s, opacity 0.2s ease 0s; height: 18.9737%; transform: translate(0%, 62.4374%);"></b></div> -->
-        @yield('content')
     </div>
+        @yield('content')
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>

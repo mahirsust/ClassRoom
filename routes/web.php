@@ -26,12 +26,20 @@ Route::get('/routine/{id}', 'RoutineController@index');
 
 //Resource Controller
 Route::get('/resource/{id}', 'ResourceController@index');
-Route::POST('/resource/{id}', 'ResourceController@save');
+Route::POST('/resource/insert/{id}', 'ResourceController@save');
 Route::POST('/resource/delete/{id}', 'ResourceController@delete');
 Route::POST('/resource/edit/{id}', 'ResourceController@update');
 
 //Result Controller
 Route::get('/result/{id}', 'ResultController@index');
-Route::POST('/result/{id}', 'ResultController@save');
+Route::POST('/result/insert/{id}', 'ResultController@save');
 Route::POST('/result/delete/{id}', 'ResultController@delete');
 Route::POST('/result/edit/{id}', 'ResultController@update');
+
+//Notice Controller
+Route::get('/notice/{id}', 'NoticeController@index');
+Route::POST('/notice/insert/{id}', 'NoticeController@save');
+Route::POST('/notice/delete/{id}', 'NoticeController@delete');
+Route::POST('/notice/edit/{id}', 'NoticeController@update');
+
+

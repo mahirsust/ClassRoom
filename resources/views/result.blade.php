@@ -6,9 +6,14 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                  <h3><strong>Result Table - {{substr($request, 0, 1)}}/{{substr($request, 1)}}</strong></h3>
+                  <h3>
+                    <strong>
+                      Result Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
+                      @if(strlen($request)>2)
+                        ({{substr($request, 2)}})
+                      @endif
+                      </strong></h3>
                 </div>
-
                 <div class="panel-body">
                     <!-- {{ Auth::user()->name }}, You are logged in! -->
 
@@ -147,7 +152,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form method="POST" action="\result\{{$request}}">
+                      <form method="POST" action="\result\insert\{{$request}}">
                       {{csrf_field()}}
                         <div class="form-group">
                           <label class="form-control-label"> 
