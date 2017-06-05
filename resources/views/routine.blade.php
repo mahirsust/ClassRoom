@@ -76,9 +76,17 @@
                         </thead>
                         <?php 
                           
-                          $day=date('Y-m-d');
-                          $next_day=date('Y-m-d', strtotime($day .' +1 day'));
-                          echo $next_day;
+                          date_default_timezone_set('Asia/Dhaka');
+                          $cur_day=date('D');
+                          $cur_day=strtoupper($cur_day);
+                          if($cur_day=='SUN') $next_day='MON';
+                          else if($cur_day=='MON') $next_day='TUE';
+                          else if($cur_day=='TUE') $next_day='WED';
+                          else if($cur_day=='WED') $next_day='THU';
+                          else if($cur_day=='THU') $next_day='FRI';
+                          else if($cur_day=='FRI') $next_day='SAT';
+                          else if($cur_day=='SAT') $next_day='SUN';
+                          //echo $next_day;
 
                         ?>
                         <tbody>

@@ -26,11 +26,6 @@
   <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
   <link href="css/responsive.css" rel="stylesheet">
   
-  <!-- <style>
-  body {
-    background-color: powderblue;
-}
-  </style> -->
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="shortcut icon" href="images/cse2.png">

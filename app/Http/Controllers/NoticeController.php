@@ -50,7 +50,6 @@ class NoticeController extends Controller
             ->where('id', $request->nid)
             ->where('batch', $request->semester)
             ->update(['course' => $request->edit_cname,
-                      'notice_date' => $request->edit_ndate,
                       'notice' => $request->edit_notice 
                     ]);
         // $id1='32';
