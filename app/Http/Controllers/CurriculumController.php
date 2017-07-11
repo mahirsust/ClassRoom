@@ -11,9 +11,8 @@ class CurriculumController extends Controller
     public function index()
     {
         $data1=[];
-        $request="11";
-        $data1=DB::table('curriculums')->where('batch', '=', $request)
-                                     ->get();
-        return view('curriculum', compact('data1', 'request')); 
+        $data1=DB::table('curriculums')->get();
+                                     
+        return view('curriculum', compact('data1')); 
     }
 }
