@@ -83,8 +83,8 @@
                           else if($cur_day=='MON') $next_day='TUE';
                           else if($cur_day=='TUE') $next_day='WED';
                           else if($cur_day=='WED') $next_day='THU';
-                          else if($cur_day=='THU') $next_day='FRI';
-                          else if($cur_day=='FRI') $next_day='SAT';
+                          else if($cur_day=='THU') $next_day='SUN';
+                          else if($cur_day=='FRI') $next_day='SUN';
                           else if($cur_day=='SAT') $next_day='SUN';
                           //echo $next_day;
 

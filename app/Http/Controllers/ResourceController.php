@@ -18,9 +18,14 @@ class ResourceController extends Controller
     public function save(Request $request)
     {
         $data1 = [];
+
+        $tit1=$request->title_1;
+        $len=strlen($tit1);
+        if($len>15) $tit1=substr($tit1, 0, 14)."...";
+
          $id = DB::table('resources')->insertGetId(
             ['batch' => $request->semester, 'course' => $request->cname, 
-            'link' => $request->resource_link, 'title' => $request->title_1]
+            'link' => $request->resource_link, 'title' => $tit1]
         );
          $request = $request->semester;
     	$data1=DB::table('resources')->where('batch', '=', $request)
@@ -44,12 +49,20 @@ class ResourceController extends Controller
     public function update(Request $request)
     {
         $data1 = [];
-        //return $request->rid;
+        
+        $tit1=$request->edit_title;
+        $len=strlen($tit1);
+        if($len>15) 
+        {
+            $tit1=substr($tit1, 0, 14);
+            $tit1.="...";
+        }
+
         $id = DB::table('resources')
             ->where('id', $request->rid)
             ->where('batch', $request->semester)
             ->update(['course' => $request->edit_cname,
-                      'title' => $request->edit_title,
+                      'title' => $tit1,
                       'link' => $request->edit_link 
                     ]);
         // $id1='32';

@@ -51,7 +51,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/home') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app_dashboard.name', 'Class Room Management') }}
                     </a>
 
@@ -214,7 +214,13 @@
                             </ul>
                         
                     </li>
-                    <li class="dropdown">
+                    <li>
+                        <a href="{{ url('/curriculum')}}">
+                            Curriculum
+                        </a>
+                        
+                    </li>
+                    <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Info About IICT <span class="caret"></span>
                                 </a>
@@ -226,7 +232,7 @@
                                 <li><a class="dropdown-item" href="#">Add Floor</a></li>
                             </ul>
                         
-                    </li>
+                    </li> -->
                 </ul>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->

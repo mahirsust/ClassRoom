@@ -11,15 +11,14 @@
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
-*/
+
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
-Route::get('/', 'HomeController@index');
+//Route::get('/', 'HomeController@index');
 
 //Routine Controller
 Route::get('/routine/{id}', 'RoutineController@index');
@@ -41,5 +40,10 @@ Route::get('/notice/{id}', 'NoticeController@index');
 Route::POST('/notice/insert/{id}', 'NoticeController@save');
 Route::POST('/notice/delete/{id}', 'NoticeController@delete');
 Route::POST('/notice/edit/{id}', 'NoticeController@update');
+
+//Curriculum Controller
+Route::get('/curriculum', 'CurriculumController@index');
+
+
 
 
