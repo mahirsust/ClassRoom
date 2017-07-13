@@ -10,8 +10,11 @@ class RoutineController extends Controller
     public function index($request)
     {
     	$data1=[];
-        $data1=DB::table('routines')->where('batch', '=', $request)
-                                     ->get();
-        return view('routine', compact('data1', 'request')); 
+        $data1=DB::table('routines')->where('batch', '=', $request)->get();
+        $data2=[];
+        $data2=DB::table('tomorrows')->where('batch', '=', $request)->get();
+        return view('routine', compact('data1', 'data2', 'request')); 
     }
+
+    
 }

@@ -49,7 +49,6 @@
                         @endforeach
                         </tbody>
                     </table>
-                  <a class="btn btn-success btn-edit" href="#">Edit Class Routine</a>
                 </div>
             </div>
             <div>
@@ -87,12 +86,16 @@
                           else if($cur_day=='FRI') $next_day='SUN';
                           else if($cur_day=='SAT') $next_day='SUN';
                           //echo $next_day;
-
                         ?>
                         <tbody>
-                          @foreach($data1 as $dat)
+                         
+                          <?php 
+                          
+                          $f=0;
+                          ?>
+                          @foreach($data2 as $dat)
                             @if ($next_day == $dat->day) 
-                            
+                               <?php $f=1 ?>
                               <tr class="default">
 
                                   <th tabindex="-1" class="text-center"> {{$dat->day}} </th>
@@ -107,8 +110,46 @@
                                   <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>         
                       
                               </tr>
-                            @endif
+                             
+                      
+                            @else
+                            <?php
+                               DB::table('tomorrows')->where('batch', '=', $dat->batch)->delete();
+                             ?>
+                            @endif 
                           @endforeach
+                          @if ($f==0)
+                              @foreach($data1 as $dat)
+                                @if ($next_day == $dat->day) 
+                                  <?php
+                                    DB::table('tomorrows')->insert(
+                                    ['batch' => $dat->batch, 'day' => $dat->day, 'eightnine' => $dat->eightnine, 
+                                     'nineten' => $dat->nineten,
+                                      'teneleven' => $dat->teneleven,
+                                       'eleventwelve' => $dat->eleventwelve,
+                                        'twelveone' => $dat->twelveone,
+                                         'onetwo' => $dat->onetwo,
+                                          'twothree' => $dat->twothree,
+                                           'threefour' => $dat->threefour,
+                                            'fourfive' => $dat->fourfive]);
+                                  ?>
+                                  <tr class="default">
+
+                                      <th tabindex="-1" class="text-center"> {{$dat->day}} </th>
+                                      <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
+                                      <td tabindex="-1" class="text-center"> {{$dat->nineten}} </td>
+                                      <td tabindex="-1" class="text-center"> {{$dat->teneleven}} </td>
+                                      <td tabindex="-1" class="text-center"> {{$dat->eleventwelve}} </td>
+                                      <td tabindex="-1" class="text-center"> {{$dat->twelveone}} </td>
+                                      <td tabindex="-1" class="text-center"> {{$dat->onetwo}} </td>
+                                      <td tabindex="-1" class="text-center"> {{$dat->twothree}} </td>
+                                      <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
+                                      <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>         
+                                 </tr>
+                                @endif 
+                              @endforeach
+                          @endif
+                         
                         </tbody>
                     </table>
                     <a class="btn btn-success btn-edit" href="#">Edit Tomorrow's Class</a>

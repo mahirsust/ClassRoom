@@ -22,16 +22,14 @@ class ResultController extends Controller
         $len=strlen($tit1);
         if($len>15) $tit1=substr($tit1, 0, 14)."...";
     
-         $id = DB::table('results')->insertGetId(
+         DB::table('results')->insert(
             ['batch' => $request->semester, 'course' => $request->cname, 
             'link' => $request->result_link, 'title' => $tit1]
         );
          $request = $request->semester;
         $data1=DB::table('results')->where('batch', '=', $request)
                                      ->get();
-    	return redirect()->action(
-                                 'ResultController@index', ['id' => $request]
-                                );
+    	return redirect()->action('ResultController@index', ['id' => $request]);
     }
     public function delete(Request $request)
     {
