@@ -15,11 +15,18 @@
                       </strong></h3>
                 </div>
             </div>
-          <div>
-              <button type="submit" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
-                Add Notice
-              </button>
-          </div>      
+
+          @if (Auth::guest())
+
+          @else
+            <div>
+                <button type="submit" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
+                  Add Notice
+                </button>
+            </div>
+
+          @endif
+
           <div>
             </br>
           </div>      
@@ -61,85 +68,90 @@
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>
-                                <div class="fb-status-container fb-border">
-                                    <div class="fb-time-action">
+                                @if (Auth::guest())
 
-                                  <button type="submit" class="btn btn-warning btn-xs btn-edit" 
-                                  data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
-                                    Edit
-                                  </button>
+                                @else
+                                  <div class="fb-status-container fb-border">
+                                      <div class="fb-time-action">
+                                    <button type="submit" class="btn btn-warning btn-xs btn-edit" 
+                                    data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
+                                      Edit
+                                    </button>
 
-                                        <span></span>
-                                        <button type="submit"  
-                                          data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-xs btn-edit"> 
-                                            Delete
-                                        </button>
-                                        <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1"    role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                      
-                                          <div class="modal-dialog" role="document">
-                                              <div class="modal-content">
-                                                <div class="modal-header">
-                                                  <strong class="modal-title">
-                                                    Are you sure?????
-                                                  </strong>
-                                                </div>
-                                                <div class="modal-body">
-                                                  <form method="POST" action="/notice/delete/{{$request}}">
-                                                    {{csrf_field()}}
-                                                    <input type="hidden" name="semester" value="{{$request}}">
-                                                    <input type="hidden" name="nid" value="{{$dat->id}}">
-                                                  <button type="submit" class="btn btn-primary">
-                                                    DELETE
-                                                  </button>
-                                                  <button type="submit" data-dismiss="modal" class="btn btn-primary">
-                                                    CANCEL
-                                                  </button>
-
-                                                  </form>
-                                                </div>
+                                    <span></span>
+                                    <button type="submit"  
+                                      data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-xs btn-edit"> 
+                                        Delete
+                                    </button>
+                                    <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1"    role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                  
+                                      <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <strong class="modal-title">
+                                                Are you sure?????
+                                              </strong>
                                             </div>
-                                          </div>
-                                        </div>
-                                        <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                          <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                              <div class="modal-header">
-                                                <strong class="modal-title" id="exampleModalLabel">
-                                                  Edit Notice
-                                                </strong>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
-                                              </div>
-                                              <div class="modal-body">
-                                                <form method="POST" action="/notice/edit/{{$request}}">
-                                                  {{csrf_field()}}
-                                                  <input type="hidden" name="semester" value="{{$request}}">
-                                                  <input type="hidden" name="nid" value="{{$dat->id}}">
-                                                  <div class="form-group">
-                                                    <label class="form-control-label"> 
-                                                      Course Name:
-                                                    </label>
-                                                    <input autofocus required="" type="text" name="edit_cname" value="{{$dat->course}}" 
-                                                     class="form-control"  >
-                                                  </div>
-                                                  <div class="form-group">
-                                                    <label class="form-control-label"> 
-                                                      Notice:
-                                                    </label>
-                                                    <input required="" type="text" name="edit_notice" class="form-control"
-                                                     value="{{$dat->notice}}">
-                                                  </div>
-                                                  <button type="submit" class="btn btn-primary">
-                                                    Update
-                                                  </button>
-                                                </form>
-                                              </div>
+                                            <div class="modal-body">
+                                              <form method="POST" action="/notice/delete/{{$request}}">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="semester" value="{{$request}}">
+                                                <input type="hidden" name="nid" value="{{$dat->id}}">
+                                              <button type="submit" class="btn btn-primary">
+                                                DELETE
+                                              </button>
+                                              <button type="submit" data-dismiss="modal" class="btn btn-primary">
+                                                CANCEL
+                                              </button>
+
+                                              </form>
                                             </div>
-                                          </div>
                                         </div>
+                                      </div>
                                     </div>
-                                </div>
+                                    <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <strong class="modal-title" id="exampleModalLabel">
+                                              Edit Notice
+                                            </strong>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form method="POST" action="/notice/edit/{{$request}}">
+                                              {{csrf_field()}}
+                                              <input type="hidden" name="semester" value="{{$request}}">
+                                              <input type="hidden" name="nid" value="{{$dat->id}}">
+                                              <div class="form-group">
+                                                <label class="form-control-label"> 
+                                                  Course Name:
+                                                </label>
+                                                <input autofocus required="" type="text" name="edit_cname" value="{{$dat->course}}" 
+                                                 class="form-control"  >
+                                              </div>
+                                              <div class="form-group">
+                                                <label class="form-control-label"> 
+                                                  Notice:
+                                                </label>
+                                                <input required="" type="text" name="edit_notice" class="form-control"
+                                                 value="{{$dat->notice}}">
+                                              </div>
+                                              <button type="submit" class="btn btn-primary">
+                                                Update
+                                              </button>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                      </div>
+                                  </div>
+
+                                @endif
+
                             </div>
                         </section>
                     </td>

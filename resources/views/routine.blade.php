@@ -153,10 +153,16 @@
                          
                         </tbody>
                     </table>
-                    <button type="submit" class="btn btn-warning btn-xs btn-edit" 
-                        data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:50%;width:20%">
-                          Edit Tomorrow's Class
-                    </button>
+                    @if (Auth::guest())
+
+                    @else
+                      <button type="submit" class="btn btn-warning btn-xs btn-edit" 
+                          data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:50%;width:20%">
+                            Edit Tomorrow's Class
+                      </button>
+                      
+                    @endif
+
                     <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">

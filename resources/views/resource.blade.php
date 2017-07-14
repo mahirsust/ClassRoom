@@ -21,7 +21,12 @@
                             <th class="text-center" >ID</th>
                             <th class="text-center" >Course Name</th>
                             <th class="text-center" >Link</th>
-                            <th class="text-center" >Manage</th>
+                            @if (Auth::guest())
+
+                            @else
+                              <th class="text-center" >Manage</th>
+
+                            @endif
                           </tr>
                         </thead>
                         <?php $inc=0;  ?>
@@ -45,142 +50,155 @@
                                 </div>
                               </a>
                               </td>
-                              <td>
-                                <div class="text-center">
-                                  <button type="submit" class="btn btn-warning btn-xs btn-edit" 
-                                  data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
-                                    Edit
-                                  </button>
-                                  <button type="submit"  
-                                  data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-xs btn-edit" style="height:20%;width:20%">
-                                    Delete
-                                  </button>
-                                </div>
-                                <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <strong class="modal-title">
-                                          Are you sure?????
-                                        </strong>
-                                      </div>
-                                      <div class="modal-body">
-                                        <form method="POST" action="/resource/delete/{{$request}}">
-                                          {{csrf_field()}}
-                                          <input type="hidden" name="semester" value="{{$request}}">
-                                          <input type="hidden" name="rid" value="{{$dat->id}}">
-                                        <button type="submit" class="btn btn-primary">
-                                          DELETE
-                                        </button>
-                                        <button type="submit" data-dismiss="modal" class="btn btn-primary">
-                                          CANCEL
-                                        </button>
+                              @if (Auth::guest())
 
-                                        </form>
-                                      </div>
+                              @else
+                                <td>
+                                  <div class="text-center">
+                                    <button type="submit" class="btn btn-warning btn-xs btn-edit" 
+                                    data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
+                                      Edit
+                                    </button>
+                                    <button type="submit"  
+                                    data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-xs btn-edit" style="height:20%;width:20%">
+                                      Delete
+                                    </button>
                                   </div>
-                                </div>
-                                </div>
-                                <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  
                                   <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <strong class="modal-title" id="exampleModalLabel">
-                                          Edit Course Resourse Link
-                                        </strong>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">
-                                        <form method="POST" action="/resource/edit/{{$request}}">
-                                          {{csrf_field()}}
-                                          <input type="hidden" name="semester" value="{{$request}}">
-                                          <input type="hidden" name="rid" value="{{$dat->id}}">
-                                          <div class="form-group">
-                                            <label   class="form-control-label"> 
-                                              Course Name:
-                                            </label>
-                                            <input autofocus required="" type="text" name="edit_cname" value="{{$dat->course}}" 
-                                             class="form-control"  >
-                                          </div>
-                                          <div class="form-group">
-                                            <label   class="form-control-label"> 
-                                              Title:
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <strong class="modal-title">
+                                            Are you sure?????
+                                          </strong>
+                                        </div>
+                                        <div class="modal-body">
+                                          <form method="POST" action="/resource/delete/{{$request}}">
+                                            {{csrf_field()}}
+                                            <input type="hidden" name="semester" value="{{$request}}">
+                                            <input type="hidden" name="rid" value="{{$dat->id}}">
+                                          <button type="submit" class="btn btn-primary">
+                                            DELETE
+                                          </button>
+                                          <button type="submit" data-dismiss="modal" class="btn btn-primary">
+                                            CANCEL
+                                          </button>
+
+                                          </form>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                                  <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <strong class="modal-title" id="exampleModalLabel">
+                                            Edit Course Resourse Link
+                                          </strong>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <form method="POST" action="/resource/edit/{{$request}}">
+                                            {{csrf_field()}}
+                                            <input type="hidden" name="semester" value="{{$request}}">
+                                            <input type="hidden" name="rid" value="{{$dat->id}}">
+                                            <div class="form-group">
+                                              <label   class="form-control-label"> 
+                                                Course Name:
                                               </label>
-                                              <input required="" type="text" name="edit_title" class="form-control" value="{{$dat->title}}" 
-                                                >
+                                              <input autofocus required="" type="text" name="edit_cname" value="{{$dat->course}}" 
+                                               class="form-control"  >
                                             </div>
                                             <div class="form-group">
                                               <label   class="form-control-label"> 
-                                                Resource Link:
-                                              </label>
-                                              <input required="" type="text" name="edit_link" class="form-control"
-                                               value="{{$dat->link}}">
-                                          </div>
-                                        <button type="submit" class="btn btn-primary">
-                                          Update
-                                        </button>
-                                        </form>
+                                                Title:
+                                                </label>
+                                                <input required="" type="text" name="edit_title" class="form-control" value="{{$dat->title}}" 
+                                                  >
+                                              </div>
+                                              <div class="form-group">
+                                                <label   class="form-control-label"> 
+                                                  Resource Link:
+                                                </label>
+                                                <input required="" type="text" name="edit_link" class="form-control"
+                                                 value="{{$dat->link}}">
+                                            </div>
+                                          <button type="submit" class="btn btn-primary">
+                                            Update
+                                          </button>
+                                          </form>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </div>                               
-                              </td>
+                                  </div>                               
+                                </td>
+
+                                @endif
+
                             </tr>
                           @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div>
-              <button type="submit" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
-                Add Course Resourse Link
-              </button>
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <strong class="modal-title" id="myModalLabel">
-                        Add Course Resourse Link
-                      </strong>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form method="POST" action="\resource\insert\{{$request}}">
-                      {{csrf_field()}}
-                        <div class="form-group">
-                          <label class="form-control-label"> 
-                            Course Name:
-                          </label>
-                          <input required="" name="cname" type="text" class="form-control" autofocus>
-                        </div>
-                        <input type="hidden" name="semester" value="{{$request}}">
 
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Title
-                          </label>
-                          <input required="" name="title_1" type="text" class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Resource Link:
-                          </label>
-                          <input required="" type="text" name="resource_link" class="form-control"  >
-                        </div>
-                        <button type="submit" class="btn btn-success">
-                        Save
-                      </button>
-                      </form>
+            @if (Auth::guest())
+
+            @else
+              <div>
+                <button type="submit" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
+                  Add Course Resourse Link
+                </button>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <strong class="modal-title" id="myModalLabel">
+                          Add Course Resourse Link
+                        </strong>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form method="POST" action="\resource\insert\{{$request}}">
+                        {{csrf_field()}}
+                          <div class="form-group">
+                            <label class="form-control-label"> 
+                              Course Name:
+                            </label>
+                            <input required="" name="cname" type="text" class="form-control" autofocus>
+                          </div>
+                          <input type="hidden" name="semester" value="{{$request}}">
+
+                          <div class="form-group">
+                            <label   class="form-control-label"> 
+                              Title
+                            </label>
+                            <input required="" name="title_1" type="text" class="form-control"  >
+                          </div>
+                          <div class="form-group">
+                            <label   class="form-control-label"> 
+                              Resource Link:
+                            </label>
+                            <input required="" type="text" name="resource_link" class="form-control"  >
+                          </div>
+                          <button type="submit" class="btn btn-success">
+                          Save
+                        </button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+
+              @endif
+
         </div>
     </div>
 </div>

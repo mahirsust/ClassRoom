@@ -245,7 +245,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -272,7 +272,6 @@
             </div>
             </div>
         </nav>
-        <!-- <div class="optiscroll-v"><b class="optiscroll-vtrack" style="transition: height 0.2s ease 0s, width 0.2s ease 0s, opacity 0.2s ease 0s; height: 18.9737%; transform: translate(0%, 62.4374%);"></b></div> -->
     </div>
         @yield('content')
 

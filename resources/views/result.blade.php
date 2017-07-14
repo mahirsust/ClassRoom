@@ -15,15 +15,18 @@
                       </strong></h3>
                 </div>
                 <div class="panel-body">
-                    <!-- {{ Auth::user()->name }}, You are logged in! -->
-
                     <table class="display table table-bordered table-stripe">
                         <thead>
                           <tr class="panel-default">
                             <th class="text-center">ID</th>
                             <th  class="text-center">Course Name</th>
                             <th  class="text-center">Link</th>
+                            @if (Auth::guest())
+
+                            @else
                             <th  class="text-center">Manage</th>
+
+                            @endif
                           </tr>
                         </thead>
                         <?php $inc=0;  ?>
@@ -47,6 +50,9 @@
                                 </div>
                               </a>
                               </td>
+                              @if (Auth::guest())
+
+                              @else
                               <td>
                                 <div class="text-center">
                                   <button type="submit" class="btn btn-warning btn-xs btn-edit" 
@@ -130,59 +136,69 @@
                                   </div>
                                 </div>
                               </td>
+
+                            @endif
+
                             </tr>
                           @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div>
-              <button type="submit" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
-                Add Course Result Link
-              </button>
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <strong class="modal-title" id="myModalLabel">
-                        Add Course Result Link
-                      </strong>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form method="POST" action="\result\insert\{{$request}}">
-                      {{csrf_field()}}
-                        <div class="form-group">
-                          <label class="form-control-label"> 
-                            Course Name:
-                          </label>
-                          <input required="" name="cname" type="text" class="form-control" autofocus="cname">
-                        </div>
-                        <input type="hidden" name="semester" value="{{$request}}">
 
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Title
-                          </label>
-                          <input required="" name="title_1" type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label  class="form-control-label"> 
-                            Result Link:
-                          </label>
-                          <input required="" type="text" name="result_link" class="form-control"  >
-                        </div>
-                        <button type="submit" class="btn btn-success">
-                        Save
-                      </button>
-                      </form>
+            @if (Auth::guest())
+
+            @else
+              <div>
+                <button type="submit" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
+                  Add Course Result Link
+                </button>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <strong class="modal-title" id="myModalLabel">
+                          Add Course Result Link
+                        </strong>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form method="POST" action="\result\insert\{{$request}}">
+                        {{csrf_field()}}
+                          <div class="form-group">
+                            <label class="form-control-label"> 
+                              Course Name:
+                            </label>
+                            <input required="" name="cname" type="text" class="form-control" autofocus="cname">
+                          </div>
+                          <input type="hidden" name="semester" value="{{$request}}">
+
+                          <div class="form-group">
+                            <label   class="form-control-label"> 
+                              Title
+                            </label>
+                            <input required="" name="title_1" type="text" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label  class="form-control-label"> 
+                              Result Link:
+                            </label>
+                            <input required="" type="text" name="result_link" class="form-control"  >
+                          </div>
+                          <button type="submit" class="btn btn-success">
+                          Save
+                        </button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+
+            @endif
+
         </div>
     </div>
 </div>

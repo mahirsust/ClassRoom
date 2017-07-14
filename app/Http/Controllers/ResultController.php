@@ -18,18 +18,22 @@ class ResultController extends Controller
     public function save(Request $request)
     {
         $data1 = [];
+
         $tit1=$request->title_1;
         $len=strlen($tit1);
         if($len>15) $tit1=substr($tit1, 0, 14)."...";
-    
-         DB::table('results')->insert(
+
+         $id = DB::table('results')->insertGetId(
             ['batch' => $request->semester, 'course' => $request->cname, 
-            'link' => $request->result_link, 'title' => $tit1]
+            'link' => $request->resource_link, 'title' => $tit1]
         );
          $request = $request->semester;
         $data1=DB::table('results')->where('batch', '=', $request)
                                      ->get();
-    	return redirect()->action('ResultController@index', ['id' => $request]);
+        // return $request;
+        return redirect()->action(
+                                 'ResultController@index', ['id' => $request]
+                                );
     }
     public function delete(Request $request)
     {
