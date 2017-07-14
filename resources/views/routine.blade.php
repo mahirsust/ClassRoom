@@ -146,13 +146,94 @@
                                       <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
                                       <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>         
                                  </tr>
+                                <?php break; ?>
                                 @endif 
                               @endforeach
                           @endif
                          
                         </tbody>
                     </table>
-                    <a class="btn btn-success btn-edit" href="#">Edit Tomorrow's Class</a>
+                    <button type="submit" class="btn btn-warning btn-xs btn-edit" 
+                        data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:50%;width:20%">
+                          Edit Tomorrow's Class
+                    </button>
+                    <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <strong class="modal-title" id="exampleModalLabel">
+                              Edit Tomorrow's Routine
+                            </strong>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form method="POST" action="/routine/edit/{{$request}}">
+                              {{csrf_field()}}
+                              <input type="hidden" name="batch" value="{{$request}}">
+                              <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  8AM
+                                </label>
+                                <input autofocus="eightnine" required="" type="text" name="eightnine" value="{{$dat->eightnine}}" class="form-control"  >
+                              </div>
+                              <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  9AM
+                                </label>
+                                <input required="" type="text" name="nineten" value="{{$dat->nineten}}" class="form-control"  >
+                              </div>
+                              <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  10AM
+                                </label>
+                                <input required="" type="text" name="teneleven" value="{{$dat->teneleven}}" class="form-control"  >
+                              </div>
+                              <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  11AM
+                                </label>
+                                <input required="" type="text" name="eleventwelve" value="{{$dat->eleventwelve}}" class="form-control"  >
+                              </div>
+                              <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  12PM
+                                </label>
+                                <input required="" type="text" name="twelveone" value="{{$dat->twelveone}}" class="form-control"  >
+                              </div>
+                              <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  1PM
+                                </label>
+                                <input required="" type="text" name="onetwo" value="{{$dat->onetwo}}" class="form-control"  >
+                              </div>
+                               <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  2PM
+                                </label>
+                                <input required="" type="text" name="twothree" value="{{$dat->twothree}}" class="form-control"  >
+                              </div>
+                               <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  3PM
+                                </label>
+                                <input required="" type="text" name="threefour" value="{{$dat->threefour}}" class="form-control"  >
+                              </div>
+                               <div class="form-group">
+                                <label   class="form-control-label"> 
+                                  4PM
+                                </label>
+                                <input required="" type="text" name="fourfive" value="{{$dat->fourfive}}" class="form-control"  >
+                              </div>
+                            <button type="submit" class="btn btn-primary">
+                              Update
+                            </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>

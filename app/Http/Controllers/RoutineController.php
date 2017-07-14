@@ -16,5 +16,19 @@ class RoutineController extends Controller
         return view('routine', compact('data1', 'data2', 'request')); 
     }
 
-    
+    public function update(Request $request)
+    {
+        DB::table('tomorrows')->where('batch', $request->batch)
+            ->update(['eightnine' => $request->eightnine, 
+				'nineten' => $request->nineten,
+				'teneleven' => $request->teneleven,
+				'eleventwelve' => $request->eleventwelve,
+				'twelveone' => $request->twelveone,
+				'onetwo' => $request->onetwo,
+				'twothree' => $request->twothree,
+				'threefour' => $request->threefour,
+				'fourfive' => $request->fourfive]);
+       
+        return redirect()->action('RoutineController@index', ['id' => $request->batch]);
+    }
 }

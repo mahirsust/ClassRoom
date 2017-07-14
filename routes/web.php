@@ -22,8 +22,8 @@ Route::get('/home', 'HomeController@index');
 
 //Routine Controller
 Route::get('/routine/{id}', 'RoutineController@index');
-Route::POST('/routine/insert/{id}', 'RoutineController@save');
-Route::POST('/routine/delete/{id}', 'RoutineController@delete');
+Route::POST('/routine/edit/{id}', 'RoutineController@update');
+
 
 //Resource Controller
 Route::get('/resource/{id}', 'ResourceController@index');
