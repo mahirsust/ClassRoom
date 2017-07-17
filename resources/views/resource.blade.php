@@ -15,7 +15,7 @@
                       </strong></h3>
                 </div>
                 <div class="panel-body">
-                    <table class="display table table-bordered table-stripe">
+                    <table class="display table table-bordered table-stripe table-hover">
                         <thead>
                           <tr class="panel-default">
                             <th class="text-center" >ID</th>
@@ -53,16 +53,22 @@
                               @if (Auth::guest())
 
                               @else
-                                <td>
+                                <td class="col-sm">
                                   <div class="text-center">
-                                    <button type="submit" class="btn btn-warning btn-xs btn-edit" 
+                                    <a type="submit" class="teal-text" data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" >
+                                    <i class="fa fa-pencil"></i></a>
+                                    <!-- <button type="submit" class="btn btn-warning btn-sm btn-edit" 
                                     data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
                                       Edit
-                                    </button>
-                                    <button type="submit"  
-                                    data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-xs btn-edit" style="height:20%;width:20%">
+                                    </button> -->
+                                    <a class="red-text"  type="submit"  
+                                    data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo">
+                                    <i class="fa fa-times"></i>
+                                    </a>
+                                    <!-- <button type="submit"  
+                                    data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-sm btn-edit" style="height:20%;width:20%">
                                       Delete
-                                    </button>
+                                    </button> -->
                                   </div>
                                   <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   

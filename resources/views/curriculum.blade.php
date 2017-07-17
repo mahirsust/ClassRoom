@@ -1,16 +1,15 @@
 @extends('layouts.app_dashboard')
 
 @section('content')
-<div class="container">
+<div class="containe">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h3>
-                    <strong>
-                      Curriculum  
-                    </strong>
-                  </h3>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading light-blue darken-1 white-text">
+                  <h4>
+                    Curriculum
+                </div></h4>
+                <div class="panel-body">
                 </div>
             </div>
         </div>
@@ -19,11 +18,12 @@
     <!-- First Year: Semester I -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #11">First Year: Semester I
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#11" aria-expanded="false" aria-controls="11">
+        First Year: Semester I
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="11" class="collapse">
-          <table class="display table table-bordered table-stripe">
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
             <thead>
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
@@ -65,7 +65,8 @@
   <!-- First Year: Semester II -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #12">First Year: Semester II
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#12" aria-expanded="false" aria-controls="12">
+        First Year: Semester II
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="12" class="collapse">
@@ -111,7 +112,8 @@
     <!-- Second Year: Semester I -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #21">Second Year: Semester I
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#21" aria-expanded="false" aria-controls="21">
+        Second Year: Semester I
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="21" class="collapse">
@@ -157,7 +159,8 @@
     <!-- Second Year: Semester II -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #22">Second Year: Semester II
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#22" aria-expanded="false" aria-controls="22">
+        Second Year: Semester II
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="22" class="collapse">
@@ -203,7 +206,8 @@
     <!-- Third Year: Semester I -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #31">Third Year: Semester I
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#31" aria-expanded="false" aria-controls="31">
+        Third Year: Semester I
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="31" class="collapse">
@@ -249,7 +253,8 @@
     <!-- Third Year: Semester II -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #32">Third Year: Semester II
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#32" aria-expanded="false" aria-controls="32">
+        Third Year: Semester II
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="32" class="collapse">
@@ -295,7 +300,8 @@
     <!-- Fourth Year: Semester I -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #41">Fourth Year: Semester I
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#41" aria-expanded="false" aria-controls="41">
+        Fourth Year: Semester I
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="41" class="collapse">
@@ -341,7 +347,8 @@
     <!-- Fourth Year: Semester II -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #42">Fourth Year: Semester II
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#42" aria-expanded="false" aria-controls="42">
+        Fourth Year: Semester II
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="42" class="collapse">
@@ -387,8 +394,9 @@
     <!-- Optional : Option -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #optional">Optional : Option
-      </button>
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#optional" aria-expanded="false" aria-controls="optional">
+        Optional : Option
+      </button> 
       <div class="col-md-10 col-md-offset-1">
         <div id="optional" class="collapse">
           <table class="display table table-bordered table-stripe">
@@ -433,7 +441,8 @@
     <!-- 2nd Major Degree -->
     <div class="row">
       
-      <button type="button" class="btn btn-info col-md-10 col-md-offset-1" data-toggle="collapse" data-target="  #2mj">2nd Major Degree
+      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#2mj" aria-expanded="false" aria-controls="2mj">
+        2nd Major Degree
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="2mj" class="collapse">

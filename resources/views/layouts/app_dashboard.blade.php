@@ -10,13 +10,13 @@
 
     <title>Class Room Management</title>
 
-    <div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 1000; background: rgb(64, 64, 64); cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 6px; height: 138px; background-color: rgb(232, 64, 63); background-clip: padding-box; border-radius: 10px;"></div></div>
+    <!-- <div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 1000; background: rgb(64, 64, 64); cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 6px; height: 138px; background-color: rgb(232, 64, 63); background-clip: padding-box; border-radius: 10px;"></div></div> -->
 
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"      rel="stylesheet">  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/bootstrap-reset.css" rel="stylesheet"> 
+  <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+  <link href="{{url('/')}}/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="css/bootstrap-reset.css" rel="stylesheet"> 
   <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
@@ -24,11 +24,38 @@
   <link href="css/typicons.min.css" rel="stylesheet">
   <link href="css/typicons.css" rel="stylesheet">
   <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
-  <link href="css/responsive.css" rel="stylesheet">
-  
+  <link href="css/responsive.css" rel="stylesheet"> -->
+  <link href="{{url('/')}}/css/mdb.min.css" rel="stylesheet">
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="shortcut icon" href="images/cse2.png">
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <link rel="shortcut icon" href="{{url('/')}}/images/cse2.png">
+<style type="text/css"> 
+
+body {
+
+    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg");
+    
+}</style>
+ <style type="text/css">
+        .scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+}
+.scrollToTop:hover {
+  background-color: #555;
+}
+    </style>
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -37,18 +64,11 @@
         </script>
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+    <a href="#" class="scrollToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i>Top</a>
+    <!-- <div id="app"> -->
+        <nav class="navbar fixed-top navbar-dark blue darken-3 white-text">
             <div class="container">
                 <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -56,19 +76,20 @@
                     </a>
 
                 </div>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                
                 <!-- admin task -->    
                 <ul class="nav navbar-nav">
                     <!-- <li class="active"><a href="#">Home</a></li> -->
-
-                    <li><a href="{{ url('/home')}}">Dashboard</a></li>
+                        
+                    <li><a href="{{ url('/home')}}" class="blue darken-3 white-text">
+                                Dashboard</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                        <a href="#" class="dropdown-toggle blue darken-3 white-text" data-toggle="dropdown" aria-expanded="true">
                                     Routine <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu dropdown-primary" role="menu">
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/11a')}}">1/1(a)</a></li>
-                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/11b')}}">1/1(b)</a></li>
+                            <li><a tabindex="-1" class="dro pdown-item" href="{{ url('/routine/11b')}}">1/1(b)</a></li>
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/12a')}}">1/2(a)</a></li>
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/12b')}}">1/2(b)</a></li>
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/21a')}}">2/1(a)</a></li>
@@ -101,10 +122,10 @@
                         
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle blue darken-3 white-text" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Resource <span class="caret"></span>
                                 </a>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu dropdown-primary" role="menu">
                             <li><a class="dropdown-item" href="{{ url('/resource/11a')}}">1/1(a)</a></li>
                             <li><a class="dropdown-item" href="{{ url('/resource/11b')}}">1/1(b)</a></li>
                             <li><a class="dropdown-item" href="{{ url('/resource/12a')}}">1/2(a)</a></li>
@@ -139,10 +160,10 @@
                         
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle blue darken-3 white-text" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Result <span class="caret"></span>
                                 </a>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu dropdown-primary" role="menu">
                             <li><a class="dropdown-item" href="{{ url('/result/11a')}}">1/1(a)</a></li>
                             <li><a class="dropdown-item" href="{{ url('/result/11b')}}">1/1(b)</a></li>
                             <li><a class="dropdown-item" href="{{ url('/result/12a')}}">1/2(a)</a></li>
@@ -177,10 +198,10 @@
                         
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle blue darken-3 white-text" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Notice <span class="caret"></span>
                                 </a>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu dropdown-primary" role="menu">
                             <li><a class="dropdown-item" href="{{ url('/notice/11a')}}">1/1(a)</a></li>
                             <li><a class="dropdown-item" href="{{ url('/notice/11b')}}">1/1(b)</a></li>
                             <li><a class="dropdown-item" href="{{ url('/notice/12a')}}">1/2(a)</a></li>
@@ -215,7 +236,7 @@
                         
                     </li>
                     <li>
-                        <a href="{{ url('/curriculum')}}">
+                        <a href="{{ url('/curriculum')}}" class="blue darken-3 white-text">
                             Curriculum
                         </a>
                         
@@ -244,15 +265,17 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/login') }}" class="blue darken-3 white-text">
+                                Login</a></li>
                             <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle blue darken-3 white-text" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <i class="fa fa-user mr-1"></i> 
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
-                                <ul class="dropdown-menu" role="menu">
+                                
+                                <ul class="dropdown-menu dropdown-primary" role="menu">
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -270,12 +293,40 @@
                     </ul>
                 </div>
             </div>
-            </div>
         </nav>
-    </div>
+  <!--   </div> -->
         @yield('content')
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <!-- <script src="/js/app.js"></script> -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="{{url('/')}}/js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{{url('/')}}/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{{url('/')}}/js/mdb.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+    
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+    
+    //Click event to scroll to top
+    $('.scrollToTop').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        return false;
+    });
+    
+});
+    </script>
+
 </body>
 </html>

@@ -6,31 +6,47 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Class Room Management</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"      rel="stylesheet"> 
+   
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/animate.min.css" rel="stylesheet"> 
   <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/typicons.min.css" rel="stylesheet">
-  <link href="css/typicons.css" rel="stylesheet">
   <link href="css/lightbox.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
   <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
   <link href="css/responsive.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-  <![endif]-->
-  
-  <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14473.38578500395!2d91.8322187!3d24.9202651!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdec4aded0892689c!2sShahjalal+University+of+Science+and+Technology%2C+Sylhet!5e0!3m2!1sen!2s!4v1487146030453" width="600" height="450" frameborder="0" style="border:0"></iframe> -->
   <link rel="shortcut icon" href="images/cse2.png">
+  <link href="css/mdb.min.css" rel="stylesheet">
+
+  <style type="text/css">
+        .scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+}
+.scrollToTop:hover {
+  background-color: #555;
+}
+    </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
 </head><!--/head-->
 
 <body>
 
+  <a href="#" class="scrollToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i>Top</a>
   <!--.preloader-->
   <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
   <!--/.preloader-->
@@ -86,10 +102,10 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li> -->
-            <li class="scroll"><a href="/routine">Routine</a></li> 
-            <li class="scroll"><a href="#about-us">Resource</a></li>
-            <li class="scroll"><a href="#about-us">Result</a></li>
-            <li class="scroll"><a href="#about-us">Notice</a></li>
+            <li class="scroll"><a href="/routine/11a">Routine</a></li> 
+            <li class="scroll"><a href="#services">Resource</a></li>
+            <li class="scroll"><a href="#services">Result</a></li>
+            <li class="scroll"><a href="#services">Notice</a></li>
             <li class="scroll"><a href="/curriculum">Curriculum</a></li>
             <li class="scroll"><a href="/login">Login</a></li>
             <!-- <li class="scroll"><a href="/register">Register</a></li>     -->
@@ -318,7 +334,6 @@ frmvalidator.addValidation("email","email",
 </script>
 
   <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="js/jquery.inview.min.js"></script>
   <script type="text/javascript" src="js/wow.min.js"></script>
@@ -327,6 +342,36 @@ frmvalidator.addValidation("email","email",
   <script type="text/javascript" src="js/jquery.countTo.js"></script>
   <script type="text/javascript" src="js/lightbox.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/tether.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+  <script type="text/javascript">
+        $(document).ready(function(){
+    
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+    
+    //Click event to scroll to top
+    $('.scrollToTop').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        return false;
+    });
+    
+});
+</script>
 
 </body>
 </html>

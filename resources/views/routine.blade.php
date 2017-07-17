@@ -55,7 +55,32 @@
               
             </div>
             <div class="panel panel-primary">
-                <div class="panel-heading"><h4>Tomorrow's Class</h4></div>
+              <?php 
+                      
+                date_default_timezone_set('Asia/Dhaka');
+                $cur_time = date('H');
+                $next = 0;
+                if($cur_time>=18) $next=1;
+                $cur_day=date('D');
+                $cur_day=strtoupper($cur_day);
+                if($next==1)
+                { 
+                  if($cur_day=='SUN') $day='MON';
+                  else if($cur_day=='MON') $day='TUE';
+                  else if($cur_day=='TUE') $day='WED';
+                  else if($cur_day=='WED') $day='THU';
+                  else if($cur_day=='THU') $day='SUN';
+                  else if($cur_day=='FRI') $day='SUN';
+                  else if($cur_day=='SAT') $day='SUN';
+                }
+                else $day = $cur_day;
+               // echo $next;
+              ?>
+                @if($next==1)
+                  <div class="panel-heading"><h4>Tomorrow's Class</h4></div>
+                @else
+                  <div class="panel-heading"><h4>Today's Class</h4></div>
+                @endif 
 
                 <div class="panel-body">
                     <table class="display table table-bordered table-stripe">
@@ -73,20 +98,7 @@
                             <th class="text-center">4 PM</th>
                           </tr>
                         </thead>
-                        <?php 
-                          
-                          date_default_timezone_set('Asia/Dhaka');
-                          $cur_day=date('D');
-                          $cur_day=strtoupper($cur_day);
-                          if($cur_day=='SUN') $next_day='MON';
-                          else if($cur_day=='MON') $next_day='TUE';
-                          else if($cur_day=='TUE') $next_day='WED';
-                          else if($cur_day=='WED') $next_day='THU';
-                          else if($cur_day=='THU') $next_day='SUN';
-                          else if($cur_day=='FRI') $next_day='SUN';
-                          else if($cur_day=='SAT') $next_day='SUN';
-                          //echo $next_day;
-                        ?>
+                      
                         <tbody>
                          
                           <?php 
@@ -94,7 +106,7 @@
                           $f=0;
                           ?>
                           @foreach($data2 as $dat)
-                            @if ($next_day == $dat->day) 
+                            @if ($day == $dat->day) 
                                <?php $f=1 ?>
                               <tr class="default">
 
@@ -120,7 +132,7 @@
                           @endforeach
                           @if ($f==0)
                               @foreach($data1 as $dat)
-                                @if ($next_day == $dat->day) 
+                                @if ($day == $dat->day) 
                                   <?php
                                     DB::table('tomorrows')->insert(
                                     ['batch' => $dat->batch, 'day' => $dat->day, 'eightnine' => $dat->eightnine, 
@@ -156,8 +168,9 @@
                     @if (Auth::guest())
 
                     @else
-                      <button type="submit" class="btn btn-warning btn-xs btn-edit" 
+                      <button type="submit" class="btn btn-warning btn-md btn-edit" 
                           data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:50%;width:20%">
+                            <i class="fa fa-pencil"></i></a>
                             Edit Tomorrow's Class
                       </button>
                       
