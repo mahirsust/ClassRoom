@@ -29,13 +29,27 @@
 
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
   <link rel="shortcut icon" href="{{url('/')}}/images/cse2.png">
-<style type="text/css"> 
 
-body {
-
-    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg");
+  <!-- <style type="text/css">
+body, html {
+    height: 100%;
+    margin: 0;
+    background-image: url("images/IICT/IICT (2).jpg");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     
-}</style>
+}
+</style> -->
+
+
+    <!-- <style type="text/css">
+        body {
+            background-color: lightgreen;
+        }
+    </style> -->
+
  <style type="text/css">
         .scrollToTop {
   display: none;
@@ -82,14 +96,14 @@ body {
                     <!-- <li class="active"><a href="#">Home</a></li> -->
                         
                     <li><a href="{{ url('/home')}}" class="blue darken-3 white-text">
-                                Dashboard</a></li>
+                                Home</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle blue darken-3 white-text" data-toggle="dropdown" aria-expanded="true">
                                     Routine <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-primary" role="menu">
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/11a')}}">1/1(a)</a></li>
-                            <li><a tabindex="-1" class="dro pdown-item" href="{{ url('/routine/11b')}}">1/1(b)</a></li>
+                            <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/11b')}}">1/1(b)</a></li>
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/12a')}}">1/2(a)</a></li>
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/12b')}}">1/2(b)</a></li>
                             <li><a tabindex="-1" class="dropdown-item" href="{{ url('/routine/21a')}}">2/1(a)</a></li>
@@ -269,6 +283,7 @@ body {
                                 Login</a></li>
                             <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                         @else
+                            <li><a href="{{ url('/register') }}" class="blue darken-3 white-text">Register</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle blue darken-3 white-text" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <i class="fa fa-user mr-1"></i> 

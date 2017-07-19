@@ -1,15 +1,14 @@
 @extends('layouts.app_dashboard')
 
 @section('content')
-<div class="containe">
+<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading light-blue darken-1 white-text">
-                  <h4>
+            <div class="panel panel-primary">
+                <div class="panel-heading light-blue darken-1 white-text text-center">
+                  <h3><strong>
                     Curriculum
-                </div></h4>
-                <div class="panel-body">
+                  </strong></h3>
                 </div>
             </div>
         </div>
@@ -18,13 +17,13 @@
     <!-- First Year: Semester I -->
     <div class="row">
       
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#11" aria-expanded="false" aria-controls="11">
+      <button class="btn btn-primary aria-controls waves-effect waves-light col-4" type="button" data-toggle="collapse" data-target="#11" aria-expanded="false" aria-controls="11">
         First Year: Semester I
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="11" class="collapse">
           <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead>
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>

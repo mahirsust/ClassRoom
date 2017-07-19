@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-info">
-                <div class="panel-heading">
+                <div class="panel-heading light-blue darken-1 white-text text-center">
                   <h3>
                     <strong>
                       Resource Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}

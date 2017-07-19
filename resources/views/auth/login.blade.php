@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading light-blue darken-3 white-text"><h4><i class="fa fa-user mr-1"></i> Login</div></h4>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
@@ -17,7 +17,7 @@
                                 <div class="md-form">
                                     <i class="fa fa-envelope prefix"></i>
                                     
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
                                     <label for="email" data-error="wrong" data-success="right">Type your email</label>
                                     
                                     @if ($errors->has('email'))

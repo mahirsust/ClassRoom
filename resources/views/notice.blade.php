@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
           <div class="panel panel-info">
-                <div class="panel-heading">
+                <div class="panel-heading light-blue darken-1 white-text text-center">
                   <h3>
                     <strong>
                       Notice Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
@@ -46,10 +46,10 @@
                 <tr>
                     <td>
                         <section class="panel panel-info">
-                          <div class="panel-heading">
+                          <div class="panel-heading light-blue darken-1 white-text">
                             <h4>
                                     <strong>
-                                      <font color="green">{{$dat->course}}</font>
+                                      <font color="white">{{$dat->course}}</font>
                                     </strong>
                             </h4>
                           </div>
@@ -73,14 +73,14 @@
                                 @else
                                   <div class="fb-status-container fb-border">
                                       <div class="fb-time-action">
-                                    <button type="submit" class="btn btn-warning btn-xs btn-edit" 
+                                    <button type="submit" class="btn btn-warning btn-md btn-edit" 
                                     data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
                                       Edit
                                     </button>
 
                                     <span></span>
                                     <button type="submit"  
-                                      data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-xs btn-edit"> 
+                                      data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-md btn-edit"> 
                                         Delete
                                     </button>
                                     <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1"    role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -127,7 +127,7 @@
                                               <input type="hidden" name="nid" value="{{$dat->id}}">
                                               <div class="form-group">
                                                 <label class="form-control-label"> 
-                                                  Course Name:
+                                                  Title:
                                                 </label>
                                                 <input autofocus required="" type="text" name="edit_cname" value="{{$dat->course}}" 
                                                  class="form-control"  >
@@ -180,7 +180,7 @@
             {{csrf_field()}}
               <div class="form-group">
                 <label class="form-control-label"> 
-                  Course Name:
+                  Title:
                 </label>
                 <input required="" name="cname" type="text" class="form-control" autofocus>
               </div>

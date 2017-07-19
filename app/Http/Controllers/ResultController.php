@@ -18,6 +18,7 @@ class ResultController extends Controller
     public function save(Request $request)
     {
         $data1 = [];
+        /*return $request;*/
 
         $tit1=$request->title_1;
         $len=strlen($tit1);
@@ -25,7 +26,7 @@ class ResultController extends Controller
 
          $id = DB::table('results')->insertGetId(
             ['batch' => $request->semester, 'course' => $request->cname, 
-            'link' => $request->resource_link, 'title' => $tit1]
+            'link' => $request->result_link, 'title' => $tit1]
         );
          $request = $request->semester;
         $data1=DB::table('results')->where('batch', '=', $request)

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
             <div class="panel panel-info">
-                <div class="panel-heading">
+                <div class="panel-heading light-blue darken-1 white-text text-center">
                   <h3>
                     <strong>
                       Routine Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
@@ -15,7 +15,7 @@
                       </strong></h3>
                 </div>
                 <div class="panel-body">
-                    <table class="display table table-bordered table-stripe">
+                    <table class="display table table-bordered table-stripe table-hover">
                         <thead>
                           <tr class="panel-default">
                             <th class="text-center">Day</th>
@@ -54,7 +54,7 @@
             <div>
               
             </div>
-            <div class="panel panel-primary">
+            <div class="panel panel-info">
               <?php 
                       
                 date_default_timezone_set('Asia/Dhaka');
@@ -77,13 +77,13 @@
                // echo $next;
               ?>
                 @if($next==1)
-                  <div class="panel-heading"><h4>Tomorrow's Class</h4></div>
+                  <div class="panel-heading light-blue darken-1 white-text text-center"><h4><strong>Tomorrow's Routine</strong></h4></div>
                 @else
-                  <div class="panel-heading"><h4>Today's Class</h4></div>
+                  <div class="panel-heading light-blue darken-1 white-text text-center"><h4><strong>Today's Routine</strong></h4></div>
                 @endif 
 
                 <div class="panel-body">
-                    <table class="display table table-bordered table-stripe">
+                    <table class="display table table-bordered table-stripe table-hover">
                         <thead>
                           <tr class="panel-default">
                             <th class="text-center">Day</th>
@@ -168,10 +168,10 @@
                     @if (Auth::guest())
 
                     @else
-                      <button type="submit" class="btn btn-warning btn-md btn-edit" 
-                          data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:50%;width:20%">
+                      <button type="submit" class="btn btn-info btn-md btn-edit" 
+                          data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
                             <i class="fa fa-pencil"></i></a>
-                            Edit Tomorrow's Class
+                            Edit Routine
                       </button>
                       
                     @endif
@@ -181,7 +181,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <strong class="modal-title" id="exampleModalLabel">
-                              Edit Tomorrow's Routine
+                              Edit Routine
                             </strong>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>

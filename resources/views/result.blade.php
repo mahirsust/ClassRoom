@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-info">
-                <div class="panel-heading">
+                <div class="panel-heading light-blue darken-1 white-text text-center">
                   <h3>
                     <strong>
                       Result Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
@@ -55,14 +55,20 @@
                               @else
                               <td>
                                 <div class="text-center">
-                                  <button type="submit" class="btn btn-warning btn-xs btn-edit" 
+                                    <a type="submit" class="teal-text" data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" >
+                                    <i class="fa fa-pencil"></i></a>
+                                  <!-- <button type="submit" class="btn btn-warning btn-xs btn-edit" 
                                   data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
                                     Edit
-                                  </button>
-                                  <button type="submit"  
+                                  </button> -->
+                                  <a class="red-text"  type="submit"  
+                                    data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo">
+                                    <i class="fa fa-times"></i>
+                                  </a>
+                                  <!-- <button type="submit"  
                                   data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-xs btn-edit" style="height:20%;width:20%">
                                     Delete
-                                  </button>
+                                  </button> -->
                                 </div>
                                 <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 
@@ -150,7 +156,7 @@
 
             @else
               <div>
-                <button type="submit" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
+                <button type="submit" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
                   Add Course Result Link
                 </button>
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
