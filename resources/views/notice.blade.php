@@ -176,7 +176,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="\notice\insert\{{$request}}">
+            <form method="POST" enctype="multipart/form-data" action="\notice\insert\{{$request}}">
             {{csrf_field()}}
               <div class="form-group">
                 <label class="form-control-label"> 
@@ -192,7 +192,10 @@
                 </label>
                 <input required="" name="notice_1" type="text" class="form-control"  >
               </div>
-
+               <div class="form-group">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+              </div>
+              
               <button type="submit" class="btn btn-success">
               Save
             </button>
