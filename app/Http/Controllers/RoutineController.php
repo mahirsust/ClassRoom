@@ -35,11 +35,11 @@ class RoutineController extends Controller
 
     public function getPDF($request)
     {
-        echo "this is";
-        echo $request;
-        /*$routine = Routine::where('batch', '=', $request)->get();;
-        $pdf = PDF::loadView('routinegenerate', ['routine'=>$routine, 'sem'=>$request]);
-        return $pdf->download('routine.pdf');*/
+        /*echo "this is";
+        echo $request;*/
+        $routine = Routine::where('batch', '=', $request)->get();;
+        $pdf = PDF::loadView('routinegenerate', ['routine'=>$routine]);
+        return $pdf->download('routine.pdf');
 
     }
 }

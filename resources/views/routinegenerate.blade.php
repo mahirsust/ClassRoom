@@ -32,8 +32,6 @@
             </thead>
             <tbody>
             @foreach($routine as $dat)
-            	<!-- {{$sem}}
-            	@if($dat->batch == $sem) -->
 	              <tr class="default">
 	                  <th tabindex="-1" class="text-center"> {{$dat->day}} </th>
 	                  <td tabindex="-1" class="text-center"> {{$dat->eightnine}} </td>
@@ -46,7 +44,7 @@
 	                  <td tabindex="-1" class="text-center"> {{$dat->threefour}} </td>
 	                  <td tabindex="-1" class="text-center"> {{$dat->fourfive}} </td>         
 	              </tr>
-	            @endif
+	       
             @endforeach
             </tbody>
         </table>
