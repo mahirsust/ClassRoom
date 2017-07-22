@@ -4,6 +4,12 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
+            @if(Session::has('alert-success'))
+              <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{ Session::get('alert-success') }}</strong>
+              </div>
+            @endif
             <div class="panel panel-info">
                 <div class="panel-heading light-blue darken-1 white-text text-center">
                   <h3>

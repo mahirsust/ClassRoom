@@ -29,6 +29,8 @@ class RoutineController extends Controller
 				'twothree' => $request->twothree,
 				'threefour' => $request->threefour,
 				'fourfive' => $request->fourfive]);
+
+        $request->session()->flash('alert-success', 'Routine is updated succesfully!');
        
         return redirect()->action('RoutineController@index', ['id' => $request->batch]);
     }
