@@ -29,9 +29,6 @@ class ResourceController extends Controller
         $file= $request->file('file_name');
         $extension = $request->file('file_name')->getClientOriginalExtension();
 
-        echo $tit1;
-        echo $extension;
-       
         $len=strlen($tit1);
         if($len>15) $tit1=substr($tit1, 0, 14)."...";
 

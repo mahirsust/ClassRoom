@@ -15,6 +15,21 @@
                       </strong></h3>
                 </div>
           </div>
+          @if(Session::has('alert-success'))
+            <div class="alert alert-success alert-dismissable fade in">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>{{ Session::get('alert-success') }}</strong>
+            </div>
+          @endif
+          @if (count($errors) > 0)
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
             <?php
 
         $cur_date=date("Y/m/d");
@@ -115,7 +130,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form method="POST" action="/notice/edit/{{$request}}">
+                      <form method="POST" action="/notice/edit/{{$request}}" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <input type="hidden" name="semester" value="{{$request}}">
                         <input type="hidden" name="nid" value="{{$dat->id}}">
@@ -131,11 +146,15 @@
                           <label class="form-control-label"> 
                             Notice:
                           </label>
-                          <textarea  rows="5" cols="20" required="" name="edit_notice" type="text"
-                            wrap="soft"  
-                             class="form-control" >
-                            {{$dat->notice}}
-                           </textarea>
+                          <textarea  rows="5" cols="20"  required="" name="edit_notice" type="text" wrap="soft" class="form-control">{{$dat->notice}}</textarea>
+                        </div>
+                        <div class="form-group">
+                          <label   class="form-control-label"> 
+                            Upload:
+                          </label>
+                          <input type="file" name="edit_file_name" class="filename"  
+                           >
+                           (Max Size 10MB)
                         </div>
                         <button type="submit" class="btn btn-primary btn-md">
                           Update
@@ -171,7 +190,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="\notice\insert\{{$request}}">
+            <form method="POST" action="\notice\insert\{{$request}}" enctype="multipart/form-data">
             {{csrf_field()}}
               <div class="form-group">
                 <label class="form-control-label"> 
@@ -186,11 +205,16 @@
                 <label   class="form-control-label"> 
                   Notice
                 </label>
-                <textarea rows="5" cols="20" required="" name="notice_1" type="text"
-                wrap="soft"  
-                 class="form-control" >
-                 Write Notice...
-                 </textarea>
+                <textarea rows="5" cols="20" placeholder="Write Notice..." required="" name="notice_1" type="text"  
+                 class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label   class="form-control-label"> 
+                  Upload:
+                </label>
+                <input type="file" name="file_name" class="filename"  
+                 >
+                 (Max Size 10MB)
               </div>
 
               <button type="submit" class="btn btn-success btn-md">
