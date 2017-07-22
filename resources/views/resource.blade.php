@@ -4,6 +4,21 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+        @if(Session::has('alert-success'))
+          <div class="alert alert-success alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{ Session::get('alert-success') }}</strong>
+          </div>
+        @endif
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
             <div class="panel panel-info">
                 <div class="panel-heading light-blue darken-1 white-text text-center">
                   <h3>
@@ -20,13 +35,8 @@
                           <tr class="panel-default">
                             <th class="text-center" >ID</th>
                             <th class="text-center" >Course Name</th>
-                            <th class="text-center" >Link</th>
-                            @if (Auth::guest())
-
-                            @else
-                              <th class="text-center" >Manage</th>
-
-                            @endif
+                            <th class="text-center" >Title</th>
+                            <th class="text-center" >Action</th>
                           </tr>
                         </thead>
                         <?php $inc=0;  ?>
@@ -44,7 +54,6 @@
                                 </div>
                               </td>
                               <td>
-                              <a href="{{$dat->link}}">
                                 <div class="text-center" style="height:100%;width:100%;font-size: 17px;">
                                   {{$dat->title}}
                                 </div>
@@ -52,63 +61,66 @@
                               </td>
                               @if (Auth::guest())
 
+                                <td class="col-sm">
+                                  <div class="text-center">
+                                    <a href="/resources/{{$dat->link}}" download="/resources/{{$dat->link}}">
+                                    <i class="fa fa-download"></i></a>
+                                    </a>
+                                  </div>
+                                </td>
+
                               @else
                                 <td class="col-sm">
                                   <div class="text-center">
+                                    <a href="/resources/{{$dat->link}}" download="/resources/{{$dat->link}}">
+                                    <i class="fa fa-download"></i></a>
+                                    </a>
                                     <a type="submit" class="teal-text" data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" >
                                     <i class="fa fa-pencil"></i></a>
-                                    <!-- <button type="submit" class="btn btn-warning btn-sm btn-edit" 
-                                    data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
-                                      Edit
-                                    </button> -->
                                     <a class="red-text"  type="submit"  
                                     data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo">
                                     <i class="fa fa-times"></i>
                                     </a>
-                                    <!-- <button type="submit"  
-                                    data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-sm btn-edit" style="height:20%;width:20%">
-                                      Delete
-                                    </button> -->
                                   </div>
-                                  <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  
-                                  <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <strong class="modal-title">
-                                            Are you sure?????
-                                          </strong>
-                                        </div>
-                                        <div class="modal-body">
-                                          <form method="POST" action="/resource/delete/{{$request}}">
-                                            {{csrf_field()}}
-                                            <input type="hidden" name="semester" value="{{$request}}">
-                                            <input type="hidden" name="rid" value="{{$dat->id}}">
-                                          <button type="submit" class="btn btn-primary">
-                                            DELETE
-                                          </button>
-                                          <button type="submit" data-dismiss="modal" class="btn btn-primary">
-                                            CANCEL
-                                          </button>
 
-                                          </form>
-                                        </div>
+                                  <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <strong class="modal-title">
+                                              Are you sure?????
+                                            </strong>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form method="POST" action="/resource/delete/{{$request}}">
+                                              {{csrf_field()}}
+                                              <input type="hidden" name="semester" value="{{$request}}">
+                                              <input type="hidden" name="rid" value="{{$dat->id}}">
+                                            <button type="submit" class="btn btn-primary">
+                                              DELETE
+                                            </button>
+                                            <button type="submit" data-dismiss="modal" class="btn btn-primary">
+                                              CANCEL
+                                            </button>
+
+                                            </form>
+                                          </div>
+                                      </div>
                                     </div>
-                                  </div>
                                   </div>
                                   <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header">
                                           <strong class="modal-title" id="exampleModalLabel">
-                                            Edit Course Resourse Link
+                                            Edit Course Resource Link
                                           </strong>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                           </button>
                                         </div>
                                         <div class="modal-body">
-                                          <form method="POST" action="/resource/edit/{{$request}}">
+                                          <form method="POST" action="/resource/edit/{{$request}}" enctype="multipart/form-data">
                                             {{csrf_field()}}
                                             <input type="hidden" name="semester" value="{{$request}}">
                                             <input type="hidden" name="rid" value="{{$dat->id}}">
@@ -128,11 +140,12 @@
                                               </div>
                                               <div class="form-group">
                                                 <label   class="form-control-label"> 
-                                                  Resource Link:
+                                                  Upload:
                                                 </label>
-                                                <input required="" type="text" name="edit_link" class="form-control"
-                                                 value="{{$dat->link}}">
-                                            </div>
+                                                <input required="" type="file" name="edit_file_name" class="filename"  
+                                                 >
+                                                 (Max Size 10MB)
+                                              </div>
                                           <button type="submit" class="btn btn-primary">
                                             Update
                                           </button>
@@ -157,22 +170,24 @@
             @else
               <div>
                 <button type="submit" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
-                  Add Course Resourse Link
+                  Add Course Resource Link
                 </button>
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <strong class="modal-title" id="myModalLabel">
-                          Add Course Resourse Link
+                          Add Course Resource Link
                         </strong>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form method="POST" action="\resource\insert\{{$request}}">
+                        <form method="POST" action="\resource\insert\{{$request}}" enctype="multipart/form-data">
                         {{csrf_field()}}
+
+
                           <div class="form-group">
                             <label class="form-control-label"> 
                               Course Name:
@@ -187,15 +202,19 @@
                             </label>
                             <input required="" name="title_1" type="text" class="form-control"  >
                           </div>
+
                           <div class="form-group">
                             <label   class="form-control-label"> 
-                              Resource Link:
+                              Upload:
                             </label>
-                            <input required="" type="text" name="resource_link" class="form-control"  >
+                            <input required="" type="file" name="file_name" class="filename"  >
+                            (Max Size 10MB)
                           </div>
+
                           <button type="submit" class="btn btn-success">
                           Save
-                        </button>
+                          </button>
+
                         </form>
                       </div>
                     </div>

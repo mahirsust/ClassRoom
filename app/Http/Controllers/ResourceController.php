@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Redirector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Validator;
+use Illuminate\Support\Facades\Input;
+use App\Resource;
+use Session;
+use Redirect;
+
 
 class ResourceController extends Controller
 {
@@ -17,58 +23,68 @@ class ResourceController extends Controller
     }
     public function save(Request $request)
     {
-        $data1 = [];
-
+       $this->validate($request, [
+            'file_name' => 'required|max:10000|mimes:doc,docx,xlsx,gif,svg,csv,xls,jpeg,png,jpg,zip,pdf,7z,rar,ppt,pptx']);
         $tit1=$request->title_1;
+        $file= $request->file('file_name');
+        $extension = $request->file('file_name')->getClientOriginalExtension();
+
+        echo $tit1;
+        echo $extension;
+       
         $len=strlen($tit1);
         if($len>15) $tit1=substr($tit1, 0, 14)."...";
 
-         $id = DB::table('resources')->insertGetId(
-            ['batch' => $request->semester, 'course' => $request->cname, 
-            'link' => $request->resource_link, 'title' => $tit1]
-        );
-         $request = $request->semester;
-    	$data1=DB::table('resources')->where('batch', '=', $request)
-                                     ->get();
-        // return $request;
-        return redirect()->action(
-                                 'ResourceController@index', ['id' => $request]
-                                );
-        // return view('resource', compact('data1' , 'request'));
+        if($file = $request->hasFile('file_name')) {
+            $file = $request->file('file_name') ;
+            $fileName = $file->getClientOriginalName() ;
+            $destinationPath = public_path().'/resources/' ;
+            $file->move($destinationPath,$fileName);
+        }
+        $resource = new Resource;
+        $resource->batch = $request->semester;
+        $resource->course = $request->cname; 
+        $resource->link = $fileName;
+        $resource->title = $tit1;
+        $resource->save();
+
+        $request->session()->flash('alert-success', 'Resource is added succesfully!');
+        $request = $request->semester;
+        return redirect()->action('ResourceController@index', ['id' => $request]);
     }
     public function delete(Request $request)
     {
-        $data1 = [];
-        $id = DB::table('resources')->where('id', '=', $request->rid)
-                                ->delete();
-        $request = $request->semester;
-        return redirect()->action(
-                                 'ResourceController@index', ['id' => $request]
-                                );
+        $data = Resource::find($request->rid);
+        $data->delete();
+        $request->session()->flash('alert-success', 'Resource is deleted succesfully!');
+         $request = $request->semester;
+        return redirect()->action('ResourceController@index', ['id' => $request]);
     }
     public function update(Request $request)
     {
-        $data1 = [];
-        
+       $this->validate($request, [
+            'edit_file_name' => 'required|max:10000|mimes:doc,docx,xlsx,gif,svg,csv,xls,jpeg,png,jpg,zip,pdf,7z,rar,ppt,pptx']);
         $tit1=$request->edit_title;
-        $len=strlen($tit1);
-        if($len>15) 
-        {
-            $tit1=substr($tit1, 0, 14);
-            $tit1.="...";
-        }
+        $file= $request->file('edit_file_name');
+        //$extension = $request->file('file_name')->getClientOriginalExtension();
 
-        $id = DB::table('resources')
-            ->where('id', $request->rid)
-            ->where('batch', $request->semester)
-            ->update(['course' => $request->edit_cname,
-                      'title' => $tit1,
-                      'link' => $request->edit_link 
-                    ]);
-        // $id1='32';
+        $len=strlen($tit1);
+        if($len>15) $tit1=substr($tit1, 0, 14)."...";
+
+        if($file = $request->hasFile('edit_file_name')) {
+            $file = $request->file('edit_file_name') ;
+            $fileName = $file->getClientOriginalName() ;
+            //echo $fileName;
+            $destinationPath = public_path().'/resources/' ;
+            $file->move($destinationPath,$fileName);
+        }
+        $edit_res = Resource::find($request->rid);
+        $edit_res->course = $request->edit_cname;
+        $edit_res->title  = $tit1;
+        $edit_res->link = $fileName; 
+        $edit_res->save();
+        $request->session()->flash('alert-success', 'Resource is updated succesfully!');
         $request = $request->semester;
-        return redirect()->action(
-                                 'ResourceController@index', ['id' => $request]
-                                );
+        return redirect()->action( 'ResourceController@index', ['id' => $request]);
     }
 }

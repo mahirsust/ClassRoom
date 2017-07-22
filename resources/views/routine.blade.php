@@ -49,11 +49,18 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <a href="/routine/getpdf/{{$request}}" 
+                    <button type="submit" class="btn btn-info btn-md btn-edit" 
+                      data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                        
+                        <i class="fa fa-file-pdf-o"></i>
+                        Export as PDF
+                        
+                    </button>
+                    </a>
                 </div>
             </div>
-            <div>
-              
-            </div>
+           
             <div class="panel panel-info">
               <?php 
                       

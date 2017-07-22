@@ -14,8 +14,11 @@
                       @endif
                       </strong></h3>
                 </div>
-            </div>
+          </div>
+            <?php
 
+        $cur_date=date("Y/m/d");
+      ?>
           @if (Auth::guest())
 
           @else
@@ -29,141 +32,133 @@
 
           <div>
             </br>
-          </div>      
-            <table class="dataTable" id="example" width="100%">
-                <thead>
-                <tr class='text-center'>
-                    <th></th>
-                </tr>
-                </thead>
-                <?php
+          </div> 
+<!--      Notice Start --> 
+          @foreach($data1 as $dat)
+          <div class="department-section">
+            <div class="department-overview">
+            <blockquote class="blockquote bq-danger">
+              <h2 class="text"><strong>{{$dat->course}}</strong></h2>
+            </blockquote>
 
-                    $cur_date=date("Y/m/d");
-                ?>
-                <tbody>
-                
-                @foreach($data1 as $dat)
-                <tr>
-                    <td>
-                        <section class="panel panel-info">
-                          <div class="panel-heading light-blue darken-1 white-text">
-                            <h4>
-                                    <strong>
-                                      <font color="white">{{$dat->course}}</font>
-                                    </strong>
-                            </h4>
-                          </div>
-                            <div class="panel-body">
-                                <div class="fb-user-thumb">
-                                  
-                                </div>
-                                <div class="fb-user-details">
-                                    <li style="list-style-type:disc">
-                                        <font color="blue">{{$dat->notice_date}}</font>  
-                                    </li>
-                                    <p class="fb-user-status">
-                                    <li style="list-style-type:disc">
-                                        <font color="purple">{{$dat->notice}}</font>
-                                    </li>
-                                    </p>
-                                </div>
-                                <div class="clearfix"></div>
-                                @if (Auth::guest())
 
-                                @else
-                                  <div class="fb-status-container fb-border">
-                                      <div class="fb-time-action">
-                                    <button type="submit" class="btn btn-warning btn-md btn-edit" 
-                                    data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
-                                      Edit
-                                    </button>
+            <div style="margin-left: 10px;">
+              <h4 class="text">Date : {{$dat->notice_date}}</h4>
+            </div>
+            
+            <div style="min-height: 20px;">
+            </div>
+            
+            <div class="fa-ul">
+             <li><i class="fa-li fa fa-square"></i></li>
+            </div>
 
-                                    <span></span>
-                                    <button type="submit"  
-                                      data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-md btn-edit"> 
-                                        Delete
-                                    </button>
-                                    <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1"    role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                  
-                                      <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <strong class="modal-title">
-                                                Are you sure?????
-                                              </strong>
-                                            </div>
-                                            <div class="modal-body">
-                                              <form method="POST" action="/notice/delete/{{$request}}">
-                                                {{csrf_field()}}
-                                                <input type="hidden" name="semester" value="{{$request}}">
-                                                <input type="hidden" name="nid" value="{{$dat->id}}">
-                                              <button type="submit" class="btn btn-primary">
-                                                DELETE
-                                              </button>
-                                              <button type="submit" data-dismiss="modal" class="btn btn-primary">
-                                                CANCEL
-                                              </button>
+            <div style="margin-left: 30px;">
+              {{$dat->notice}}
+            </div>
 
-                                              </form>
-                                            </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <strong class="modal-title" id="exampleModalLabel">
-                                              Edit Notice
-                                            </strong>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
-                                          </div>
-                                          <div class="modal-body">
-                                            <form method="POST" action="/notice/edit/{{$request}}">
-                                              {{csrf_field()}}
-                                              <input type="hidden" name="semester" value="{{$request}}">
-                                              <input type="hidden" name="nid" value="{{$dat->id}}">
-                                              <div class="form-group">
-                                                <label class="form-control-label"> 
-                                                  Title:
-                                                </label>
-                                                <input autofocus required="" type="text" name="edit_cname" value="{{$dat->course}}" 
-                                                 class="form-control"  >
-                                              </div>
-                                              <div class="form-group">
-                                                <label class="form-control-label"> 
-                                                  Notice:
-                                                </label>
-                                                <input required="" type="text" name="edit_notice" class="form-control"
-                                                 value="{{$dat->notice}}">
-                                              </div>
-                                              <button type="submit" class="btn btn-primary">
-                                                Update
-                                              </button>
-                                            </form>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                      </div>
-                                  </div>
+            <div style="min-height: 20px;">      
+            </div>
+            <div class="text-left attachment-link">
+              <a href="http://www.sust.edu/uploads/notice-board/attachment-1476917547.jpg" target="_blank" class="btn btn-primary btn-sm">View Attachment</a>
+            </div>
 
-                                @endif
+            @if (Auth::guest())
 
-                            </div>
-                        </section>
-                    </td>
-                </tr>
-                @endforeach
-                </tbody>
-            </table>
+            @else
+              <button type="submit" class="btn btn-warning btn-md btn-edit" 
+                data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
+                Edit
+              </button>
+
+              <button type="submit"  
+                data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-md btn-edit"> 
+                  Delete
+              </button>
+
+              <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1"    role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <strong class="modal-title text-center">
+                          <h3>Are you sure?</h3>
+                        </strong>
+                      </div>
+                      <div class="modal-body col-md-offset-3">
+                        <form method="POST" action="/notice/delete/{{$request}}">
+                          {{csrf_field()}}
+                          <input type="hidden" name="semester" value="{{$request}}">
+                          <input type="hidden" name="nid" value="{{$dat->id}}">
+                          <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">
+                            DELETE
+                          </button>
+                          <button style="margin-left: 10px;" type="submit" data-dismiss="modal" class="btn btn-primary btn-md">
+                          CANCEL
+                          </button>
+                        </form>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <strong class="modal-title" id="exampleModalLabel">
+                        Edit Notice
+                      </strong>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="POST" action="/notice/edit/{{$request}}">
+                        {{csrf_field()}}
+                        <input type="hidden" name="semester" value="{{$request}}">
+                        <input type="hidden" name="nid" value="{{$dat->id}}">
+                        <input type="hidden" name="n_date" value="{{$cur_date}}">
+                        <div class="form-group">
+                          <label class="form-control-label"> 
+                            Title:
+                          </label>
+                          <input autofocus required="" type="text" name="edit_cname" value="{{$dat->course}}" 
+                           class="form-control"  >
+                        </div>
+                        <div class="form-group">
+                          <label class="form-control-label"> 
+                            Notice:
+                          </label>
+                          <textarea  rows="5" cols="20" required="" name="edit_notice" type="text"
+                            wrap="soft"  
+                             class="form-control" >
+                            {{$dat->notice}}
+                           </textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-md">
+                          Update
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @endif
+
+            </div>
+          </div><!-- End Notice-overview --> 
+          <hr style="border-color: red;">
+          <div style="min-height: 50px;">
+            
+          </div>
+          @endforeach
         </div>
-        <div class="col-md-3">
 
-        </div>
-    </div>    
+      </div>
+    
+
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLavel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -176,7 +171,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" enctype="multipart/form-data" action="\notice\insert\{{$request}}">
+            <form method="POST" action="\notice\insert\{{$request}}">
             {{csrf_field()}}
               <div class="form-group">
                 <label class="form-control-label"> 
@@ -186,17 +181,19 @@
               </div>
               <input type="hidden" name="semester" value="{{$request}}">
               <input type="hidden" name="n_date" value="{{$cur_date}}">
+             
               <div class="form-group">
                 <label   class="form-control-label"> 
                   Notice
                 </label>
-                <input required="" name="notice_1" type="text" class="form-control"  >
+                <textarea rows="5" cols="20" required="" name="notice_1" type="text"
+                wrap="soft"  
+                 class="form-control" >
+                 Write Notice...
+                 </textarea>
               </div>
-               <div class="form-group">
-                <input type="file" name="fileToUpload" id="fileToUpload">
-              </div>
-              
-              <button type="submit" class="btn btn-success">
+
+              <button type="submit" class="btn btn-success btn-md">
               Save
             </button>
             </form>
@@ -204,6 +201,8 @@
         </div>
       </div>
     </div>
-
+<!-- <script type="text/javascript">
+  $(":file").filestyle({placeholder: "No file"});
+</script> -->
 </div>
 @endsection

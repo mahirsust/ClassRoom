@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index');
 //Routine Controller
 Route::get('/routine/{id}', 'RoutineController@index');
 Route::POST('/routine/edit/{id}', 'RoutineController@update');
+Route::get('/routine/getpdf/{id}', 'RoutineController@getPDF');
 
 
 //Resource Controller
@@ -45,6 +46,7 @@ Route::POST('/notice/edit/{id}', 'NoticeController@update');
 
 //Curriculum Controller
 Route::get('/curriculum', 'CurriculumController@index');
+Route::get('/curriculum/getpdf/{id}', 'CurriculumController@getPDF');
 
 
 

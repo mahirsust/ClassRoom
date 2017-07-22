@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Routine;
+use PDF;
 class RoutineController extends Controller
 {
     public function index($request)
@@ -30,5 +31,15 @@ class RoutineController extends Controller
 				'fourfive' => $request->fourfive]);
        
         return redirect()->action('RoutineController@index', ['id' => $request->batch]);
+    }
+
+    public function getPDF($request)
+    {
+        echo "this is";
+        echo $request;
+        /*$routine = Routine::where('batch', '=', $request)->get();;
+        $pdf = PDF::loadView('routinegenerate', ['routine'=>$routine, 'sem'=>$request]);
+        return $pdf->download('routine.pdf');*/
+
     }
 }

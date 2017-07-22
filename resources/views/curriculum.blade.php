@@ -53,6 +53,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/11" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -100,6 +107,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/12" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -147,6 +161,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/21" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -194,6 +215,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/22" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -241,6 +269,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/31" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -288,6 +323,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/32" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -335,6 +377,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/41" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -382,6 +431,14 @@
               </tr>
             </tbody>
           </table>
+
+          <a href="/curriculum/getpdf/42" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -429,6 +486,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/optional" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -476,6 +540,13 @@
               </tr>
             </tbody>
           </table>
+          <a href="/curriculum/getpdf/2mj" 
+            <button type="submit" class="btn btn-info btn-md btn-edit" 
+              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-file-pdf-o"></i>
+                Export as PDF  
+            </button>
+          </a>
         </div>
       </div>
     </div>

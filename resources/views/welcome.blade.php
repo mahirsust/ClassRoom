@@ -22,11 +22,9 @@
 <link href="navbar/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
 <link href="navbar/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet" type="text/css">
 <link href="navbar/vendor/owl-carousel/css/owl.theme.css" rel="stylesheet" type="text/css">
-<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
-<link href="navbar/css/custom.css" rel="stylesheet" type="text/css"><!-- CUSTOM STYLESHEET FOR STYLING -->
+
 <!-- Color Style -->
 <link class="alt" href="navbar/colors/color1.css" rel="stylesheet" type="text/css">
-<link href="navbar/style-switcher/css/style-switcher.css" rel="stylesheet" type="text/css">
 <!-- SCRIPTS
   ================================================== -->
 <script src="navbar/js/modernizr.js"></script><!-- Modernizr -->
@@ -53,18 +51,18 @@
                                 Login</a></li>
                             <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                         @else
-                            <li><a href="{{ url('/register') }}">Register</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <i class="fa fa-user mr-1"></i> 
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu" style="" role="menu">
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
                                             Logout
                                         </a>
 
@@ -77,7 +75,7 @@
                         @endif
                     </ul>
                 </div>
-                <a href="#" class="visible-sm visible-xs " id="menu-toggle"><i class="fa fa-bars"></i></a>
+                <a class="visible-sm visible-xs" id="menu-toggle"><i class="fa fa-bars"></i></a>
                 <!-- Main Navigation -->
                 <nav class="main-navigation dd-menu toggle-menu " role="navigation">
                     <ul class="sf-menu" style="color: red;">
@@ -378,10 +376,5 @@
 <script src="navbar/js/bootstrap.js"></script> <!-- UI -->
 <script src="navbar/js/init.js"></script> <!-- All Scripts -->
 <script src="navbar/vendor/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-SpgMgJfnYGQYrkDIYKMuw0keyeNtqL0"></script>
-<script src="navbar/style-switcher/js/jquery_cookie.js"></script>
-<script src="navbar/style-switcher/js/script.js"></script>
 </body>
-
-<!-- Mirrored from html.imithemes.com/autostars/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Jul 2017 05:59:20 GMT -->
 </html>
