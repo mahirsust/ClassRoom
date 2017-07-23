@@ -263,6 +263,14 @@
                         </li>
                         <!-- Curriculum -->
                         <li><a href="/curriculum">Curriculum</a></li>
+
+                        <!-- Admin Desk -->
+                        @if (Auth::guest())
+
+                        @elseif(Auth::user()->name==="Super Admin")
+                          <li><a href="/admin_desk">Admin Desk</a></li> 
+                        @else
+                        @endif 
                     </ul>
                 </nav> 
             </div>
@@ -272,8 +280,8 @@
         <!-- Start Hero Slider -->
         <div class="hero-slider heroflex flexslider clearfix" data-autoplay="yes" data-pagination="no" data-arrows="yes" data-style="fade" data-speed="7000" data-pause="no">
             <ul class="slides">
-                <li class="parallax" style="background-image:url(images/slider/2.jpg);"></li>
-                <li class="parallax" style="background-image:url(images/img1.jpg);"></li>
+                <li class="parallax" style="background-image:url(images/IICT/IICT1.jpg); size: relative"></li>
+                <li class="parallax" style="background-image:url(images/IICT/IICT2.jpg);"></li>
             </ul>
         </div>
         <!-- End Hero Slider -->
@@ -320,7 +328,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 copyrights-left">
-                        <p>&copy; 2014 AutoStars. All Rights Reserved</p>
+                        <p>&copy; 2017 MeemMahir. All Rights Reserved</p>
                     </div>
                     <div class="col-md-6 col-sm-6 copyrights-right">
                         <ul class="social-icons social-icons-colored pull-right">

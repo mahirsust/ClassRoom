@@ -76,8 +76,8 @@
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="12" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>
@@ -130,8 +130,8 @@
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="21" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>
@@ -184,8 +184,8 @@
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="22" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>
@@ -238,8 +238,8 @@
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="31" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>
@@ -292,8 +292,8 @@
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="32" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>
@@ -346,8 +346,8 @@
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="41" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>
@@ -400,8 +400,8 @@
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="42" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>
@@ -455,8 +455,8 @@
       </button> 
       <div class="col-md-10 col-md-offset-1">
         <div id="optional" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>
@@ -509,8 +509,8 @@
       </button>
       <div class="col-md-10 col-md-offset-1">
         <div id="2mj" class="collapse">
-          <table class="display table table-bordered table-stripe">
-            <thead>
+          <table class="display table table-bordered table-stripe" style="background-color: #fff">
+            <thead class="green-text">
               <tr class="panel-default">
                 <th class="text-center">Course Code</th>
                 <th class="text-center">Course Title</th>

@@ -255,19 +255,12 @@ body, html {
                         </a>
                         
                     </li>
-                    <!-- <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Info About IICT <span class="caret"></span>
-                                </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a class="dropdown-item" href="#">Ground Floor</a></li>
-                                <li><a class="dropdown-item" href="#">1st Floor</a></li>
-                                <li><a class="dropdown-item" href="#">2nd Floor</a></li>
-                                <li><a class="dropdown-item" href="#">3rd Floor</a></li>
-                                <li><a class="dropdown-item" href="#">Add Floor</a></li>
-                            </ul>
-                        
-                    </li> -->
+                    @if (Auth::guest())
+
+                    @elseif(Auth::user()->name==="Super Admin")
+                      <li><a href="/admin_desk" class="blue darken-3 white-text">Admin Desk</a></li> 
+                    @else
+                    @endif 
                 </ul>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
@@ -281,9 +274,9 @@ body, html {
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}" class="blue darken-3 white-text">
                                 Login</a></li>
-                            <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
+                            <!-- <li><a href="{{ url('/register') }}" class="blue darken-3 white-text">Register</a></li> -->
                         @else
-                            <li><a href="{{ url('/register') }}" class="blue darken-3 white-text">Register</a></li>
+                            <!-- <li><a href="{{ url('/register') }}" class="blue darken-3 white-text">Register</a></li> -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle blue darken-3 white-text" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <i class="fa fa-user mr-1"></i> 

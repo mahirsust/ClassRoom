@@ -59,7 +59,7 @@ class NoticeController extends Controller
         $data->delete();
 
          $this->validate($request, [
-            'edit_file_name' => 'required|max:10000|mimes:doc,jpg,docx,xlsx,gif,svg,csv,xls,jpeg,png,zip,pdf,7z,rar,ppt,pptx']);
+            'edit_file_name' => 'max:10000|mimes:doc,jpg,docx,xlsx,gif,svg,csv,xls,jpeg,png,zip,pdf,7z,rar,ppt,pptx']);
         
         $file= $request->file('edit_file_name');
       
@@ -69,6 +69,10 @@ class NoticeController extends Controller
             $destinationPath = public_path().'/notices/' ;
             $file->move($destinationPath,$fileName);
         }
+        else{
+            $fileName = "NULL";
+        }
+
         $notice = new Notice;
         $notice->batch = $request->semester;
         $notice->course = $request->edit_cname; 

@@ -4,6 +4,12 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
+            @if(Session::has('alert-success'))
+              <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{ Session::get('alert-success') }}</strong>
+              </div>
+            @endif
             <div class="panel panel-info">
                 <div class="panel-heading light-blue darken-1 white-text text-center">
                   <h3>
@@ -172,15 +178,16 @@
                          
                         </tbody>
                     </table>
+                    
                     @if (Auth::guest())
 
-                    @else
+                    @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
                       <button type="submit" class="btn btn-info btn-md btn-edit" 
                           data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
                             <i class="fa fa-pencil"></i></a>
                             Edit Routine
                       </button>
-                      
+                    @else
                     @endif
 
                     <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
