@@ -69,7 +69,7 @@
                                   </div>
                                 </td>
 
-                              @else
+                              @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
                                 <td class="col-sm">
                                   <div class="text-center">
                                     <a href="/resources/{{$dat->link}}" download="/resources/{{$dat->link}}">
@@ -87,19 +87,19 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                            <strong class="modal-title">
-                                              Are you sure?????
+                                            <strong class="modal-title text-center">
+                                              <h3>Are you sure?</h3>
                                             </strong>
                                           </div>
-                                          <div class="modal-body">
+                                          <div class="modal-body col-md-offset-3">
                                             <form method="POST" action="/resource/delete/{{$request}}">
                                               {{csrf_field()}}
                                               <input type="hidden" name="semester" value="{{$request}}">
                                               <input type="hidden" name="rid" value="{{$dat->id}}">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">
                                               DELETE
                                             </button>
-                                            <button type="submit" data-dismiss="modal" class="btn btn-primary">
+                                            <button style="margin-left: 10px;" type="submit" data-dismiss="modal" class="btn btn-primary btn-md">
                                               CANCEL
                                             </button>
 
@@ -146,7 +146,7 @@
                                                  >
                                                  (Max Size 10MB)
                                               </div>
-                                          <button type="submit" class="btn btn-primary">
+                                          <button type="submit" class="btn btn-primary btn-md">
                                             Update
                                           </button>
                                           </form>
@@ -155,7 +155,14 @@
                                     </div>
                                   </div>                               
                                 </td>
-
+                                @else
+                                  <td class="col-sm">
+                                  <div class="text-center">
+                                    <a href="/resources/{{$dat->link}}" download="/resources/{{$dat->link}}">
+                                    <i class="fa fa-download"></i></a>
+                                    </a>
+                                  </div>
+                                </td>
                                 @endif
 
                             </tr>
@@ -167,7 +174,7 @@
 
             @if (Auth::guest())
 
-            @else
+            @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
               <div>
                 <button type="submit" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
                   Add Course Resource Link
@@ -211,7 +218,7 @@
                             (Max Size 10MB)
                           </div>
 
-                          <button type="submit" class="btn btn-success">
+                          <button type="submit" class="btn btn-success btn-md">
                           Save
                           </button>
 
@@ -221,7 +228,7 @@
                   </div>
                 </div>
               </div>
-
+              @else
               @endif
 
         </div>

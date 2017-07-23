@@ -17,8 +17,9 @@ Route::get('/', function () {
 
 
 Auth::routes();
+
+//Home Controller
 Route::get('/home', 'HomeController@index');
-//Route::get('/', 'HomeController@index');
 
 //Routine Controller
 Route::get('/routine/{id}', 'RoutineController@index');
@@ -48,6 +49,5 @@ Route::POST('/notice/edit/{id}', 'NoticeController@update');
 Route::get('/curriculum', 'CurriculumController@index');
 Route::get('/curriculum/getpdf/{id}', 'CurriculumController@getPDF');
 
-
-
-
+//AdminDesk Controller
+Route::get('/admin_desk', 'AdminDeskController@index');

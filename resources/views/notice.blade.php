@@ -36,13 +36,13 @@
       ?>
           @if (Auth::guest())
 
-          @else
+          @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
             <div>
                 <button type="submit" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
                   Add Notice
                 </button>
             </div>
-
+          @else
           @endif
 
           <div>
@@ -74,13 +74,17 @@
 
             <div style="min-height: 20px;">      
             </div>
+            @if($dat->file_path == "NULL")
+
+            @else
             <div class="text-left attachment-link">
-              <a href="http://www.sust.edu/uploads/notice-board/attachment-1476917547.jpg" target="_blank" class="btn btn-primary btn-sm">View Attachment</a>
+              <a href="/notices/{{$dat->file_path}}" download="/notices/{{$dat->file_path}}"class="btn btn-primary btn-sm">Download Attachment</a>
             </div>
+            @endif
 
             @if (Auth::guest())
 
-            @else
+            @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
               <button type="submit" class="btn btn-warning btn-md btn-edit" 
                 data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
                 Edit
@@ -164,6 +168,7 @@
                   </div>
                 </div>
               </div>
+              @else
               @endif
 
             </div>
