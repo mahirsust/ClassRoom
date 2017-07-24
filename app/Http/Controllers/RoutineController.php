@@ -12,7 +12,14 @@ class RoutineController extends Controller
         $data1=DB::table('routines')->where('batch', '=', $request)->get();
         $data2=[];
         $data2=DB::table('tomorrows')->where('batch', '=', $request)->get();
-        return view('routine', compact('data1', 'data2', 'request')); 
+        if($data1->count() == 0) 
+        {
+            $data1 = "NULL";
+            return view('routine', compact('data1', 'data2', 'request'))->with('alert-notfound', 'No routine data!');
+        }
+        //if($data2->count()) $data2 = "NULL";
+        //
+        else return view('routine', compact('data1', 'data2', 'request')); 
     }
     public function update(Request $request)
     {

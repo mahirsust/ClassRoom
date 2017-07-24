@@ -25,7 +25,7 @@
 	</thead>
 	<tbody>
 	  @foreach($curriculum as $dat)
-	    @if($dat->batch=="11")
+	    @if($dat->batch==$sem)
 	      <tr class="default">
 	          <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
 	          <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
@@ -35,13 +35,6 @@
 	      </tr>
 	    @endif
 	  @endforeach
-	  <tr class="default">
-	    <th tabindex="-1" class="text-center">  </th>
-	    <td tabindex="-1" class="text-center"> Total </td>
-	    <td tabindex="-1" class="text-center"> 14 + 14 = 28 </td>
-	    <td tabindex="-1" class="text-center"> 21 </td>
-	    <td tabindex="-1" class="text-center">  </td>
-	  </tr>
 	</tbody>
    </table>
 </body>

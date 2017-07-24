@@ -52,7 +52,7 @@
                       <th>Email</th>
                       <th>Password</th>
                       <th>Batch</th>
-                      <th>Actions</th>
+                      <th>Action</th>
                   </tr>
               </thead>
               <?php $inc=0;  ?>
@@ -73,7 +73,7 @@
                         <td>{{$dat->password}}</td>
                         <td>{{substr($dat->batch, 0, 1)}}/{{substr($dat->batch, 1, 1)}}</td>
                         <td>
-                            <a class="teal-text"><i class="fa fa-pencil"></i></a>
+                            <a class="teal-text"><i class="fa fa-pencil" ></i></a>
                             <a class="red-text"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
