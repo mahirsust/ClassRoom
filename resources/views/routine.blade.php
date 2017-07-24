@@ -10,6 +10,8 @@
                 <strong>{{ Session::get('alert-success') }}</strong>
               </div>
             @endif
+
+            
             <div class="panel panel-info">
                 <div class="panel-heading light-blue darken-1 white-text text-center">
                   <h3>
@@ -20,6 +22,15 @@
                       @endif
                       </strong></h3>
                 </div>
+            @if($data1=="NULL") 
+              @if(Session::has('alert-notfound'))
+                <div class="alert alert-warning alert-dismissable fade in">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>{{ Session::get('alert-notfound') }}</strong>
+                </div>
+              @endif
+
+            @else    
                 <div class="panel-body">
                     <table class="display table table-bordered table-stripe table-hover">
                         <thead>
@@ -269,6 +280,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </div>
