@@ -1,8 +1,13 @@
 @extends('layouts.app_dashboard')
 
 @section('content')
+<head>
+  <link href={{ URL::asset('css/curr.css')  }}  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+</head>
 <div class="container">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading light-blue darken-1 white-text text-center">
@@ -12,548 +17,160 @@
                 </div>
             </div>
         </div>
-    </div>
+      </div> -->
 
-    <!-- First Year: Semester I -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls waves-effect waves-light col-4" type="button" data-toggle="collapse" data-target="#11" aria-expanded="false" aria-controls="11">
-        First Year: Semester I
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="11" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($data1 as $dat)
-                @if($dat->batch=="11")
-                  <tr class="default">
+      <?php
+      $Semester = array("First Year : Semester I", "First Year : Semester II", "Second Year : Semester I", "Second Year : Semester II", "Third Year : Semester I", "Third Year : Semester II", "Fourth Year : Semester I", "Fourth Year : Semester II",  "Optional : Option", "Second Major Degree");
+      $Batch_id= array("11", "12", "21", "22", "31", "32", "41", "42", "optional", "2mj");
+      ?>
+
+      <div class="col-md-12 col-sm-6">
+        <h3 class="text-center" style="color: blue;">
+          <strong>Curriculum</strong>
+        </h3>
+        <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+          @for($i=0; $i < 10; $i++)
+          <?php
+          $sem = $Semester[$i];
+          $batch = $Batch_id[$i];
+          $credits = 0;
+          $theory = 0;
+          $lab = 0;
+          ?>
+          <div class="panel">
+            <div class="panel-heading" role="tab">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#{{$batch}}" aria-expanded="false" aria-controls="{{$batch}}">
+                  {{$sem}}
+                </a>
+              </h4>
+            </div>
+            <div id="{{$batch}}" class="panel-collapse collapse in" role="tabpanel">
+              <div class="panel-body">
+                <table class="display table table-bordered table-stripe" style="background-color: #fff">
+                  <thead class="green-text">
+                    <tr class="panel-default">
+                      <th class="text-center">Course Code</th>
+                      <th class="text-center">Course Title</th>
+                      <th class="text-center">Hours/Week (Theory+Lab)</th>
+                      <th class="text-center">Credit</th>
+                      <th class="text-center">Prerequisite</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($data1 as $dat)
+                    @if($dat->batch==$batch)
+
+                    <?php 
+                    $credits += + (double) $dat->credits;
+                    sscanf($dat->hours, '%[0-9,] + %[0-9,]', $a, $b);
+                    $theory  += $a;
+                    $lab += $b;
+                    ?>
+
+                    <tr class="default">
                       <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
                       <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
                       <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
                       <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
                       <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>
-                  </tr>
-                @endif
-              @endforeach
-              <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 14 + 14 = 28 </td>
-                <td tabindex="-1" class="text-center"> 21 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/11" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+                    </tr>
+                    @endif 
+                    @endforeach
+                    <tr class="default">
+                      <th tabindex="-1" class="text-center">  </th>
+                      <td tabindex="-1" class="text-center"> Total </td>
+                      <td tabindex="-1" class="text-center"> {{$theory}} + {{$lab}} = {{$theory+$lab}} </td>
+                      <td tabindex="-1" class="text-center"> {{$credits}} </td>
+                      <td tabindex="-1" class="text-center">  </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="submit" class="btn btn-info btn-md btn-edit" 
+                data-toggle="modal" data-target="#editModal{{$dat->batch}}" data-whatever="@mdo" style="height:20%;width:20%">
+                <i class="fa fa-pencil"></i></a>
+                Edit 
+              </button>
+              <a href="/curriculum/getpdf/{{$batch}}">
+                <button type="submit" class="btn btn-info btn-md btn-edit" 
+                data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
                 <i class="fa fa-file-pdf-o"></i>
                 Export as PDF  
-            </button>
-          </a>
+              </button>
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
+      </div> 
+      @endfor
+      <!-- end of panel -->
 
-    <div>
-      </br>
-    </div>
-  
-  <!-- First Year: Semester II -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#12" aria-expanded="false" aria-controls="12">
-        First Year: Semester II
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="12" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="12")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 12 + 14 = 26 </td>
-                <td tabindex="-1" class="text-center"> 19 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/12" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
+                <!-- Edit Modal -->
+          <div class="modal fade" id="editModal{{$dat->batch}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <strong class="modal-title" id="editModalLabel">
+                    Edit Curriculum
+                  </strong>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
 
-    <div>
-      </br>
-    </div>
+                  <form method="POST" action="/curriculum/edit/{{$dat->batch}}">
+                    <!-- {{$dat->batch}} -->
 
-    <!-- Second Year: Semester I -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#21" aria-expanded="false" aria-controls="21">
-        Second Year: Semester I
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="21" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="21")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 15 + 10 = 25 </td>
-                <td tabindex="-1" class="text-center"> 20 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/21" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
+                    @foreach($data1 as $d)
+                      @if($d->batch==$dat->batch)
 
-    <div>
-      </br>
-    </div>
+                      {{csrf_field()}}
+                      <input type="hidden" name="batch" value="{{$dat->batch}}">
 
-    <!-- Second Year: Semester II -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#22" aria-expanded="false" aria-controls="22">
-        Second Year: Semester II
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="22" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="22")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 15 + 11 = 26 </td>
-                <td tabindex="-1" class="text-center"> 20.5 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/22" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
+                      <div class="form-group">
+                        <div class="col-xs-4">
+                          <input autofocus="course_code" required="" type="text" name="course_code[]" value="{{$d->course}}"
+                        </div>
 
-    <div>
-      </br>
-    </div>
+                        <div class="col-xs-4">
+                          <input required="" type="text" name="title[]" value="{{$d->title}}"
+                        </div>
 
-    <!-- Third Year: Semester I -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#31" aria-expanded="false" aria-controls="31">
-        Third Year: Semester I
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="31" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="31")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 15 + 15 = 30 </td>
-                <td tabindex="-1" class="text-center"> 22.5 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/31" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
+                        <div class="col-xs-2">
+                          <input required="" type="text" name="hours[]" value="{{$d->hours}}"
+                        </div>
 
-    <div>
-      </br>
-    </div>
+                        <div class="col-xs-1">
+                          <input required="" type="text" name="credits[]" value="{{$d->credits}}"
+                        </div>
+                        <div class="col-xs-1">
+                          <input type="text" name="prerequisite[]" value="{{$d->prerequisite}}"
+                        </div>
+                      </div>
+                      @endif
+                    @endforeach 
 
-    <!-- Third Year: Semester II -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#32" aria-expanded="false" aria-controls="32">
-        Third Year: Semester II
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="32" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="32")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 14 + 16 = 30 </td>
-                <td tabindex="-1" class="text-center"> 22 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/32" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <div>
-      </br>
-    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Update
+                    </button>
 
-    <!-- Fourth Year: Semester I -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#41" aria-expanded="false" aria-controls="41">
-        Fourth Year: Semester I
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="41" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="41")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 11 + 16 = 27 </td>
-                <td tabindex="-1" class="text-center"> 19 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/41" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of edit modal  -->
 
-    <div>
-      </br>
-    </div>
 
-    <!-- Fourth Year: Semester II -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#42" aria-expanded="false" aria-controls="42">
-        Fourth Year: Semester II
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="42" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="42")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 6 + 16 = 22 </td>
-                <td tabindex="-1" class="text-center"> 14 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
 
-          <a href="/curriculum/getpdf/42" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
     </div>
+    <!-- end of #accordion -->
+    
 
-    <div>
-      </br>
-    </div>
 
-    <!-- Optional : Option -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#optional" aria-expanded="false" aria-controls="optional">
-        Optional : Option
-      </button> 
-      <div class="col-md-10 col-md-offset-1">
-        <div id="optional" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="optional")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 30 + 30 = 60 </td>
-                <td tabindex="-1" class="text-center"> 45 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/optional" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      </br>
-    </div>
-
-    <!-- 2nd Major Degree -->
-    <div class="row">
-      
-      <button class="btn btn-primary aria-controls col-4 waves-effect waves-light" type="button" data-toggle="collapse" data-target="#2mj" aria-expanded="false" aria-controls="2mj">
-        2nd Major Degree
-      </button>
-      <div class="col-md-10 col-md-offset-1">
-        <div id="2mj" class="collapse">
-          <table class="display table table-bordered table-stripe" style="background-color: #fff">
-            <thead class="green-text">
-              <tr class="panel-default">
-                <th class="text-center">Course Code</th>
-                <th class="text-center">Course Title</th>
-                <th class="text-center">Hours/Week (Theory+Lab)</th>
-                <th class="text-center">Credit</th>
-                <th class="text-center">Prerequisite</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach($data1 as $dat)
-              @if($dat->batch=="2mj")
-                <tr class="default">
-                    <th tabindex="-1" class="text-center"> {{$dat->course}} </th>
-                    <td tabindex="-1" class="text-center"> {{$dat->title}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
-                    <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>        
-                </tr>
-              @endif
-            @endforeach
-            <tr class="default">
-                <th tabindex="-1" class="text-center">  </th>
-                <td tabindex="-1" class="text-center"> Total </td>
-                <td tabindex="-1" class="text-center"> 22 + 25 = 47 </td>
-                <td tabindex="-1" class="text-center"> 36 </td>
-                <td tabindex="-1" class="text-center">  </td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="/curriculum/getpdf/2mj" 
-            <button type="submit" class="btn btn-info btn-md btn-edit" 
-              data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-                <i class="fa fa-file-pdf-o"></i>
-                Export as PDF  
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      </br>
-    </div>
+  </div>
+  <!-- end of wrap -->
 
 </div>
 @endsection

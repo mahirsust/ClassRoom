@@ -24,7 +24,9 @@ Route::get('/home', 'HomeController@index');
 //Routine Controller
 Route::get('/routine/{id}', 'RoutineController@index');
 Route::POST('/routine/edit/{id}', 'RoutineController@update');
+Route::POST('/routine/edit1/{id}', 'RoutineController@update1');
 Route::get('/routine/getpdf/{id}', 'RoutineController@getPDF');
+
 
 
 //Resource Controller
@@ -32,6 +34,7 @@ Route::get('/resource/{id}', 'ResourceController@index');
 Route::POST('/resource/insert/{id}', 'ResourceController@save');
 Route::POST('/resource/delete/{id}', 'ResourceController@delete');
 Route::POST('/resource/edit/{id}', 'ResourceController@update');
+
 
 //Result Controller
 Route::get('/result/{id}', 'ResultController@index');
@@ -48,6 +51,8 @@ Route::POST('/notice/edit/{id}', 'NoticeController@update');
 //Curriculum Controller
 Route::get('/curriculum', 'CurriculumController@index');
 Route::get('/curriculum/getpdf/{id}', 'CurriculumController@getPDF');
+Route::POST('/curriculum/edit/{id}', 'CurriculumController@update');
+
 
 //AdminDesk Controller
 Route::get('/admin_desk', 'AdminDeskController@index');

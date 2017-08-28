@@ -22,6 +22,8 @@ class NoticeController extends Controller
        
        $this->validate($request, [
         'file_name' => 'max:10240|mimes:doc,jpg,docx,xlsx,gif,svg,csv,xls,jpeg,png,zip,pdf,7z,rar,ppt,pptx']);
+            
+
         
         $file= $request->file('file_name');
       
@@ -32,6 +34,7 @@ class NoticeController extends Controller
             $file->move($destinationPath,$fileName);
         }
         else{
+
             $fileName="NULL";
         }
         $notice = new Notice;
@@ -42,7 +45,7 @@ class NoticeController extends Controller
         $notice->file_path = $fileName; 
         
         $notice->save();
-         $request->session()->flash('alert-success', 'Resource is added succesfully!');
+         $request->session()->flash('alert-success', 'Notice is added succesfully!');
          $request = $request->semester;
         return redirect()->action('NoticeController@index', ['id' => $request]);
        

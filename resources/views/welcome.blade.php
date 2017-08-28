@@ -280,8 +280,8 @@
         <!-- Start Hero Slider -->
         <div class="hero-slider heroflex flexslider clearfix" data-autoplay="yes" data-pagination="no" data-arrows="yes" data-style="fade" data-speed="7000" data-pause="no">
             <ul class="slides">
-                <li class="parallax" style="background-image:url(images/IICT/IICT1.jpg); size: relative"></li>
-                <li class="parallax" style="background-image:url(images/IICT/IICT2.jpg);"></li>
+                <li class="parallax" style="background-image:url(images/IICT/new.jpg); size: relative"></li>
+                <!-- <li class="parallax" style="background-image:url(images/IICT/IICT2.jpg);"></li> -->
             </ul>
         </div>
         <!-- End Hero Slider -->

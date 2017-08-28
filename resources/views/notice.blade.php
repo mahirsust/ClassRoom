@@ -4,8 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-          <div class="panel panel-info">
-                <div class="panel-heading light-blue darken-1 white-text text-center">
+          <!-- <div class="panel panel-info"> -->
+                <div class="text-center" style=" 
+                text-decoration: underline;">
                   <h3>
                     <strong>
                       Notice Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
@@ -14,7 +15,7 @@
                       @endif
                       </strong></h3>
                 </div>
-          </div>
+         <!--  </div> -->
           @if(Session::has('alert-success'))
             <div class="alert alert-success alert-dismissable fade in">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -29,7 +30,7 @@
                   @endforeach
               </ul>
           </div>
-        @endif
+          @endif
             <?php
 
         $cur_date=date("Y/m/d");
@@ -56,21 +57,41 @@
               <h2 class="text"><strong>{{$dat->course}}</strong></h2>
             </blockquote>
 
+            <?php
+              if($dat->updated_at == '')
+              { 
+                $time = date("h:i a",strtotime($dat->created_at));
+                $date = date("j F'y",strtotime($dat->created_at));
+              }
+              else 
+              {
+                $time = date("h:i a",strtotime($dat->updated_at));
+                $date = date("j F'y",strtotime($dat->updated_at));
+              }
+            ?>
 
             <div style="margin-left: 10px;">
-              <h4 class="text">Date : {{$dat->notice_date}}</h4>
+              <h4 class="text">Date : {{$date}}  at {{$time}}</h4>
             </div>
             
             <div style="min-height: 20px;">
             </div>
             
             <div class="fa-ul">
-             <li><i class="fa-li fa fa-square"></i></li>
+             <li><h5 class=""><i class="fa-li fa fa-square"></i></h5></li>
             </div>
 
-            <div style="margin-left: 30px;">
-              {{$dat->notice}}
-            </div>
+
+            <?php
+              $notice = $dat->notice;
+               echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp". preg_replace("~[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]~",
+                "<a href=\"\\0\">\\0</a>", $notice);
+            ?>  
+           <!--  &nbsp for adding space -->
+           
+          <!--   <div style="margin-left: 30px;">
+              <h4 class="">{{$notice}}</h4>
+            </div>-->
 
             <div style="min-height: 20px;">      
             </div>
@@ -85,13 +106,13 @@
             @if (Auth::guest())
 
             @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
-              <button type="submit" class="btn btn-warning btn-md btn-edit" 
+              <button type="submit" class="btn btn-warning btn-sm btn-edit" 
                 data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
                 Edit
               </button>
 
               <button type="submit"  
-                data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-md btn-edit"> 
+                data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-sm btn-edit"> 
                   Delete
               </button>
 
@@ -173,7 +194,7 @@
 
             </div>
           </div><!-- End Notice-overview --> 
-          <hr style="border-color: red;">
+          <hr style="border-color: red; border-width: 2px;">
           <div style="min-height: 50px;">
             
           </div>
@@ -224,14 +245,11 @@
 
               <button type="submit" class="btn btn-success btn-md">
               Save
-            </button>
+              </button>
             </form>
           </div>
         </div>
       </div>
     </div>
-<!-- <script type="text/javascript">
-  $(":file").filestyle({placeholder: "No file"});
-</script> -->
 </div>
 @endsection

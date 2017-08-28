@@ -23,7 +23,7 @@ class RoutineController extends Controller
     }
     public function update(Request $request)
     {
-        DB::table('tomorrows')->where('batch', $request->batch)
+        DB::table('tomorrows')->where('batch','=', $request->batch)
             ->update(['eightnine' => $request->eightnine, 
                 'nineten' => $request->nineten,
                 'teneleven' => $request->teneleven,
@@ -35,6 +35,25 @@ class RoutineController extends Controller
                 'fourfive' => $request->fourfive]);
         $request->session()->flash('alert-success', 'Routine is updated succesfully!');
        
+        return redirect()->action('RoutineController@index', ['id' => $request->batch]);
+    }
+    public function update1(Request $request)
+    {
+        for($i=0; $i<5; $i++)
+        {
+            DB::table('routines')->where('batch', '=', $request->batch)->where('day', '=', $request->day[$i])
+            ->update(['eightnine' => $request->eightnine[$i], 
+                'nineten' => $request->nineten[$i],
+                'teneleven' => $request->teneleven[$i],
+                'eleventwelve' => $request->eleventwelve[$i],
+                'twelveone' => $request->twelveone[$i],
+                'onetwo' => $request->onetwo[$i],
+                'twothree' => $request->twothree[$i],
+                'threefour' => $request->threefour[$i],
+                'fourfive' => $request->fourfive[$i]]);
+
+        }
+        $request->session()->flash('alert-success', 'Routine is updated succesfully!');
         return redirect()->action('RoutineController@index', ['id' => $request->batch]);
     }
     public function getPDF($request)
