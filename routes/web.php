@@ -51,7 +51,9 @@ Route::POST('/notice/edit/{id}', 'NoticeController@update');
 //Curriculum Controller
 Route::get('/curriculum', 'CurriculumController@index');
 Route::get('/curriculum/getpdf/{id}', 'CurriculumController@getPDF');
-Route::POST('/curriculum/edit/{id}', 'CurriculumController@update');
+Route::POST('/curriculum/insert', 'CurriculumController@save');
+Route::POST('/curriculum/delete', 'CurriculumController@delete');
+Route::POST('/curriculum/edit', 'CurriculumController@update');
 
 
 //AdminDesk Controller

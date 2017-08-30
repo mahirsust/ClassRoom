@@ -1,6 +1,14 @@
 @extends('layouts.app_dashboard')
 
 @section('content')
+<script type="text/javascript">
+/*to make alerts disappear automatically*/
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 4000);
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
