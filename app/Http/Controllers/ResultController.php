@@ -20,7 +20,7 @@ class ResultController extends Controller
     {
          $this->validate($request, [
             'file_name' => '
-            required|max:10240|mimes:doc,docx,xlsx,gif,svg,csv,xls,jpeg,png,jpg,zip,pdf,7z,rar,ppt,pptx']);
+            required|max:10240|mimes:txt,doc,docx,xlsx,gif,svg,csv,xls,jpeg,png,jpg,zip,pdf,7z,rar,ppt,pptx']);
         $tit1=$request->title_1;
         $file= $request->file('file_name');
         $extension = $request->file('file_name')->getClientOriginalExtension();

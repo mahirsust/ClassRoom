@@ -16,6 +16,7 @@
 <meta name="format-detection" content="telephone=no">
 <!-- CSS
   ================================================== -->
+<link rel="shortcut icon" href="{{url('/')}}/images/cse2.png">
 <link href="navbar/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="navbar/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
 <link href="navbar/css/style.css" rel="stylesheet" type="text/css">
@@ -29,6 +30,7 @@
   ================================================== -->
 <script src="navbar/js/modernizr.js"></script><!-- Modernizr -->
 </head>
+
 <body class="home">
 <div class="body">
     <!-- Start Site Header -->
@@ -280,8 +282,9 @@
         <!-- Start Hero Slider -->
         <div class="hero-slider heroflex flexslider clearfix" data-autoplay="yes" data-pagination="no" data-arrows="yes" data-style="fade" data-speed="7000" data-pause="no">
             <ul class="slides">
-                <li class="parallax" style="background-image:url(images/IICT/new.jpg); size: relative"></li>
-                <!-- <li class="parallax" style="background-image:url(images/IICT/IICT2.jpg);"></li> -->
+                <li class="parallax" style="background-image:url(images/3.jpg); size: relative"></li>
+                <li class="parallax" style="background-image:url(images/1.jpg); size: relative"></li>
+                <li class="parallax" style="background-image:url(images/2.jpg); size: relative"></li>
             </ul>
         </div>
         <!-- End Hero Slider -->
@@ -294,8 +297,6 @@
                     <div class="col-md-3 col-sm-6 footer_widget widget widget_newsletter">
                         <h4 class="widgettitle">Sign up for our newsletter</h4>
                         <form>
-                            <input type="text" class="form-control" placeholder="Name">
-                            <input type="email" class="form-control" placeholder="Email">
                             <input type="submit" class="btn btn-primary btn-lg" value="Sign up now">
                         </form>
                     </div>
@@ -303,23 +304,16 @@
                         <h4 class="widgettitle">Blogroll</h4>
                         <ul>
                             <li><a href="blog.html">Car News</a></li>
-                            <li><a href="blog-masonry.html">Car Reviews</a></li>
-                            <li><a href="about.html">Car Insurance</a></li>
-                            <li><a href="about-html.html">Bodyshop</a></li>
                         </ul>
                     </div>
                     <div class="col-md-2 col-sm-6 footer_widget widget widget_custom_menu widget_links">
                         <h4 class="widgettitle">Help &amp; Support</h4>
                         <ul>
                             <li><a href="results-list.html">Buying a car</a></li>
-                            <li><a href="joinus.html">Selling a car</a></li>
-                            <li><a href="about.html">Online safety</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
                         </ul>
                     </div>
                     <div class="col-md-5 col-sm-6 footer_widget widget text_widget">
                         <h4 class="widgettitle">About AutoStars</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.</p>
                     </div>
                 </div>
             </div>
@@ -337,7 +331,7 @@
                             <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             <li class="youtube"><a href="#"><i class="fa fa-youtube"></i></a></li>
                             <li class="flickr"><a href="#"><i class="fa fa-flickr"></i></a></li>
-                            <li class="vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                            <li class="vimeo"><a href="#"><i class="fa fa-google"></i></a></li>
                             <li class="digg"><a href="#"><i class="fa fa-digg"></i></a></li>
                         </ul>
                     </div>
@@ -346,35 +340,9 @@
         </div>
     </footer>
     <!-- End site footer -->
-    <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>  
+    <a id="back-to-top"><i class="fa fa-angle-up" aria-hidden="true" style="font-size: 30px;margin-top: 9px;"></i></a>  
 </div>
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Login to your account</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Username">
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                    <input type="submit" class="btn btn-primary" value="Login">
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-block btn-facebook btn-social"><i class="fa fa-facebook"></i> Login with Facebook</button>
-                <button type="button" class="btn btn-block btn-twitter btn-social"><i class="fa fa-twitter"></i> Login with Twitter</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 <script src="navbar/js/jquery-2.0.0.min.js"></script> <!-- Jquery Library Call -->
 <script src="navbar/vendor/prettyphoto/js/prettyphoto.js"></script> <!-- PrettyPhoto Plugin -->
 <script src="navbar/js/ui-plugins.js"></script> <!-- UI Plugins -->

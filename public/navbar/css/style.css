@@ -4391,7 +4391,26 @@ body{
 	margin:7px 0;
 }
 #back-to-top{
-	position:fixed;
+
+	display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-align:center;
+  line-height:50px;
+  width:50px;
+  height:50px;
+  -webkit-border-radius:3px;
+  background-color: red;
+  color: white;
+  /*cursor: pointer;*/
+  /*padding: 20px;*/
+  border-radius: 5px;
+	/*position:fixed;
 	right:17px;
 	bottom:17px;
 	display:none;
@@ -4402,7 +4421,11 @@ body{
 	-webkit-border-radius:3px;
 	border-radius:3px;
 	background:rgba(0,0,0,.7);
-	color:#ffffff;
+	color:#ffffff;*/
+}
+#back-to-top:hover {
+  background-color: #3F729B;
+  color: white;
 }
 /* ==================================================
    6.4. SHORTCODES

@@ -6,7 +6,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
 </head>
+
 <script type="text/javascript">
+
 /*to make alerts disappear automatically*/
   window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
@@ -14,6 +16,7 @@
     });
 }, 4000);
 </script>
+
 <div class="container">
   @if(Session::has('alert-success'))
   <div class="alert alert-success alert-dismissable fade in">
@@ -128,6 +131,12 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
+
+                      <?php 
+                        if($a==0) $h = $b;
+                        else $h = $a;
+                      ?>
+
                       <div class="modal-body">
                         <form method="POST" action="/curriculum/edit" enctype="multipart/form-data">
                           {{csrf_field()}}
@@ -150,11 +159,23 @@
                           </div>
                           <div class="form-group">
                             <label   class="form-control-label"> 
+                              Type:
+                            </label>
+                            <label class="radio-inline">
+                              <input required="" type="radio" name="course_type" value="theory" /> Theory
+                            </label>
+                            <label class="radio-inline">
+                                <input required="" type="radio" name="course_type" value="lab" /> Lab
+                            </label>
+                          </div>
+                          <div class="form-group">
+                            <label   class="form-control-label"> 
                               Hours:
                             </label>
-                            <input required="" type="text" name="hours" class="form-control" value="{{$dat->hours}}" 
+                            <input required="" type="text" name="hours" class="form-control" value="{{$h}}" 
                             >
                           </div>
+
                           <div class="form-group">
                             <label   class="form-control-label"> 
                               Credits:
@@ -197,7 +218,7 @@
           Add New 
         </button>
 
-
+        <!-- modal for adding new course -->
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -226,6 +247,17 @@
                     <input required="" type="text" name="title" class="form-control"
                     >
                   </div>
+                   <div class="form-group">
+                    <label   class="form-control-label"> 
+                      Type:
+                    </label>
+                    <label class="radio-inline">
+                      <input required="" type="radio" name="course_type" value="theory" /> Theory
+                    </label>
+                    <label class="radio-inline">
+                      <input required="" type="radio" name="course_type" value="lab" /> Lab
+                    </label>
+                  </div>
                   <div class="form-group">
                     <label   class="form-control-label"> 
                       Hours:
@@ -233,6 +265,7 @@
                     <input required="" type="text" name="hours" class="form-control" 
                     >
                   </div>
+
                   <div class="form-group">
                     <label   class="form-control-label"> 
                       Credits:
@@ -257,7 +290,7 @@
             </div>
           </div>
         </div>
-
+         <!-- end of modal for adding course -->
         <a href="/curriculum/getpdf/11">
           <button type="submit" class="btn btn-info btn-md btn-edit" 
           data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
@@ -365,6 +398,11 @@ $batch = $Batch_id[$i];
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
+
+                   <?php 
+                      if($a==0) $h = $b;
+                      else $h = $a;
+                    ?>
                     <div class="modal-body">
                       <form method="POST" action="/curriculum/edit" enctype="multipart/form-data">
                         {{csrf_field()}}
@@ -386,11 +424,23 @@ $batch = $Batch_id[$i];
                         </div>
                         <div class="form-group">
                           <label   class="form-control-label"> 
+                            Type:
+                          </label>
+                          <label class="radio-inline">
+                            <input required="" type="radio" name="course_type" value="theory" /> Theory
+                          </label>
+                          <label class="radio-inline">
+                            <input required="" type="radio" name="course_type" value="lab" /> Lab
+                          </label>
+                        </div>
+                        <div class="form-group">
+                          <label   class="form-control-label"> 
                             Hours:
                           </label>
-                          <input required="" type="text" name="hours" class="form-control" value="{{$dat->hours}}" 
+                          <input required="" type="text" name="hours" class="form-control" value="{{$h}}" 
                           >
                         </div>
+
                         <div class="form-group">
                           <label   class="form-control-label"> 
                             Credits:
@@ -437,6 +487,7 @@ $batch = $Batch_id[$i];
         <i class="fa fa-plus-circle"></i></a>
         Add New 
       </button>
+      <!-- modal for adding new course -->
       <div class="modal fade" id="addModal2" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -464,6 +515,17 @@ $batch = $Batch_id[$i];
                   </label>
                   <input required="" type="text" name="title" class="form-control"
                   >
+                </div>
+                 <div class="form-group">
+                  <label   class="form-control-label"> 
+                    Type:
+                  </label>
+                  <label class="radio-inline">
+                    <input required="" type="radio" name="course_type" value="theory" /> Theory
+                  </label>
+                  <label class="radio-inline">
+                    <input required="" type="radio" name="course_type" value="lab" /> Lab
+                  </label>
                 </div>
                 <div class="form-group">
                   <label   class="form-control-label"> 
@@ -496,6 +558,7 @@ $batch = $Batch_id[$i];
           </div>
         </div>
       </div>
+      <!-- end of modal for adding course -->
 
       <a href="/curriculum/getpdf/{{$batch}}">
         <button type="submit" class="btn btn-info btn-md btn-edit" 
@@ -506,6 +569,9 @@ $batch = $Batch_id[$i];
     </a>
   </div>
 </div>
+
+  </div>
+  <!-- end of wrap -->
 
 </div>
 

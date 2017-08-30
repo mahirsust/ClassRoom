@@ -19,7 +19,7 @@ class RoutineController extends Controller
         }
         //if($data2->count()) $data2 = "NULL";
         //
-        else return view('routine', compact('data1', 'data2', 'request')); 
+        else return view('routine', compact('data1', 'data2', 'request'))->withTitle('request'); 
     }
     public function update(Request $request)
     {

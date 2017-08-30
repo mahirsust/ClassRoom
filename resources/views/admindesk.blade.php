@@ -27,13 +27,13 @@
               </ul>
           </div>
         @endif -->
-            <?php
+           <!-- <?php
 
-        $cur_date=date("Y/m/d");
-      ?>
+        //$cur_date=date("Y/m/d");
+      ?>-->
     
           
-            <div>
+            <!-- <div>
                 <button type="submit" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
                   Add User
                 </button>
@@ -41,7 +41,7 @@
 
           <div>
             </br>
-          </div> 
+          </div> --> 
 
           <!-- User Start --> 
             <table class="table table-striped">
@@ -58,7 +58,8 @@
               <?php $inc=0;  ?>
               <tbody>
                 @foreach($data1 as $dat)
-                  @if($dat->batch==="11" OR
+                  @if($dat->batch==="super_admin" OR
+                  $dat->batch==="11" OR
                     $dat->batch==="12" OR
                       $dat->batch==="21" OR
                         $dat->batch==="22" OR
@@ -70,12 +71,20 @@
                         <th scope="row">{{$inc=$inc+1}}</th>
                         <td>{{$dat->name}}</td>
                         <td>{{$dat->email}}</td>
-                        <td>{{$dat->password}}</td>
+                        <?php
+                          $pswrd = decrypt($dat->password);
+                        ?>
+                        <td>{{pswrd}}</td>
+                        @if($dat->batch==="super_admin")
+                        <td>{{$dat->batch}}</td>
+                        @else
                         <td>{{substr($dat->batch, 0, 1)}}/{{substr($dat->batch, 1, 1)}}</td>
+                        @endif
                         <td>
                             <a class="teal-text"><i class="fa fa-pencil" ></i></a>
                             <a class="red-text"><i class="fa fa-times"></i></a>
                         </td>
+
                     </tr>
                     @else
                     @endif

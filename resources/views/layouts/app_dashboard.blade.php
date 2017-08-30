@@ -33,48 +33,48 @@
 
   <style type="text/css">
     body{
-        /*background-image: url('{{ asset('images/ws_WhatsApp_Background_1920x1080.jpg') }}');*/
-        background-color: #f5f5f5;
-    }
-</style>
+    /*background-image: url('{{ asset('images/ws_WhatsApp_Background_1920x1080.jpg') }}');*/
+    background-color: #EEEEEE;
+ }
+  </style>
 
-<style type="text/css">
-    .scrollToTop {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      border: none;
-      outline: none;
-      text-align:center;
-      line-height:50px;
-      width:50px;
-      height:50px;
-      -webkit-border-radius:3px;
-      background-color: red;
-      color: white;
-      /*cursor: pointer;*/
-      /*padding: 20px;*/
-      border-radius: 5px;
-  }
-  .scrollToTop:hover {
-      background-color: #3F729B;
-      color: white;
-  }
-</style>
+ <style type="text/css">
+        .scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  text-align:center;
+  line-height:50px;
+  width:50px;
+  height:50px;
+  -webkit-border-radius:3px;
+  background-color: red;
+  color: white;
+  /*cursor: pointer;*/
+  /*padding: 20px;*/
+  border-radius: 5px;
+}
+.scrollToTop:hover {
+  background-color: #3F729B;
+  color: white;
+}
+    </style>
 
-<!-- Scripts -->
-<script>
-    window.Laravel = <?php echo json_encode([
-        'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+    <!-- Scripts -->
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+            ]); ?>
+        </script>
 </head>
 <body>
     <a class="scrollToTop">
         <i class="fa fa-angle-up" style="font-size: 30px;margin-top: 9px;"></i>
-        
+       
     </a>
     <!-- <div id="app"> -->
     <nav class="navbar fixed-top navbar-dark blue darken-3 white-text">
@@ -333,18 +333,29 @@
 });
 </script>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-      $('.collapse.in').prev('.panel-heading').addClass('active');
-      $('#accordion, #bs-collapse')
-      .on('show.bs.collapse', function(a) {
-          $(a.target).prev('.panel-heading').addClass('active');
-      })
-      .on('hide.bs.collapse', function(a) {
-          $(a.target).prev('.panel-heading').removeClass('active');
-      });
-  });
-</script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+  $('.collapse.in').prev('.panel-heading').addClass('active');
+  $('#accordion, #bs-collapse')
+    .on('show.bs.collapse', function(a) {
+      $(a.target).prev('.panel-heading').addClass('active');
+    })
+    .on('hide.bs.collapse', function(a) {
+      $(a.target).prev('.panel-heading').removeClass('active');
+    });
+});
+    </script>
+
+    <script type="text/javascript">
+    function convert()
+    {
+      var text=document.getElementById("url").value;
+      var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+      var text1=text.replace(exp, "<a href='$1'>$1</a>");
+      var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+      document.getElementById("converted_url").name=text1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+    }
+  </script>
 
 </body>
 </html>

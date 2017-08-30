@@ -14,7 +14,7 @@
         <div class="col-md-12">
           <!-- <div class="panel panel-info"> -->
                 <div class="text-center" style=" 
-                text-decoration: underline;">
+                text-decoration: underline; color: #0288d1;">
                   <h3>
                     <strong>
                       Notice Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
@@ -59,7 +59,7 @@
           </div> 
 <!--      Notice Start --> 
           @foreach($data1 as $dat)
-          <div class="department-section">
+          <div class="department-section" style="background-color: white;">
             <div class="department-overview">
             <blockquote class="blockquote bq-danger">
               <h2 class="text"><strong>{{$dat->course}}</strong></h2>
@@ -89,18 +89,13 @@
              <li><h5 class=""><i class="fa-li fa fa-square"></i></h5></li>
             </div>
 
-
+            <div style="margin-left: 30px;">
             <?php
               $notice = $dat->notice;
-               echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp". preg_replace("~[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]~",
-                "<a href=\"\\0\">\\0</a>", $notice);
+               echo "<h4>". preg_replace("~[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]~",
+                "<a target='_blank' href=\"\\0\">\\0</a>", $notice)."</h4>";
             ?>  
-           <!--  &nbsp for adding space -->
-           
-          <!--   <div style="margin-left: 30px;">
-              <h4 class="">{{$notice}}</h4>
-            </div>-->
-
+           </div>
             <div style="min-height: 20px;">      
             </div>
             @if($dat->file_path == "NULL")
@@ -201,8 +196,17 @@
               @endif
 
             </div>
+            
+            <div style="min-height: 15px;">
+            
+            </div>
+            <hr style="border-color: red; border-width: 2px;">
+            
+            <div style="min-height: 10px;">
+            
+            </div>
           </div><!-- End Notice-overview --> 
-          <hr style="border-color: red; border-width: 2px;">
+
           <div style="min-height: 50px;">
             
           </div>
