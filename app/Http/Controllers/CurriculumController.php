@@ -27,10 +27,12 @@ class CurriculumController extends Controller
 
     public function save(Request $request)
     {
+        if($request->course_type == "theory") $h = $request->hours . " + 0";
+        else $h = "0 + " . $request->hours;
          DB::table('curriculums')->insert(['batch' => $request->batch,
         'course' => $request->course,
         'title' => $request->title,
-        'hours' => $request->hours,
+        'hours' => $h,
         'credits' => $request->credits,
         'prerequisite' => $request->prerequisite]);
 
@@ -45,11 +47,13 @@ class CurriculumController extends Controller
     }
     public function update(Request $request)
     {
-        DB::table('curriculums')->where('id','=', $request->id)
+        if($request->course_type == "theory") $h = $request->hours . " + 0";
+        else $h = "0 + " . $request->hours;
+       DB::table('curriculums')->where('id','=', $request->id)
             ->update(['batch' => $request->batch,
         'course' => $request->course,
         'title' => $request->title,
-        'hours' => $request->hours,
+        'hours' => $h,
         'credits' => $request->credits,
         'prerequisite' => $request->prerequisite]);
     
