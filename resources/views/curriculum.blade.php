@@ -308,6 +308,9 @@
 <?php
 $sem = $Semester[$i];
 $batch = $Batch_id[$i];
+$credits = 0;
+$lab = 0;
+$theory = 0;
 ?>
 <div class="panel">
   <div class="panel-heading" role="tab">
@@ -569,9 +572,6 @@ $batch = $Batch_id[$i];
     </a>
   </div>
 </div>
-
-  </div>
-  <!-- end of wrap -->
 
 </div>
 

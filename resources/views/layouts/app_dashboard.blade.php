@@ -271,7 +271,7 @@
                         @if (Auth::guest())
                         <li><a href="{{ url('/login') }}" class="blue darken-3 white-text">
                             Login</a></li>
-                            <!-- <li><a href="{{ url('/register') }}" class="blue darken-3 white-text">Register</a></li> -->
+                            <li><a href="{{ url('/register') }}" class="blue darken-3 white-text">Register</a></li>
                             @else
                             <!-- <li><a href="{{ url('/register') }}" class="blue darken-3 white-text">Register</a></li> -->
                             <li class="dropdown">

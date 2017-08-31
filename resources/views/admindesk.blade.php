@@ -27,13 +27,13 @@
               </ul>
           </div>
         @endif -->
-           <!-- <?php
+            <?php
 
-        //$cur_date=date("Y/m/d");
-      ?>-->
+        $cur_date=date("Y/m/d");
+      ?>
     
           
-            <!-- <div>
+            <div>
                 <button type="submit" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
                   Add User
                 </button>
@@ -41,7 +41,7 @@
 
           <div>
             </br>
-          </div> --> 
+          </div> 
 
           <!-- User Start --> 
             <table class="table table-striped">
@@ -58,33 +58,24 @@
               <?php $inc=0;  ?>
               <tbody>
                 @foreach($data1 as $dat)
-                  @if($dat->batch==="super_admin" OR
-                  $dat->batch==="11" OR
-                    $dat->batch==="12" OR
-                      $dat->batch==="21" OR
-                        $dat->batch==="22" OR
-                          $dat->batch==="31" OR
-                            $dat->batch==="32" OR
-                              $dat->batch==="41" OR
-                                $dat->batch==="42")
+                  @if($dat->type==="11" OR
+                    $dat->type==="12" OR
+                      $dat->type==="21" OR
+                        $dat->type==="22" OR
+                          $dat->type==="31" OR
+                            $dat->type==="32" OR
+                              $dat->type==="41" OR
+                                $dat->type==="42")
                     <tr>
                         <th scope="row">{{$inc=$inc+1}}</th>
                         <td>{{$dat->name}}</td>
                         <td>{{$dat->email}}</td>
-                        <?php
-                          $pswrd = decrypt($dat->password);
-                        ?>
-                        <td>{{pswrd}}</td>
-                        @if($dat->batch==="super_admin")
-                        <td>{{$dat->batch}}</td>
-                        @else
-                        <td>{{substr($dat->batch, 0, 1)}}/{{substr($dat->batch, 1, 1)}}</td>
-                        @endif
+                        <td>{{$dat->password}}</td>
+                        <td>{{substr($dat->type, 0, 1)}}/{{substr($dat->type, 1, 1)}}</td>
                         <td>
                             <a class="teal-text"><i class="fa fa-pencil" ></i></a>
                             <a class="red-text"><i class="fa fa-times"></i></a>
                         </td>
-
                     </tr>
                     @else
                     @endif
