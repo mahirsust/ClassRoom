@@ -33,14 +33,15 @@
 
         <div class="panel panel-info">
           <div class="panel-heading light-blue darken-1 white-text text-center">
-            <h3>
-              <strong>
+            <header>
+              <h1 class="text-center">
                 Routine Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
-                @if(strlen($request)>2)
-                ({{substr($request, 2)}})
-                @endif
-              </strong></h3>
-            </div>
+                  @if(strlen($request)>2)
+                    ({{substr($request, 2)}})
+                  @endif
+              </h1>  
+            </header>
+          </div>
             @if($data1=="NULL") 
             @if(Session::has('alert-notfound'))
             <div class="alert alert-warning alert-dismissable fade in">
@@ -85,12 +86,14 @@
                   @endforeach
                 </tbody>
               </table>
+              @if(Auth::user()-> type != "student")
               <button type="submit" class="btn btn-info btn-md btn-edit" 
               data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
-              <i class="fa fa-pencil"></i></a>
+              <i class="fa fa-pencil"></i>
               Edit 
             </button>
-            <a href="/routine/getpdf/{{$request}}" 
+            @endif
+            <a href="/routine/getpdf/{{$request}}" >
             <button type="submit" class="btn btn-info btn-md btn-edit" 
             data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
 
@@ -213,13 +216,32 @@
                   //echo $day;
       ?>
       @if($next==1)
-      <div class="panel-heading light-blue darken-1 white-text text-center"><h4><strong>Tomorrow's Routine</strong></h4></div>
+        <div class="panel-heading light-blue darken-1 white-text text-center">
+          <header>
+            <h4 class="text-center">
+              <strong> Tomorrow's Routine </strong>
+            </h4>  
+          </header>
+        </div>
+      
       @elseif($next==2)
-      <div class="panel-heading light-blue darken-1 white-text text-center"><h4><strong>Sunday's Routine</strong></h4></div>
+        <div class="panel-heading light-blue darken-1 white-text text-center">
+          <header>
+            <h4 class="text-center">
+              <strong> Sunday's Routine </strong>
+            </h4>  
+          </header>
+        </div>
+    
       @else
-      <div class="panel-heading light-blue darken-1 white-text text-center"><h4><strong>Today's Routine</strong></h4>
-
-      </div>
+        <div class="panel-heading light-blue darken-1 white-text text-center">
+          <header>
+            <h4 class="text-center">
+             <strong> Today's Routine </strong>
+            </h4>  
+          </header>
+        </div>
+    
       @endif 
 
       <div class="panel-body">
@@ -307,15 +329,12 @@
             </tbody>
           </table>
 
-          @if (Auth::guest())
-
-          @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
+         @if(Auth::user()-> type != "student")
           <button type="submit" class="btn btn-info btn-md btn-edit" 
           data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
             <i class="fa fa-pencil"></i></a>
             Edit 
           </button>
-        @else
         @endif
 
         <div class="modal fade" id="exampleModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

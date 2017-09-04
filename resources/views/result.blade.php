@@ -28,17 +28,18 @@
       @endif
       <div class="panel panel-info">
         <div class="panel-heading light-blue darken-1 white-text text-center">
-          <h3>
-            <strong>
+          <header>
+            <h1 class="text-center">
               Result Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
-              @if(strlen($request)>2)
-              ({{substr($request, 2)}})
-              @endif
-            </strong></h3>
-          </div>
+                @if(strlen($request)>2)
+                  ({{substr($request, 2)}})
+                @endif
+            </h1>  
+          </header>
+        </div>
           <div class="panel-body">
             <table class="display table table-bordered table-stripe table-hover">
-              <thead>
+              <thead style="color: green;">
                 <tr class="panel-default">
                   <th class="text-center" >ID</th>
                   <th class="text-center" >Course Name</th>
@@ -51,45 +52,59 @@
                 @foreach($data1 as $dat)
                 <tr class="default">
                   <td>
-                    <div class="text-center" style="height:100%;width:100%;font-size: 17px;">
+                    <div class="text-center" style="font-size: 17px;">
                       {{$inc=$inc+1}}
                     </div>
                   </td>
                   <td>
-                    <div class="text-center" style="height:100%;width:100%;font-size: 17px;">
+                    <div class="text-center" style="font-size: 17px;">
                       {{$dat->course}}
                     </div>
                   </td>
                   <td>
-                    <div class="text-center" style="height:100%;width:100%;font-size: 17px;">
+                    <div class="text-center" style="font-size: 17px;">
                       {{$dat->title}}
                     </div>
                   </a>
                 </td>
-                @if (Auth::guest())
+                @if(Auth::user()-> type == "student")
 
                 <td class="col-sm">
                   <div class="text-center">
                     <a href="/results/{{$dat->link}}" download="/results/{{$dat->link}}">
-                      <i class="fa fa-download"></i></a>
+                    <button class="btn btn-primary btn-sm btn-edit">
+                      <i class="glyphicon glyphicon-save fa-lg"></i>
+                      Download
+                      </button>
                     </a>
                   </div>
                 </td>
 
-                @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
+                @else
                 <td class="col-sm">
                   <div class="text-center">
-                    <a href="/results/{{$dat->link}}" download="/results/{{$dat->link}}">
-                      <i class="fa fa-download"></i></a>
+                    <a style="margin-right: 20px;" href="/results/{{$dat->link}}" download="/results/{{$dat->link}}">
+                      <button class="btn btn-primary btn-sm btn-edit">
+                      <i class="glyphicon glyphicon-save fa-lg"></i>
+                       Download
+                      </button>
                     </a>
-                    <a type="submit" class="teal-text" data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" >
-                      <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class="red-text"  type="submit"  
+
+                    <a type="submit" data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" >
+                      <button class="btn btn-dark-green btn-sm btn-edit">
+                      <i class="fa fa-pencil fa-lg white-text"></i>
+                      Edit
+                      </button>
+                      </a>
+                    
+                    <a style="margin-left: 20px;" class="red-text"  type="submit"  
                       data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo">
-                      <i class="fa fa-times"></i>
+                      <button class="btn btn-danger btn-sm btn-edit">
+                      <i class="fa fa-times fa-lg"></i>
+                      Delete
+                      </button>
                     </a>
-                  </div>
+                    </div>
 
                   <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -163,14 +178,7 @@
                     </div>
                   </div>                               
                 </td>
-                @else
-                <td class="col-sm">
-                  <div class="text-center">
-                    <a href="/results/{{$dat->link}}" download="/results/{{$dat->link}}">
-                      <i class="fa fa-download"></i></a>
-                    </a>
-                  </div>
-                </td>
+                
                 @endif
 
               </tr>
@@ -180,9 +188,7 @@
         </div>
       </div>
 
-      @if (Auth::guest())
-
-      @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
+     @if(Auth::user()-> type != "student")
       <div>
         <button type="submit" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
           Add Course Result Link
@@ -236,7 +242,6 @@
           </div>
         </div>
       </div>
-      @else
       @endif
 
     </div>

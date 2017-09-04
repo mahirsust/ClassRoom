@@ -7,16 +7,17 @@
   ================================================== -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Class Room Management</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
+<meta name="description" content="A service for CSE-SUST">
+<meta name="keywords" content="crm">
+<meta name="author" content="MeemMahir">
+
 <!-- Mobile Specific Metas
   ================================================== -->
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <!-- CSS
   ================================================== -->
-<link rel="shortcut icon" href="{{url('/')}}/images/cse2.png">
+<link rel="shortcut icon" href="{{url('/')}}/images/cse6.png">
 <link href="navbar/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="navbar/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
 <link href="navbar/css/style.css" rel="stylesheet" type="text/css">
@@ -36,51 +37,24 @@
     <!-- Start Site Header -->
     <div class="site-header-wrapper">
         <div class="navbar">
-            <div class="navbar-header">
+            <div class="navbar-header" style="margin-left: 50px;">
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" style="color: red;" href="{{ url('/') }}">
                         {{ config('app_dashboard.name', 'Class Room Management') }}
                     </a>
 
-                </div>
+            </div>
             <div class="container">
-                <div class="sf-menu">
+                <!-- <div class="sf-menu">
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">
-                                Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <i class="fa fa-user mr-1"></i> 
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-                                
-                                <ul class="dropdown-menu" style="" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
+                        
                     </ul>
-                </div>
+                </div> -->
                 <a class="visible-sm visible-xs" id="menu-toggle"><i class="fa fa-bars"></i></a>
                 <!-- Main Navigation -->
-                <nav class="main-navigation dd-menu toggle-menu " role="navigation">
-                    <ul class="sf-menu" style="color: red;">
+                <nav class="main-navigation dd-menu toggle-menu" role="navigation">
+                    <ul class="sf-menu">
                     <!-- Curriculum -->
                         <li><a href="/home">Home</a></li>
                         <!-- Routine -->
@@ -273,6 +247,45 @@
                           <li><a href="/admin_desk">Admin Desk</a></li> 
                         @else
                         @endif 
+
+                        
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li style="margin-left: 150px;"><a href="{{ url('/login') }}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                Login</a></li>
+                            <li><a href="{{ url('/register') }}">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                Register</a></li>
+                        @else
+                            <li class="dropdown" style="margin-left: 30px;">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <img src="images/team/IMAG4590.jpg" width="50" height="70" alt="User Avatar" class="avatar">
+                                    {{ Auth::user()->name }} <!-- <span class="caret"></span> -->
+                                </a>
+                                
+                                <ul class="dropdown-menu" style="" role="menu">
+                                    <li>
+                                    <a href="">
+                                        <i class="fa fa-user mr-1" aria-hidden="true"></i>
+                                        Profile
+                                    </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
                     </ul>
                 </nav> 
             </div>
@@ -289,9 +302,61 @@
         </div>
         <!-- End Hero Slider -->
     </div>
+
     <!-- Start site footer -->
     <footer class="site-footer">
-        <div class="site-footer-top">
+        <!-- Text Carousel
+    ================================================== -->
+<!-- <section id="slider" class="parallax section" style="background-image: url(http://themepush.com/demo/runcharity/assets/img/4.jpg);">
+<div class="wrapsection">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Carousel" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#Carousel" data-slide-to="1"></li>
+                        <li data-target="#Carousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <blockquote>
+                                <p class="lead">
+                                    You have not lived today until you have done something for someone who can never repay you.
+                                </p>
+                                <small>John Bunyan, Marathon</small>
+                            </blockquote>
+                        </div>
+                        <div class="item">
+                            <blockquote>
+                                <p class="lead">
+                                    The simplest acts of kindness are by far more powerful then a thousand heads bowing in prayer.
+                                </p>
+                                <small>Mahatma Gandhi</small>
+                            </blockquote>
+                        </div>
+                        <div class="item">
+                            <blockquote>
+                                <p class="lead">
+                                    There is no exercise better for the heart than reaching down and lifting people up.
+                                </p>
+                                <small>John Holmes, Organizer</small>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#Carousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#Carousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section> -->
+        <!-- <div class="site-footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 footer_widget widget widget_newsletter">
@@ -317,7 +382,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="site-footer-bottom">
             <div class="container">
                 <div class="row">

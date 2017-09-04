@@ -12,18 +12,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-          <!-- <div class="panel panel-info"> -->
-                <div class="text-center" style=" 
-                text-decoration: underline; color: #0288d1;">
-                  <h3>
-                    <strong>
-                      Notice Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
-                      @if(strlen($request)>2)
-                        ({{substr($request, 2)}})
-                      @endif
-                      </strong></h3>
-                </div>
-         <!--  </div> -->
+          <div class="panel panel-info">
+            <div class="panel-heading light-blue darken-1 white-text text-center">
+              <header>
+                <h1 class="text-center">
+                  Notice Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
+                    @if(strlen($request)>2)
+                      ({{substr($request, 2)}})
+                    @endif
+                </h1>  
+              </header>
+            </div>
+          </div>
+          
           @if(Session::has('alert-success'))
             <div class="alert alert-success alert-dismissable fade in">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -48,6 +49,7 @@
           @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
             <div>
                 <button type="submit" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
+                <i class="fa fa-check" aria-hidden="true"></i>
                   Add Notice
                 </button>
             </div>
@@ -102,20 +104,25 @@
 
             @else
             <div class="text-left attachment-link">
-              <a href="/notices/{{$dat->file_path}}" download="/notices/{{$dat->file_path}}"class="btn btn-primary btn-sm">Download Attachment</a>
+              <a href="/notices/{{$dat->file_path}}" download="/notices/{{$dat->file_path}}" class="btn btn-primary btn-sm">
+              <i class="glyphicon glyphicon-save fa-lg"></i>
+              Download Attachment
+              </a>
             </div>
             @endif
 
-            @if (Auth::guest())
-
-            @elseif(Auth::user()->name==="Super Admin" OR Auth::user()->batch===substr($request, 0, 2))
-              <button type="submit" class="btn btn-warning btn-sm btn-edit" 
+            
+            @if(Auth::user()-> type != "student")
+              <button type="submit" class="btn btn-dark-green btn-sm btn-edit" 
                 data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
+                <i class="fa fa-pencil fa-lg white-text"></i>
                 Edit
               </button>
 
               <button type="submit"  
-                data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" class="btn btn-danger btn-sm btn-edit"> 
+                data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo" 
+                class="btn btn-danger btn-sm btn-edit"> 
+                  <i class="fa fa-times fa-lg"></i>
                   Delete
               </button>
 
@@ -153,7 +160,7 @@
                       <strong class="modal-title" id="exampleModalLabel">
                         Edit Notice
                       </strong>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <button type="button" class="close" style="color: white;" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -192,7 +199,7 @@
                   </div>
                 </div>
               </div>
-              @else
+              
               @endif
 
             </div>

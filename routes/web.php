@@ -21,6 +21,7 @@ Auth::routes();
 //Home Controller
 Route::get('/home', 'HomeController@index');
 
+Route::group(['middleware' => ['auth']], function() {
 //Routine Controller
 Route::get('/routine/{id}', 'RoutineController@index');
 Route::POST('/routine/edit/{id}', 'RoutineController@update');
@@ -58,3 +59,7 @@ Route::POST('/curriculum/edit', 'CurriculumController@update');
 
 //AdminDesk Controller
 Route::get('/admin_desk', 'AdminDeskController@index');
+Route::POST('/admin_desk/update', 'AdminDeskController@update');
+Route::POST('/admin_desk/delete', 'AdminDeskController@delete');
+Route::POST('/admin_desk/addnew', 'AdminDeskController@addnew');
+});

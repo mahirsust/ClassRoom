@@ -101,6 +101,7 @@ a:focus{
 	text-decoration:none;
 	color:#666666;
 }
+
 a img {
 	border: none;
 }
@@ -1572,6 +1573,17 @@ body.boxed .body{
 	display:inline-block;
 	margin-right:35px;
 }
+/*.main-navigation .login {
+  border-left: 1px solid #e4e8ea;
+}
+
+.main-navigation .login i {
+  color: #00a6eb;
+  font-size: 14px;
+  padding: 4px 4px 0 0;
+  margin: 0 0 0 40px;
+}*/
+
 .main-navigation > ul > li > a{
 	display:block;
 	color:#666;

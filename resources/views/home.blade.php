@@ -22,37 +22,38 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
-        <meta charset="UTF-8" />
+       <!--  <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title>Caption Hover Effects - Demo 2</title>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta name="author" content="Codrops" />
-        <link rel="stylesheet" type="text/css" href="{{url('/')}}/captionhover/css/default.css" />
+        <link rel="stylesheet" type="text/css" href="{{url('/')}}/captionhover/css/default.css" /> -->
         <link rel="stylesheet" type="text/css" href="{{url('/')}}/captionhover/css/component.css" />
         <style type="text/css">
         .scrollToTop {
   display: none;
   position: fixed;
-  bottom: 20px;
+  bottom: 15px;
   right: 20px;
   z-index: 99;
   border: none;
   outline: none;
   text-align:center;
-  line-height:50px;
+  line-height:5px;
   width:50px;
   height:50px;
   -webkit-border-radius:3px;
-  background-color: red;
-  color: white;
+  /*background-color: #fff;*/
+  color: #00a6eb;
   /*cursor: pointer;*/
   /*padding: 20px;*/
-  border-radius: 5px;
+  border-radius: 10px;
 }
+/*#a9fd00*/
 .scrollToTop:hover {
-  background-color: #3F729B;
+  background-color: #00a6eb;
   color: white;
 }
     </style>
@@ -71,7 +72,7 @@
     </a>
     <div class="container demo-2">
             <!-- Top Navigation -->
-            <!-- <div class="codrops-top clearfix">
+           <!--  <div class="codrops-top clearfix">
                 <a class="codrops-icon codrops-icon-prev" href="">
                     <span>Previous Demo</span>
                 </a>
@@ -80,18 +81,9 @@
                         <span>Back to the Codrops Article</span>
                     </a>
                 </span>
-            </div>
-            <header> -->
+            </div> -->
+            <header>
                 <h1 class="text-center">Caption Hover Effects</h1>  
-                <nav class="codrops-demos text-center">
-                    <a>Effect 1</a>
-                    <a class="current-demo">Effect 2</a>
-                    <a>Effect 3</a>
-                    <a>Effect 4</a>
-                    <a>Effect 5</a>
-                    <a>Effect 6</a>
-                    <a>Effect 7</a>
-                </nav>
             </header>
             <ul class="grid cs-style-2">
                 <li>

@@ -1,11 +1,13 @@
 @extends('layouts.app_dashboard')
 
 @section('content')
-<head>
+<!-- <head>
   <link href={{ URL::asset('css/curr.css')  }}  rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
-</head>
+  <link href="{{url('/')}}/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{url('/')}}/css/mdb.min.css" rel="stylesheet">
+</head> -->
 
 <script type="text/javascript">
 
@@ -31,9 +33,13 @@
   ?>
 
   <div class="col-md-12 col-sm-6">
-    <h3 class="text-center" style="color: blue;">
-      <strong>Curriculum</strong>
-    </h3>
+    <div class="panel panel-info">
+        <div class="panel-heading light-blue darken-1 white-text text-center">
+          <header>
+            <h1 class="text-center">Curriculum</h1>  
+          </header>
+        </div>
+      </div>
     <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
 
      <?php
@@ -44,7 +50,7 @@
 
      <!-- for first panel which is opened initially -->
      <div class="panel">
-      <div class="panel-heading" role="tab">
+      <div class="panel-heading" role="tab" style="background-color: #00a6eb; color: #fff;">
         <h4 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#11" aria-expanded="false" aria-controls="11">
             First Year : Semester I 
@@ -61,7 +67,9 @@
                 <th class="text-center">Hours/Week (Theory+Lab)</th>
                 <th class="text-center">Credit</th>
                 <th class="text-center">Prerequisite</th>
+                @if(Auth::user()-> type != "student")
                 <th class="text-center">Action</th>
+                @endif
               </tr>
             </thead>
             <tbody>
@@ -81,6 +89,7 @@
                 <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
                 <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
                 <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>
+                @if(Auth::user()-> type != "student")
                 <td class="col-sm">
                   <div class="text-center">
 
@@ -92,9 +101,9 @@
                     <i class="fa fa-times"></i>
                   </a>
                 </div>
-
+                @endif
                  <!-- Modal for deleting -->
-              <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -208,15 +217,19 @@
                 <td tabindex="-1" class="text-center"> {{$theory}} + {{$lab}} = {{$theory+$lab}} </td>
                 <td tabindex="-1" class="text-center"> {{$credits}} </td>
                 <td tabindex="-1" class="text-center">  </td>
+                @if(Auth::user()->type != "student")
                 <td tabindex="-1" class="text-center">  </td>
+                @endif
               </tr>
             </tbody>
           </table>
+          @if(Auth::user()-> type != "student")
           <button type="submit" class="btn btn-info btn-md btn-edit" 
           data-toggle="modal" data-target="#addModal" data-whatever="@mdo" style="height:20%;width:20%">
           <i class="fa fa-plus-circle"></i></a>
           Add New 
         </button>
+        @endif
 
         <!-- modal for adding new course -->
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
@@ -313,7 +326,7 @@ $lab = 0;
 $theory = 0;
 ?>
 <div class="panel">
-  <div class="panel-heading" role="tab">
+  <div class="panel-heading" role="tab" style="background-color: #00a6eb; color: #fff;">
     <h4 class="panel-title">
       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#{{$batch}}" aria-expanded="false" aria-controls="{{$batch}}">
         {{$sem}}
@@ -330,7 +343,9 @@ $theory = 0;
             <th class="text-center">Hours/Week (Theory+Lab)</th>
             <th class="text-center">Credit</th>
             <th class="text-center">Prerequisite</th>
+            @if(Auth::user()-> type != "student")
             <th class="text-center">Action</th>
+            @endif
           </tr>
         </thead>
         <tbody>
@@ -478,115 +493,119 @@ $theory = 0;
             <td tabindex="-1" class="text-center"> {{$theory}} + {{$lab}} = {{$theory+$lab}} </td>
             <td tabindex="-1" class="text-center"> {{$credits}} </td>
             <td tabindex="-1" class="text-center">  </td>
+            @if(Auth::user()->type != "student")
             <td tabindex="-1" class="text-center">  </td>
+            @endif
 
           </tr>
         </tbody>
       </table>
-      <div>
-        <button type="submit" class="btn btn-info btn-md btn-edit" 
-        data-toggle="modal" data-target="#addModal2" data-whatever="@mdo" style="height:20%;
-        width:20%">
-        <i class="fa fa-plus-circle"></i></a>
-        Add New 
-      </button>
-      <!-- modal for adding new course -->
-      <div class="modal fade" id="addModal2" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <strong class="modal-title" id="addModalLabel">
-                Add Course to {{$sem}}
-              </strong>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+      @if(Auth::user()-> type != "student")
+      <button type="submit" class="btn btn-info btn-md btn-edit"
+      data-toggle="modal" data-target="#addModal{{$i}}" data-whatever="@mdo" style="height:20%;
+      width:20%">
+      <i class="fa fa-plus-circle"></i></a>
+      Add New
+    </button>
+    @endif
+ 
+    <!-- modal for adding new course -->
+    <div class="modal fade" id="addModal{{$i}}" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <strong class="modal-title" id="addModalLabel">
+              Add Course to {{$Semester[$i]}}
+            </strong>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="\curriculum\insert\" enctype="multipart/form-data">
+              {{csrf_field()}}
+              <input type="hidden" name="batch" value="{{$Batch_id[$i]}}">
+              <div class="form-group">
+                <label   class="form-control-label">
+                  Course Name:
+                </label>
+                <input autofocus required="" type="text" name="course" class="form-control"  >
+              </div>
+              <div class="form-group">
+                <label   class="form-control-label">
+                  Title:
+                </label>
+                <input required="" type="text" name="title" class="form-control"
+                >
+              </div>
+              <div class="form-group">
+                <label   class="form-control-label">
+                  Type:
+                </label>
+                <label class="radio-inline">
+                  <input required="" type="radio" name="course_type" value="theory" /> Theory
+                </label>
+                <label class="radio-inline">
+                  <input required="" type="radio" name="course_type" value="lab" /> Lab
+                </label>
+              </div>
+              <div class="form-group">
+                <label   class="form-control-label">
+                  Hours:
+                </label>
+                <input required="" type="text" name="hours" class="form-control"
+                >
+              </div>
+              <div class="form-group">
+                <label   class="form-control-label">
+                  Credits:
+                </label>
+                <input required="" type="text" name="credits" class="form-control"
+                >
+              </div>
+              <div class="form-group">
+                <label   class="form-control-label">
+                  Prerequisite:
+                </label>
+                <input type="text" name="prerequisite" class="form-control"
+                >
+              </div>
+ 
+              <button type="submit" class="btn btn-success btn-md">
+                Save
               </button>
-            </div>
-            <div class="modal-body">
-              <form method="POST" action="\curriculum\insert\" enctype="multipart/form-data">
-                {{csrf_field()}}
-                <input type="hidden" name="batch" value="{{$batch}}">
-                <div class="form-group">
-                  <label   class="form-control-label"> 
-                    Course Name:
-                  </label>
-                  <input autofocus required="" type="text" name="course" class="form-control"  >
-                </div>
-                <div class="form-group">
-                  <label   class="form-control-label"> 
-                    Title:
-                  </label>
-                  <input required="" type="text" name="title" class="form-control"
-                  >
-                </div>
-                 <div class="form-group">
-                  <label   class="form-control-label"> 
-                    Type:
-                  </label>
-                  <label class="radio-inline">
-                    <input required="" type="radio" name="course_type" value="theory" /> Theory
-                  </label>
-                  <label class="radio-inline">
-                    <input required="" type="radio" name="course_type" value="lab" /> Lab
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label   class="form-control-label"> 
-                    Hours:
-                  </label>
-                  <input required="" type="text" name="hours" class="form-control" 
-                  >
-                </div>
-                <div class="form-group">
-                  <label   class="form-control-label"> 
-                    Credits:
-                  </label>
-                  <input required="" type="text" name="credits" class="form-control" 
-                  >
-                </div>
-                <div class="form-group">
-                  <label   class="form-control-label"> 
-                    Prerequisite:
-                  </label>
-                  <input type="text" name="prerequisite" class="form-control" 
-                  >
-                </div>
-
-                <button type="submit" class="btn btn-success btn-md">
-                  Save
-                </button>
-
-              </form>
-            </div>
+ 
+            </form>
           </div>
         </div>
       </div>
-      <!-- end of modal for adding course -->
-
-      <a href="/curriculum/getpdf/{{$batch}}">
-        <button type="submit" class="btn btn-info btn-md btn-edit" 
-        data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
-        <i class="fa fa-file-pdf-o"></i>
-        Export as PDF  
-      </button>
-    </a>
-  </div>
+    </div>
+    <!-- end of modal for adding course -->
+ 
+ 
+    <a href="/curriculum/getpdf/{{$batch}}">
+      <button type="submit" class="btn btn-info btn-md btn-edit"
+      data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
+      <i class="fa fa-file-pdf-o"></i>
+      Export as PDF  
+    </button>
+  </a>
+ 
 </div>
-
 </div>
-
-</div> 
+</div>
 @endfor
 <!-- end of panel -->
-
-
 </div>
 <!-- end of #accordion -->
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
 </div>
 <!-- end of wrap -->
-
+ 
 </div>
 @endsection
