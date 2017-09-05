@@ -67,20 +67,8 @@
                     </div>
                   </a>
                 </td>
-                @if(Auth::user()-> type == "student")
+               
 
-                <td class="col-sm">
-                  <div class="text-center">
-                    <a href="/results/{{$dat->link}}" download="/results/{{$dat->link}}">
-                    <button class="btn btn-primary btn-sm btn-edit">
-                      <i class="glyphicon glyphicon-save fa-lg"></i>
-                      Download
-                      </button>
-                    </a>
-                  </div>
-                </td>
-
-                @else
                 <td class="col-sm">
                   <div class="text-center">
                     <a style="margin-right: 20px;" href="/results/{{$dat->link}}" download="/results/{{$dat->link}}">
@@ -90,6 +78,7 @@
                       </button>
                     </a>
 
+                     @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == substr($request, 0,2))
                     <a type="submit" data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" >
                       <button class="btn btn-dark-green btn-sm btn-edit">
                       <i class="fa fa-pencil fa-lg white-text"></i>
@@ -177,9 +166,9 @@
                       </div>
                     </div>
                   </div>                               
+                @endif
                 </td>
                 
-                @endif
 
               </tr>
               @endforeach
@@ -188,7 +177,7 @@
         </div>
       </div>
 
-     @if(Auth::user()-> type != "student")
+      @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == substr($request, 0,2))
       <div>
         <button type="submit" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
           Add Course Result Link

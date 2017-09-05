@@ -20,8 +20,11 @@ class CurriculumController extends Controller
 
      public function getPDF($request)
     {
-       $curriculum = DB::table('curriculums')->where('batch', '=', $request)->get();;
-        $pdf = PDF::loadView('curriculumgenerate', ['curriculum'=>$curriculum, 'sem'=>$request]);
+        $Batch_id= array("11", "12", "21", "22", "31", "32", "41", "42", "optional", "2mj");
+        $b = $Batch_id[$request];
+        //return $b;
+       $curriculum = DB::table('curriculums')->where('batch', '=', $b)->get();
+        $pdf = PDF::loadView('curriculumgenerate', ['curriculum'=>$curriculum, 'id'=>$request]);
         return $pdf->download('curriculum.pdf');
     }
 

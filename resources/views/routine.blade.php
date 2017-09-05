@@ -86,7 +86,7 @@
                   @endforeach
                 </tbody>
               </table>
-              @if(Auth::user()-> type != "student")
+              @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == substr($request, 0,2))
               <button type="submit" class="btn btn-info btn-md btn-edit" 
               data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
               <i class="fa fa-pencil"></i>
@@ -329,7 +329,7 @@
             </tbody>
           </table>
 
-         @if(Auth::user()-> type != "student")
+         @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == substr($request, 0,2))
           <button type="submit" class="btn btn-info btn-md btn-edit" 
           data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" style="height:20%;width:20%">
             <i class="fa fa-pencil"></i></a>

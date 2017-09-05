@@ -11,12 +11,12 @@
 
 <script type="text/javascript">
 
-/*to make alerts disappear automatically*/
+  /*to make alerts disappear automatically*/
   window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
-        $(this).remove(); 
+      $(this).remove(); 
     });
-}, 4000);
+  }, 4000);
 </script>
 
 <div class="container">
@@ -34,12 +34,12 @@
 
   <div class="col-md-12 col-sm-6">
     <div class="panel panel-info">
-        <div class="panel-heading light-blue darken-1 white-text text-center">
-          <header>
-            <h1 class="text-center">Curriculum</h1>  
-          </header>
-        </div>
+      <div class="panel-heading light-blue darken-1 white-text text-center">
+        <header>
+          <h1 class="text-center">Curriculum</h1>  
+        </header>
       </div>
+    </div>
     <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
 
      <?php
@@ -102,31 +102,31 @@
                   </a>
                 </div>
                 @endif
-                 <!-- Modal for deleting -->
-              <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <strong class="modal-title text-center">
-                        <h3>Are you sure?</h3>
-                      </strong>
-                    </div>
-                    <div class="modal-body col-md-offset-3">
-                      <form method="POST" action="/curriculum/delete">
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$dat->id}}">
-                        <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">
-                          DELETE
-                        </button>
-                        <button style="margin-left: 10px;" type="submit" data-dismiss="modal" class="btn btn-primary btn-md">
-                          CANCEL
-                        </button>
-                      </form>
+                <!-- Modal for deleting -->
+                <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <strong class="modal-title text-center">
+                          <h3>Are you sure?</h3>
+                        </strong>
+                      </div>
+                      <div class="modal-body col-md-offset-3">
+                        <form method="POST" action="/curriculum/delete">
+                          {{csrf_field()}}
+                          <input type="hidden" name="id" value="{{$dat->id}}">
+                          <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">
+                            DELETE
+                          </button>
+                          <button style="margin-left: 10px;" type="submit" data-dismiss="modal" class="btn btn-primary btn-md">
+                            CANCEL
+                          </button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- end of delete modal  -->
+                <!-- end of delete modal  -->
 
                 <!-- Modal for editing -->
                 <div class="modal fade" id="editModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -142,8 +142,8 @@
                       </div>
 
                       <?php 
-                        if($a==0) $h = $b;
-                        else $h = $a;
+                      if($a==0) $h = $b;
+                      else $h = $a;
                       ?>
 
                       <div class="modal-body">
@@ -170,12 +170,24 @@
                             <label   class="form-control-label"> 
                               Type:
                             </label>
+
+                            @if($b==0)
                             <label class="radio-inline">
-                              <input required="" type="radio" name="course_type" value="theory" /> Theory
+                              <input required="" type="radio" name="course_type" value="theory" checked /> Theory
                             </label>
                             <label class="radio-inline">
-                                <input required="" type="radio" name="course_type" value="lab" /> Lab
+                              <input required="" type="radio" name="course_type" value="lab" /> Lab
                             </label>
+
+                            @else
+                            <label class="radio-inline">
+                              <input required="" type="radio" name="course_type" value="theory"/> Theory
+                            </label>
+                            <label class="radio-inline">
+                              <input required="" type="radio" name="course_type" value="lab" checked/> Lab
+                            </label>
+                            @endif
+
                           </div>
                           <div class="form-group">
                             <label   class="form-control-label"> 
@@ -237,7 +249,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <strong class="modal-title" id="addModalLabel">
-                Add Course to First Year : Semester I
+                  Add Course to First Year : Semester I
                 </strong>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -260,7 +272,7 @@
                     <input required="" type="text" name="title" class="form-control"
                     >
                   </div>
-                   <div class="form-group">
+                  <div class="form-group">
                     <label   class="form-control-label"> 
                       Type:
                     </label>
@@ -303,8 +315,8 @@
             </div>
           </div>
         </div>
-         <!-- end of modal for adding course -->
-        <a href="/curriculum/getpdf/11">
+        <!-- end of modal for adding course -->
+        <a href="/curriculum/getpdf/0">
           <button type="submit" class="btn btn-info btn-md btn-edit" 
           data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
           <i class="fa fa-file-pdf-o"></i>
@@ -366,122 +378,132 @@ $theory = 0;
             <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
             <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>
             @if(Auth::user() -> type != "student")
-              <td class="col-sm">
-                <div class="text-center">
+            <td class="col-sm">
+              <div class="text-center">
 
-                  <a type="submit" class="teal-text" data-toggle="modal" data-target="#editModal{{$dat->id}}" data-whatever="@mdo" >
-                    <i class="fa fa-pencil"></i>
-                  </a>
-                  <a class="red-text"  type="submit"  
-                  data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo">
-                  <i class="fa fa-times"></i>
+                <a type="submit" class="teal-text" data-toggle="modal" data-target="#editModal{{$dat->id}}" data-whatever="@mdo" >
+                  <i class="fa fa-pencil"></i>
                 </a>
-              </div>
+                <a class="red-text"  type="submit"  
+                data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo">
+                <i class="fa fa-times"></i>
+              </a>
+            </div>
 
-              <!-- Modal for deleting -->
-              <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <strong class="modal-title text-center">
-                        <h3>Are you sure?</h3>
-                      </strong>
-                    </div>
-                    <div class="modal-body col-md-offset-3">
-                      <form method="POST" action="/curriculum/delete">
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$dat->id}}">
-                        <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">
-                          DELETE
-                        </button>
-                        <button style="margin-left: 10px;" type="submit" data-dismiss="modal" class="btn btn-primary btn-md">
-                          CANCEL
-                        </button>
-                      </form>
-                    </div>
+            <!-- Modal for deleting -->
+            <div class="modal fade" id="deleteModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <strong class="modal-title text-center">
+                      <h3>Are you sure?</h3>
+                    </strong>
                   </div>
-                </div>
-              </div>
-              <!-- end of delete modal  -->
-
-              <!-- Modal for editing -->
-              <div class="modal fade" id="editModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <strong class="modal-title" id="editModalLabel">
-                        Edit Course
-                      </strong>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                  <div class="modal-body col-md-offset-3">
+                    <form method="POST" action="/curriculum/delete">
+                      {{csrf_field()}}
+                      <input type="hidden" name="id" value="{{$dat->id}}">
+                      <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">
+                        DELETE
                       </button>
-                    </div>
-
-                   <?php 
-                      if($a==0) $h = $b;
-                      else $h = $a;
-                    ?>
-                    <div class="modal-body">
-                      <form method="POST" action="/curriculum/edit" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$dat->id}}">
-                        <input type="hidden" name="batch" value="{{$batch}}">
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Course Name:
-                          </label>
-                          <input autofocus required="" type="text" name="course" value="{{$dat->course}}" 
-                          class="form-control"  >
-                        </div>
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Title:
-                          </label>
-                          <input required="" type="text" name="title" class="form-control" value="{{$dat->title}}" 
-                          >
-                        </div>
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Type:
-                          </label>
-                          <label class="radio-inline">
-                            <input required="" type="radio" name="course_type" value="theory" /> Theory
-                          </label>
-                          <label class="radio-inline">
-                            <input required="" type="radio" name="course_type" value="lab" /> Lab
-                          </label>
-                        </div>
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Hours:
-                          </label>
-                          <input required="" type="text" name="hours" class="form-control" value="{{$h}}" 
-                          >
-                        </div>
-
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Credits:
-                          </label>
-                          <input required="" type="text" name="credits" class="form-control" value="{{$dat->credits}}" 
-                          >
-                        </div>
-                        <div class="form-group">
-                          <label   class="form-control-label"> 
-                            Prerequisite:
-                          </label>
-                          <input type="text" name="prerequisite" class="form-control" value="{{$dat->prerequisite}}" 
-                          >
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-md">
-                          Update
-                        </button>
-                      </form>
-                    </div>
+                      <button style="margin-left: 10px;" type="submit" data-dismiss="modal" class="btn btn-primary btn-md">
+                        CANCEL
+                      </button>
+                    </form>
                   </div>
                 </div>
-              </td>
+              </div>
+            </div>
+            <!-- end of delete modal  -->
+
+            <!-- Modal for editing -->
+            <div class="modal fade" id="editModal{{$dat->id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <strong class="modal-title" id="editModalLabel">
+                      Edit Course
+                    </strong>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <?php 
+                  if($a==0) $h = $b;
+                  else $h = $a;
+                  ?>
+                  <div class="modal-body">
+                    <form method="POST" action="/curriculum/edit" enctype="multipart/form-data">
+                      {{csrf_field()}}
+                      <input type="hidden" name="id" value="{{$dat->id}}">
+                      <input type="hidden" name="batch" value="{{$batch}}">
+                      <div class="form-group">
+                        <label   class="form-control-label"> 
+                          Course Name:
+                        </label>
+                        <input autofocus required="" type="text" name="course" value="{{$dat->course}}" 
+                        class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label   class="form-control-label"> 
+                          Title:
+                        </label>
+                        <input required="" type="text" name="title" class="form-control" value="{{$dat->title}}" 
+                        >
+                      </div>
+                      <div class="form-group">
+                        <label   class="form-control-label"> 
+                          Type:
+                        </label>
+                        @if($b==0)
+                        <label class="radio-inline">
+                          <input required="" type="radio" name="course_type" value="theory" checked /> Theory
+                        </label>
+                        <label class="radio-inline">
+                          <input required="" type="radio" name="course_type" value="lab" /> Lab
+                        </label>
+
+                        @else
+                        <label class="radio-inline">
+                          <input required="" type="radio" name="course_type" value="theory"/> Theory
+                        </label>
+                        <label class="radio-inline">
+                          <input required="" type="radio" name="course_type" value="lab" checked/> Lab
+                        </label>
+                        @endif
+                      </div>
+                      <div class="form-group">
+                        <label   class="form-control-label"> 
+                          Hours:
+                        </label>
+                        <input required="" type="text" name="hours" class="form-control" value="{{$h}}" 
+                        >
+                      </div>
+
+                      <div class="form-group">
+                        <label   class="form-control-label"> 
+                          Credits:
+                        </label>
+                        <input required="" type="text" name="credits" class="form-control" value="{{$dat->credits}}" 
+                        >
+                      </div>
+                      <div class="form-group">
+                        <label   class="form-control-label"> 
+                          Prerequisite:
+                        </label>
+                        <input type="text" name="prerequisite" class="form-control" value="{{$dat->prerequisite}}" 
+                        >
+                      </div>
+
+                      <button type="submit" class="btn btn-primary btn-md">
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </td>
             @endif
           </tr>
           @endif 
@@ -508,7 +530,7 @@ $theory = 0;
       Add New
     </button>
     @endif
- 
+    
     <!-- modal for adding new course -->
     <div class="modal fade" id="addModal{{$i}}" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -570,27 +592,27 @@ $theory = 0;
                 <input type="text" name="prerequisite" class="form-control"
                 >
               </div>
- 
+              
               <button type="submit" class="btn btn-success btn-md">
                 Save
               </button>
- 
+              
             </form>
           </div>
         </div>
       </div>
     </div>
     <!-- end of modal for adding course -->
- 
- 
-    <a href="/curriculum/getpdf/{{$batch}}">
+    
+    
+    <a href="/curriculum/getpdf/{{$i}}">
       <button type="submit" class="btn btn-info btn-md btn-edit"
       data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
       <i class="fa fa-file-pdf-o"></i>
       Export as PDF  
     </button>
   </a>
- 
+  
 </div>
 </div>
 </div>
@@ -598,14 +620,14 @@ $theory = 0;
 <!-- end of panel -->
 </div>
 <!-- end of #accordion -->
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
 </div>
 <!-- end of wrap -->
- 
+
 </div>
 @endsection
