@@ -193,7 +193,7 @@
       date_default_timezone_set('Asia/Dhaka');
       $cur_time = date('H');
       $next = 0;
-      if($cur_time>=18) $next=1;
+      if($cur_time>=17) $next=1;
       $cur_day=date('D');
       $cur_day=strtoupper($cur_day);
       if($next==1)
@@ -246,7 +246,9 @@
 
       <div class="panel-body">
         <table class="display table table-bordered table-stripe table-hover">
+          @if($next==0)
          (Tomorrow's routine can be edited after 5PM)
+         @endif
           <thead>
             <tr class="panel-default">
               <th class="text-center">Day</th>

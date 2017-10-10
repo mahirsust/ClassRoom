@@ -105,49 +105,49 @@
                             <li class="dropdown-submenu">
                             <a tabindex="-1">First Year</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ url('/routine/11a')}}">1/1(a)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/routine/11b')}}">1/1(b)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/routine/12a')}}">1/2(a)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/routine/12b')}}">1/2(b)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/routine/11')}}">1/1</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/routine/12')}}">1/2</a></li>
+                                    <!-- <li><a class="dropdown-item" href="{{ url('/routine/11a')}}">1/1(a)</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/routine/11b')}}">1/1(b)</a></li> -->
+                                    <li><a class="dropdown-item" href="{{ url('/routine/12a')}}">Section A</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/routine/12b')}}">Section B</a></li>
+                                  <!--   <li><a class="dropdown-item" href="{{ url('/routine/11')}}">1/1</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/routine/12')}}">1/2</a></li> -->
                                 </ul>
                             </li>
                              
                             <li class="dropdown-submenu">
-                            <a tabindex="-1">Second Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/routine/22a')}}">Second Year</a>
+                               <!--  <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/routine/21a')}}">2/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/21b')}}">2/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/22a')}}">2/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/22b')}}">2/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/21')}}">2/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/22')}}">2/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                             <li class="dropdown-submenu">
-                            <a tabindex="-1">Third Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/routine/32a')}}">Third Year</a>
+                               <!--  <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/routine/31a')}}">3/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/31b')}}">3/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/32a')}}">3/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/32b')}}">3/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/31')}}">3/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/32')}}">3/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>                        
 
                             <li class="dropdown-submenu">
-                            <a tabindex="-1">Fourth Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/routine/41a')}}">Fourth Year</a>
+                                <!-- <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/routine/41a')}}">4/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/41b')}}">4/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/42a')}}">4/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/42b')}}">4/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/41')}}">4/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/routine/42')}}">4/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                         </ul>              
@@ -163,49 +163,49 @@
                             <li class="dropdown-submenu">
                             <a tabindex="-1" href="#">First Year</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ url('/resource/11a')}}">1/1(a)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/resource/11b')}}">1/1(b)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/resource/12a')}}">1/2(a)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/resource/12b')}}">1/2(b)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/resource/11')}}">1/1</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/resource/12')}}">1/2</a></li>
+                                   <!--  <li><a class="dropdown-item" href="{{ url('/resource/11a')}}">1/1(a)</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/resource/11b')}}">1/1(b)</a></li> -->
+                                    <li><a class="dropdown-item" href="{{ url('/resource/12a')}}">Section A</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/resource/12b')}}">Section B</a></li>
+                                    <!-- <li><a class="dropdown-item" href="{{ url('/resource/11')}}">1/1</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/resource/12')}}">1/2</a></li> -->
                                 </ul>
                             </li>
                              
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Second Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/resource/22')}}">Second Year</a>
+                               <!--  <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/resource/21a')}}">2/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/21b')}}">2/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/22a')}}">2/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/22b')}}">2/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/21')}}">2/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/22')}}">2/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Third Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/resource/32')}}">Third Year</a>
+                               <!--  <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/resource/31a')}}">3/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/31b')}}">3/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/32a')}}">3/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/32b')}}">3/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/31')}}">3/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/32')}}">3/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>                        
 
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Fourth Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/resource/41')}}">Fourth Year</a>
+                                <!-- <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/resource/41a')}}">4/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/41b')}}">4/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/42a')}}">4/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/42b')}}">4/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/41')}}">4/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/resource/42')}}">4/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                         </ul>              
@@ -221,49 +221,49 @@
                             <li class="dropdown-submenu">
                             <a tabindex="-1" href="#">First Year</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ url('/result/11a')}}">1/1(a)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/result/11b')}}">1/1(b)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/result/12a')}}">1/2(a)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/result/12b')}}">1/2(b)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/result/11')}}">1/1</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/result/12')}}">1/2</a></li>
+                                    <!-- <li><a class="dropdown-item" href="{{ url('/result/11a')}}">1/1(a)</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/result/11b')}}">1/1(b)</a></li> -->
+                                    <li><a class="dropdown-item" href="{{ url('/result/12a')}}">Section A</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/result/12b')}}">Section B</a></li>
+                                   <!--  <li><a class="dropdown-item" href="{{ url('/result/11')}}">1/1</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/result/12')}}">1/2</a></li> -->
                                 </ul>
                             </li>
                              
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Second Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/result/22')}}">Second Year</a>
+                              <!--   <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/result/21a')}}">2/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/21b')}}">2/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/22a')}}">2/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/22b')}}">2/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/21')}}">2/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/22')}}">2/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Third Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/result/32')}}">Third Year</a>
+                               <!--  <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/result/31a')}}">3/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/31b')}}">3/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/32a')}}">3/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/32b')}}">3/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/31')}}">3/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/32')}}">3/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>                        
 
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Fourth Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/result/41')}}">Fourth Year</a>
+                                <!-- <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/result/41a')}}">4/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/41b')}}">4/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/42a')}}">4/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/42b')}}">4/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/41')}}">4/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/result/42')}}">4/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                         </ul>              
@@ -279,49 +279,49 @@
                             <li class="dropdown-submenu">
                             <a tabindex="-1" href="#">First Year</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ url('/notice/11a')}}">1/1(a)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/notice/11b')}}">1/1(b)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/notice/12a')}}">1/2(a)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/notice/12b')}}">1/2(b)</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/notice/11')}}">1/1</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/notice/12')}}">1/2</a></li>
+                                    <!-- <li><a class="dropdown-item" href="{{ url('/notice/11a')}}">1/1(a)</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/notice/11b')}}">1/1(b)</a></li> -->
+                                    <li><a class="dropdown-item" href="{{ url('/notice/12a')}}">Section A</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/notice/12b')}}">Section B</a></li>
+                                    <!-- <li><a class="dropdown-item" href="{{ url('/notice/11')}}">1/1</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/notice/12')}}">1/2</a></li> -->
                                 </ul>
                             </li>
                              
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Second Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/notice/22')}}">Second Year</a>
+                                <!-- <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/notice/21a')}}">2/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/21b')}}">2/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/22a')}}">2/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/22b')}}">2/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/21')}}">2/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/22')}}">2/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Third Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/notice/32')}}">Third Year</a>
+                                <!-- <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/notice/31a')}}">3/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/31b')}}">3/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/32a')}}">3/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/32b')}}">3/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/31')}}">3/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/32')}}">3/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>                        
 
                             <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Fourth Year</a>
-                                <ul class="dropdown-menu">
+                            <a tabindex="-1" href="{{ url('/notice/41')}}">Fourth Year</a>
+                               <!--  <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('/notice/41a')}}">4/1(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/41b')}}">4/1(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/42a')}}">4/2(a)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/42b')}}">4/2(b)</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/41')}}">4/1</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/notice/42')}}">4/2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                         </ul>              

@@ -67,7 +67,7 @@
                 <th class="text-center">Hours/Week (Theory+Lab)</th>
                 <th class="text-center">Credit</th>
                 <th class="text-center">Prerequisite</th>
-                @if(Auth::user()-> type != "student")
+                @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == "11")
                 <th class="text-center">Action</th>
                 @endif
               </tr>
@@ -89,7 +89,7 @@
                 <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
                 <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
                 <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>
-                @if(Auth::user()-> type != "student")
+                @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == "11")
                 <td class="col-sm">
                   <div class="text-center">
 
@@ -229,13 +229,13 @@
                 <td tabindex="-1" class="text-center"> {{$theory}} + {{$lab}} = {{$theory+$lab}} </td>
                 <td tabindex="-1" class="text-center"> {{$credits}} </td>
                 <td tabindex="-1" class="text-center">  </td>
-                @if(Auth::user()->type != "student")
+                @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == "11")
                 <td tabindex="-1" class="text-center">  </td>
                 @endif
               </tr>
             </tbody>
           </table>
-          @if(Auth::user()-> type != "student")
+          @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == "11")
           <button type="submit" class="btn btn-info btn-md btn-edit" 
           data-toggle="modal" data-target="#addModal" data-whatever="@mdo" style="height:20%;width:20%">
           <i class="fa fa-plus-circle"></i></a>
@@ -355,7 +355,7 @@ $theory = 0;
             <th class="text-center">Hours/Week (Theory+Lab)</th>
             <th class="text-center">Credit</th>
             <th class="text-center">Prerequisite</th>
-            @if(Auth::user()-> type != "student")
+            @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == $batch)
             <th class="text-center">Action</th>
             @endif
           </tr>
@@ -377,7 +377,7 @@ $theory = 0;
             <td tabindex="-1" class="text-center"> {{$dat->hours}} </td>
             <td tabindex="-1" class="text-center"> {{$dat->credits}} </td>
             <td tabindex="-1" class="text-center"> {{$dat->prerequisite}} </td>
-            @if(Auth::user() -> type != "student")
+            @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == $batch)
             <td class="col-sm">
               <div class="text-center">
 
@@ -515,14 +515,14 @@ $theory = 0;
             <td tabindex="-1" class="text-center"> {{$theory}} + {{$lab}} = {{$theory+$lab}} </td>
             <td tabindex="-1" class="text-center"> {{$credits}} </td>
             <td tabindex="-1" class="text-center">  </td>
-            @if(Auth::user()->type != "student")
+            @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == $batch)
             <td tabindex="-1" class="text-center">  </td>
             @endif
 
           </tr>
         </tbody>
       </table>
-      @if(Auth::user()-> type != "student")
+     @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == $batch)
       <button type="submit" class="btn btn-info btn-md btn-edit"
       data-toggle="modal" data-target="#addModal{{$i}}" data-whatever="@mdo" style="height:20%;
       width:20%">

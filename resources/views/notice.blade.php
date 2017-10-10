@@ -44,7 +44,7 @@
 
       $cur_date=date("Y/m/d");
       ?>
-      @if(Auth::user()->type != "student")
+      @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == substr($request, 0,2))
       <div>
         <button type="submit" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal" data-whatever="@mdo">
           <i class="fa fa-check" aria-hidden="true"></i>
@@ -109,7 +109,7 @@
         @endif
 
 
-        @if(Auth::user()-> type != "student")
+        @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == substr($request, 0,2))
         <button type="submit" class="btn btn-dark-green btn-sm btn-edit" 
         data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo">
         <i class="fa fa-pencil fa-lg white-text"></i>
