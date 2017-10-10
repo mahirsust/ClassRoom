@@ -56,7 +56,7 @@
                 <nav class="main-navigation dd-menu toggle-menu" role="navigation">
                     <ul class="sf-menu">
                     <!-- Curriculum -->
-                        <li><a href="/home">Home</a></li>
+                        <li><a href="#">Home</a></li>
                         <!-- Routine -->
                         <li><a>Routine</a>
                             <ul class="dropdown">
