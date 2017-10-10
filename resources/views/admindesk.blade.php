@@ -41,7 +41,7 @@
  
       <div>
         <button type="submit" class="btn btn-success btn-md" data-toggle="modal" data-target="#addModal" data-whatever="@mdo">
-          Add User
+          Assign Role To A User
         </button>
       </div>
  

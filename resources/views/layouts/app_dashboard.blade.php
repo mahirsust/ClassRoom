@@ -92,7 +92,7 @@
                 <ul class="nav navbar-nav">
                     <!-- <li class="active"><a href="#">Home</a></li> -->
                     
-                    <li><a href="#" class="blue darken-3 white-text">
+                    <li><a href="/" class="blue darken-3 white-text">
                         Home</a>
                     </li>
                     <li class="dropdown">
@@ -335,13 +335,13 @@
 
                     @if (Auth::guest())
 
-                    @elseif(Auth::user()->name==="Super Admin")
+                    @elseif( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher")
                     <li>
                         <a href="/admin_desk" class="blue darken-3 white-text">
                             Admin Desk
                         </a>
                     </li> 
-                    @else
+                    
                     @endif
 
                 </ul>
