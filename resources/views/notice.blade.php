@@ -101,8 +101,8 @@
 
         @else
         <div class="text-left attachment-link">
-          <a href="/notices/{{$dat->file_path}}" download="/notices/{{$dat->file_path}}" class="btn btn-primary btn-sm">
-            <i class="glyphicon glyphicon-save fa-lg"></i>
+          <a href="{{ url('/notcs/'.$dat->file_path) }}" download class="btn btn-primary btn-sm">
+            <i class="fa fa-download fa-lg"></i>
             Download Attachment
           </a>
         </div>
@@ -133,7 +133,7 @@
             </strong>
           </div>
           <div class="modal-body col-md-offset-3">
-            <form method="POST" action="/notice/delete/{{$request}}">
+            <form method="POST" action="{{url('/notice/delete/$request') }}">
               {{csrf_field()}}
               <input type="hidden" name="semester" value="{{$request}}">
               <input type="hidden" name="nid" value="{{$dat->id}}">
@@ -162,7 +162,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="/notice/edit/{{$request}}" enctype="multipart/form-data">
+            <form method="POST" action="{{url('/notice/edit/$request') }}" enctype="multipart/form-data">
               {{csrf_field()}}
               <input type="hidden" name="semester" value="{{$request}}">
               <input type="hidden" name="nid" value="{{$dat->id}}">
@@ -232,7 +232,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="\notice\insert\{{$request}}" enctype="multipart/form-data">
+        <form method="POST" action="{{url('\notice\insert\$request') }}" enctype="multipart/form-data">
           {{csrf_field()}}
           <div class="form-group">
             <label class="form-control-label"> 

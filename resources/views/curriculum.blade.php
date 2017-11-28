@@ -112,7 +112,7 @@
                         </strong>
                       </div>
                       <div class="modal-body col-md-offset-3">
-                        <form method="POST" action="/curriculum/delete">
+                        <form method="POST" action="{{url('/curriculum/delete') }}">
                           {{csrf_field()}}
                           <input type="hidden" name="id" value="{{$dat->id}}">
                           <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">
@@ -147,7 +147,7 @@
                       ?>
 
                       <div class="modal-body">
-                        <form method="POST" action="/curriculum/edit" enctype="multipart/form-data">
+                        <form method="POST" action="{{url('/curriculum/edit') }}" enctype="multipart/form-data">
                           {{csrf_field()}}
                           <input type="hidden" name="id" value="{{$dat->id}}">
                           <input type="hidden" name="batch" value="{{$dat->batch}}">
@@ -256,7 +256,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form method="POST" action="\curriculum\insert" enctype="multipart/form-data">
+                <form method="POST" action="{{url('\curriculum\insert') }}" enctype="multipart/form-data">
                   {{csrf_field()}}
                   <input type="hidden" name="batch" value="11">
                   <div class="form-group">
@@ -316,7 +316,7 @@
           </div>
         </div>
         <!-- end of modal for adding course -->
-        <a href="/curriculum/getpdf/0">
+        <a href="{{url('/curriculum/getpdf/0') }}">
           <button type="submit" class="btn btn-info btn-md btn-edit" 
           data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
           <i class="fa fa-file-pdf-o"></i>
@@ -400,7 +400,7 @@ $theory = 0;
                     </strong>
                   </div>
                   <div class="modal-body col-md-offset-3">
-                    <form method="POST" action="/curriculum/delete">
+                    <form method="POST" action="{{url('/curriculum/delete') }}">
                       {{csrf_field()}}
                       <input type="hidden" name="id" value="{{$dat->id}}">
                       <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">
@@ -434,7 +434,7 @@ $theory = 0;
                   else $h = $a;
                   ?>
                   <div class="modal-body">
-                    <form method="POST" action="/curriculum/edit" enctype="multipart/form-data">
+                    <form method="POST" action="{{url('/curriculum/edit') }}" enctype="multipart/form-data">
                       {{csrf_field()}}
                       <input type="hidden" name="id" value="{{$dat->id}}">
                       <input type="hidden" name="batch" value="{{$batch}}">
@@ -544,7 +544,7 @@ $theory = 0;
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="\curriculum\insert\" enctype="multipart/form-data">
+            <form method="POST" action="{{url('\curriculum\insert') }}" enctype="multipart/form-data">
               {{csrf_field()}}
               <input type="hidden" name="batch" value="{{$Batch_id[$i]}}">
               <div class="form-group">
@@ -605,7 +605,7 @@ $theory = 0;
     <!-- end of modal for adding course -->
     
     
-    <a href="/curriculum/getpdf/{{$i}}">
+    <a href="{{url ('/curriculum/getpdf/'.$i) }}">
       <button type="submit" class="btn btn-info btn-md btn-edit"
       data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
       <i class="fa fa-file-pdf-o"></i>

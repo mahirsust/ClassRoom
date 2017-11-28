@@ -71,14 +71,14 @@
                                     </ul>
                                 </li>
                                 <li><a href="{{ url('/routine/22a')}}">Second Year</a>
-                                    <ul class="dropdown" >
-                                        <!-- <li><a href="{{ url('/routine/21a')}}">2/1 (a)</a></li>
+                                   <!--  <ul class="dropdown" >
+                                         <li><a href="{{ url('/routine/21a')}}">2/1 (a)</a></li>
                                         <li><a href="{{ url('/routine/21b')}}">2/1 (b)</a></li>
                                         <li><a href="{{ url('/routine/21')}}">2/1</a></li>
                                         <li><a href="{{ url('/routine/22a')}}">2/2 (a)</a></li>
                                         <li><a href="{{ url('/routine/22b')}}">2/2 (b)</a></li>
-                                        <li><a href="{{ url('/routine/22')}}">2/2</a></li> -->
-                                    </ul>
+                                        <li><a href="{{ url('/routine/22')}}">2/2</a></li> 
+                                    </ul> -->
                                 </li>
                                 <li><a href="{{ url('/routine/32a')}}">Third Year</a>
                                    <!--  <ul class="dropdown">
@@ -238,13 +238,13 @@
                             </ul>
                         </li>
                         <!-- Curriculum -->
-                        <li><a href="/curriculum">Curriculum</a></li>
+                        <li><a href="{{url('/curriculum') }}">Curriculum</a></li>
 
                         <!-- Admin Desk -->
                         @if (Auth::guest())
 
-                        @elseif(Auth::user()->type == "Super Admin" or Auth::user()->type == "teacher")
-                          <li><a href="/admin_desk">Admin Desk</a></li> 
+                        @elseif( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher")
+                          <li><a href="{{url('/admin_desk') }}">Admin Desk</a></li> 
                         
                         @endif 
 

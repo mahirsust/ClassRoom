@@ -25,7 +25,8 @@ class CurriculumController extends Controller
         //return $b;
        $curriculum = DB::table('curriculums')->where('batch', '=', $b)->get();
         $pdf = PDF::loadView('curriculumgenerate', ['curriculum'=>$curriculum, 'id'=>$request]);
-        return $pdf->download('curriculum.pdf');
+        $name = 'curriculum'.$b.'.pdf';
+        return $pdf->download($name);
     }
 
     public function save(Request $request)

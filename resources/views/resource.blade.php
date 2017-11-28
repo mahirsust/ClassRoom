@@ -72,9 +72,13 @@
               
               <td class="col-sm">
                 <div class="text-center">
-                  <a style="margin-right: 20px;" href="/resources/{{$dat->link}}" download="/resources/{{$dat->link}}">
+                  <?php
+                    $urll = '/resrc/'.$dat->link;
+                    //echo $urll;
+                  ?>
+                  <a style="margin-right: 20px;" href="{{ url($urll) }}" download>
                     <button class="btn btn-primary btn-sm btn-edit">
-                      <i class="glyphicon glyphicon-save fa-lg"></i>
+                      <i class="fa fa-download fa-sm"></i>
                       Download
                     </button>
                   </a>
@@ -82,7 +86,7 @@
                   @if( Auth::user()-> type == "super admin" or Auth::user()-> type == "teacher" or Auth::user()-> type == substr($request, 0,2))
                   <a type="submit" data-toggle="modal" data-target="#exampleModal{{$dat->id}}" data-whatever="@mdo" >
                     <button class="btn btn-dark-green btn-sm btn-edit">
-                      <i class="fa fa-pencil fa-lg white-text"></i>
+                      <i class="fa fa-pencil fa-sm white-text"></i>
                       Edit
                     </button>
                   </a>
@@ -90,7 +94,7 @@
                   <a style="margin-left: 20px;" class="red-text"  type="submit"  
                   data-toggle="modal" data-target="#deleteModal{{$dat->id}}" data-whatever="@mdo">
                   <button class="btn btn-danger btn-sm btn-edit">
-                    <i class="fa fa-times fa-lg"></i>
+                    <i class="fa fa-times fa-sm"></i>
                     Delete
                   </button>
                 </a>
@@ -105,7 +109,7 @@
                       </strong>
                     </div>
                     <div class="modal-body col-md-offset-3">
-                      <form method="POST" action="/resource/delete/{{$request}}">
+                      <form method="POST" action="{{ url('/resource/delete/$request') }}">
                         {{csrf_field()}}
                         <input type="hidden" name="semester" value="{{$request}}">
                         <input type="hidden" name="rid" value="{{$dat->id}}">
@@ -133,7 +137,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form method="POST" action="/resource/edit/{{$request}}" enctype="multipart/form-data">
+                      <form method="POST" action="{{ url('/resource/edit/$request') }}" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <input type="hidden" name="semester" value="{{$request}}">
                         <input type="hidden" name="rid" value="{{$dat->id}}">
@@ -195,7 +199,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="\resource\insert\{{$request}}" enctype="multipart/form-data">
+            <form method="POST" action="{{ url('\resource\insert\$request') }}" enctype="multipart/form-data">
               {{csrf_field()}}
 
 

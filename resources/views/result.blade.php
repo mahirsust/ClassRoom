@@ -71,9 +71,9 @@
 
                 <td class="col-sm">
                   <div class="text-center">
-                    <a style="margin-right: 20px;" href="/results/{{$dat->link}}" download="/results/{{$dat->link}}">
+                    <a style="margin-right: 20px;" href="{{ url('/reslts/'.$dat->link) }}" download>
                       <button class="btn btn-primary btn-sm btn-edit">
-                      <i class="glyphicon glyphicon-save fa-lg"></i>
+                      <i class="fa fa-download fa-lg"></i>
                        Download
                       </button>
                     </a>
@@ -104,7 +104,7 @@
                           </strong>
                         </div>
                         <div class="modal-body col-md-offset-3">
-                          <form method="POST" action="/result/delete/{{$request}}">
+                          <form method="POST" action="{{url ('/result/delete/$request') }}">
                             {{csrf_field()}}
                             <input type="hidden" name="semester" value="{{$request}}">
                             <input type="hidden" name="rid" value="{{$dat->id}}">
@@ -132,7 +132,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form method="POST" action="/result/edit/{{$request}}" enctype="multipart/form-data">
+                          <form method="POST" action="{{url ('/result/edit/$request') }}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <input type="hidden" name="semester" value="{{$request}}">
                             <input type="hidden" name="rid" value="{{$dat->id}}">
@@ -194,7 +194,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form method="POST" action="\result\insert\{{$request}}" enctype="multipart/form-data">
+                <form method="POST" action="{{url ('\result\insert\$request') }}" enctype="multipart/form-data">
                   {{csrf_field()}}
 
 

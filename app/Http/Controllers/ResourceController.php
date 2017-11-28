@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Validator;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use App\Resource;
+use File;
 use Session;
 use Redirect;
 
@@ -29,13 +31,13 @@ class ResourceController extends Controller
         $file= $request->file('file_name');
         $extension = $request->file('file_name')->getClientOriginalExtension();
 
-        $len=strlen($tit1);
-        if($len>15) $tit1=substr($tit1, 0, 14)."...";
+        /*$len=strlen($tit1);
+        if($len>15) $tit1=substr($tit1, 0, 14)."...";*/
 
         if($file = $request->hasFile('file_name')) {
             $file = $request->file('file_name') ;
             $fileName = $file->getClientOriginalName() ;
-            $destinationPath = public_path().'/resources/' ;
+            $destinationPath = (base_path('/resrc')) ;
             $file->move($destinationPath,$fileName);
         }
         $resource = new Resource;
@@ -53,6 +55,13 @@ class ResourceController extends Controller
     {
         $data = Resource::find($request->rid);
         $data->delete();
+
+        $folder=$request->property;
+        $destinationPath = '/resrc/';
+        $destinationPath = $destinationPath.$request->link;
+        //return $destinationPath;
+        File::delete($destinationPath);
+
         $request->session()->flash('alert-success', 'Resource is deleted succesfully!');
          $request = $request->semester;
         return redirect()->action('ResourceController@index', ['id' => $request]);
@@ -60,19 +69,19 @@ class ResourceController extends Controller
     public function update(Request $request)
     {
        $this->validate($request, [
-            'edit_file_name' => 'required|max:10240|mimes:doc,docx,xlsx,gif,svg,csv,xls,jpeg,png,jpg,zip,pdf,7z,rar,ppt,pptx']);
+            'edit_file_name' => 'required|max:10240|mimes:txt,doc,docx,xlsx,gif,svg,csv,xls,jpeg,png,jpg,zip,pdf,7z,rar,ppt,pptx']);
         $tit1=$request->edit_title;
         $file= $request->file('edit_file_name');
         //$extension = $request->file('file_name')->getClientOriginalExtension();
 
-        $len=strlen($tit1);
-        if($len>15) $tit1=substr($tit1, 0, 14)."...";
+        /*$len=strlen($tit1);
+        if($len>15) $tit1=substr($tit1, 0, 14)."...";*/
 
         if($file = $request->hasFile('edit_file_name')) {
             $file = $request->file('edit_file_name') ;
             $fileName = $file->getClientOriginalName() ;
             //echo $fileName;
-            $destinationPath = public_path().'/resources/' ;
+            $destinationPath = (base_path('/resrc')) ;
             $file->move($destinationPath,$fileName);
         }
         $edit_res = Resource::find($request->rid);

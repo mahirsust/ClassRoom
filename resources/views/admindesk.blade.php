@@ -124,7 +124,7 @@
               </div>
               <div class="modal-body">
  
-                <form  method="POST" action="/admin_desk/addnew">
+                <form  method="POST" action="{{url('/admin_desk/addnew') }}">
                   {{csrf_field()}}
                    <div class="form-inline">
                     <label   class="form-control-label">
@@ -176,7 +176,7 @@
               </div>
               <div class="modal-body text-center">
  
-                <form  method="POST" action="/admin_desk/update">
+                <form  method="POST" action="{{url('/admin_desk/update') }}">
                   {{csrf_field()}}
                   <input type="hidden" name="id" value="{{$dat->id}}">
                   <div class="form-inline">
@@ -218,7 +218,7 @@
                 </strong>
               </div>
               <div class="modal-body col-md-offset-3">
-                <form method="POST" action="/admin_desk/delete">
+                <form method="POST" action="{{url('/admin_desk/delete') }}">
                   {{csrf_field()}}
                   <input type="hidden" name="id" value="{{$dat->id}}">
                   <button style="margin-left: 30px;" type="submit" class="btn btn-primary btn-md">

@@ -21,7 +21,7 @@ class NoticeController extends Controller
     {
        
        $this->validate($request, [
-        'file_name' => 'max:10240|mimes:doc,jpg,docx,xlsx,gif,svg,csv,xls,jpeg,png,zip,pdf,7z,rar,ppt,pptx']);
+        'file_name' => 'max:10240|mimes:txt,doc,docx,xlsx,gif,svg,csv,xls,jpeg,png,jpg,zip,pdf,7z,rar,ppt,pptx']);
             
 
         
@@ -30,7 +30,7 @@ class NoticeController extends Controller
         if($file = $request->hasFile('file_name')) {
             $file = $request->file('file_name') ;
             $fileName = $file->getClientOriginalName() ;
-            $destinationPath = public_path().'/notices/' ;
+            $destinationPath = (base_path('/notcs')) ;
             $file->move($destinationPath,$fileName);
         }
         else{
@@ -65,14 +65,14 @@ class NoticeController extends Controller
         $data->delete();
 
          $this->validate($request, [
-            'edit_file_name' => 'max:10240|mimes:doc,jpg,docx,xlsx,gif,svg,csv,xls,jpeg,png,zip,pdf,7z,rar,ppt,pptx']);
+            'edit_file_name' => 'max:10240|mimes:txt,doc,docx,xlsx,gif,svg,csv,xls,jpeg,png,jpg,zip,pdf,7z,rar,ppt,pptx']);
         
         $file= $request->file('edit_file_name');
       
         if($file = $request->hasFile('edit_file_name')) {
             $file = $request->file('edit_file_name') ;
             $fileName = $file->getClientOriginalName() ;
-            $destinationPath = public_path().'/notices/' ;
+            $destinationPath = (base_path('/notcs')) ;
             $file->move($destinationPath,$fileName);
         }
         else{

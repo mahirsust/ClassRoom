@@ -34,12 +34,21 @@
         <div class="panel panel-info">
           <div class="panel-heading light-blue darken-1 white-text text-center">
             <header>
+              @if($request == "12a" or $request == "12b")
+                <h1 class="text-center">
+                  Routine Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
+                  @if(strlen($request)>2)
+                    (Section {{strtoupper(substr($request, 2))}})
+                  @endif
+                </h1>
+              @else
               <h1 class="text-center">
                 Routine Table - {{substr($request, 0, 1)}}/{{substr($request, 1, 1)}}
-                  @if(strlen($request)>2)
+                 <!--  @if(strlen($request)>2)
                     ({{substr($request, 2)}})
-                  @endif
-              </h1>  
+                  @endif -->
+              </h1>
+              @endif  
             </header>
           </div>
             @if($data1=="NULL") 
@@ -93,7 +102,8 @@
               Edit 
             </button>
             @endif
-            <a href="/routine/getpdf/{{$request}}" >
+           
+            <a href="{{ url('/routine/getpdf/' .$request) }}" >
             <button type="submit" class="btn btn-info btn-md btn-edit" 
             data-toggle="modal" data-whatever="@mdo" style="height:20%;width:20%">
 
@@ -118,7 +128,7 @@
               </div>
               <div class="modal-body">
 
-                <form method="POST" action="/routine/edit1/{{$request}}">
+                <form method="POST" action="{{ url('/routine/edit1/'.$request) }}">
                   {{csrf_field()}}
                   <input type="hidden" name="batch" value="{{$request}}">
                   <table class="display table table-bordered table-stripe table-hover">
@@ -351,7 +361,7 @@
                 </button>
               </div>
               <div class="modal-body" >
-                <form method="POST" action="/routine/edit/{{$request}}">
+                <form method="POST" action="{{ url('/routine/edit/'.$request) }}">
                   {{csrf_field()}}
                   <input type="hidden" name="batch" value="{{$request}}">
                   <table class="display table table-bordered table-stripe table-hover">

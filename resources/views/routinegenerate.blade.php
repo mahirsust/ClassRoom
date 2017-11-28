@@ -12,7 +12,12 @@
 		
 	</style>
 </head>
+
 <body>
+		<header>
+			<h1 class="text-center">Routine for {{$id}}</h1>  
+		</header>
+	</div>
 	<div class="panel-body">
         <table class="display table table-bordered table-stripe table-hover">
             <thead>

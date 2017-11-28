@@ -61,7 +61,8 @@ class RoutineController extends Controller
         /*echo "this is";
         echo $request;*/
         $routine = Routine::where('batch', '=', $request)->get();;
-        $pdf = PDF::loadView('routinegenerate', ['routine'=>$routine]);
-        return $pdf->download('routine.pdf');
+        $pdf = PDF::loadView('routinegenerate', ['routine'=>$routine, 'id'=>$request]);
+        $name = 'routine'.$request.'.pdf';
+        return $pdf->download($name);
     }
 }
